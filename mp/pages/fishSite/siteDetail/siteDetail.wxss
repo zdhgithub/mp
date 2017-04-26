@@ -1,0 +1,134 @@
+/* pages/fishSite/siteDetail/siteDetail.wxss */
+
+.body {
+  background-color: #f5f9fa;
+}
+
+/*横幅*/
+
+.headerImage {
+  width: 750rpx;
+  height: 240rpx;
+}
+
+/*在线购票*/
+
+.buyTicket {
+  background-color: white;
+  border-top: #d3d9da solid 0.5px;
+  border-bottom: #d3d9da solid 0.5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  height: 60px;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buyTicket button {
+  width: 600rpx;
+  background-color: #f6807d;
+}
+
+/*钓场位置*/
+
+.site-position {
+  background-color: white;
+  border-top: #d3d9da solid 0.5px;
+  border-bottom: #d3d9da solid 0.5px;
+  padding-bottom: 10px;
+}
+
+.position-top {
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+}
+
+.position-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0px 18px 0px 10px;
+  position: absolute;
+  top: 14px;
+}
+
+.position-loc {
+  display: inline-block;
+  color: #333;
+  font-size: 16px;
+  margin-left: 50px;
+}
+
+.position-line {
+  background-color: #d3d9da;
+  margin: 0px 10px;
+  height: 0.5px;
+}
+
+.position-addr {
+  display: inline-block;
+  text-indent: 35px;
+  margin: 12px 12px 0px 12px;
+  color: #888;
+  font-size: 15px;
+}
+
+/*联系方式*/
+
+.site-contact {
+  background-color: white;
+  margin-top: 10px;
+  border-top: #d3d9da solid 0.5px;
+  border-bottom: #d3d9da solid 0.5px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.name-title {
+  color: #ccc;
+  font-size: 12px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.name-name {
+  color: #888;
+  font-size: 15px;
+}
+
+/*钓场图片*/
+
+.arrow {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  position: absolute;
+  right: 20px;
+  top: 18px;
+}
+
+.site-images {
+  display: -webkit-flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 0px 10px;
+}
+
+.site-images image {
+  flex-basis: 49%;
+  height: 120px;
+  margin-top: 10px;
+}
+
+/*钓场规模*/
+
+.size-tang {
+  display: inline-block;
+  text-indent: 35px;
+  margin: 12px 12px 0px 12px;
+  color: #888;
+  font-size: 15px;
+}

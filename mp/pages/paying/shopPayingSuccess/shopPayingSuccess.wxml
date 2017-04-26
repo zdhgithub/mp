@@ -1,0 +1,7 @@
+<!--pages/paying/shopPayingSuccess/shopPayingSuccess.wxml-->
+<view class="contentView">
+    <icon type="success" size="100" color="#0dd4e6"></icon>
+    <text class="paySuccess">支付成功</text>
+    <text wx:if="{{award != 0}}" class="awardTip">首次使用微信小程序支付成功送{{award}}漂币</text>
+    <button class="btn_back" bindtap="backClicked" type="default">返回</button>
+</view>

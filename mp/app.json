@@ -1,0 +1,58 @@
+{
+  "pages":[
+    "pages/fishSite/mainPage/mainPage",
+    "pages/activity/activityList/activityList",
+    "pages/mine/mine/me",
+    "pages/fishSite/siteDetail/siteDetail",
+    "pages/fishSite/siteDetail/picsDetail/picsDetail",
+    "pages/fishSite/ticketPage/ticketPage",
+    "pages/fishSite/payingTicket/payingTicket",
+    "pages/fishSite/discount/discount",
+    "pages/fishSite/payingSuccess/payingSuccess",
+    "pages/verify/verifyNum/verifyNum",
+    "pages/activity/activityDetail/activityDetail",
+    "pages/activity/activityDetail/offlineJoin/offlineJoin",
+    "pages/activity/activityDetail/reviewArticles/reviewArticles",
+    "pages/activity/activityDetail/joinedPersons/joinedPersons",
+    "pages/mine/myAccount/myAccount",
+    "pages/mine/mySiteTicket/mySiteTicket",
+    "pages/mine/checkTktSuccess/checkTktSuccess",
+    "pages/mine/guide/guide",
+    "pages/paying/shopPaying/shopPaying",
+    "pages/paying/shopDiscount/shopDiscount",
+    "pages/paying/shopPayingSuccess/shopPayingSuccess"
+  ],
+  "window":{
+    "backgroundTextStyle": "black",
+    "navigationBarBackgroundColor": "#10072f",
+    "navigationBarTitleText": "黑漂钓鱼",
+    "navigationBarTextStyle": "white",
+    "backgroundColor":"#D1D1D1"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/fishSite/mainPage/mainPage",
+      "text": "附近",
+      "iconPath": "images/tabBar/near_Nor.png",
+      "selectedIconPath": "images/tabBar/near_Sel.png"
+    },
+    {
+      "pagePath": "pages/activity/activityList/activityList",
+      "text": "活动",
+      "iconPath": "images/tabBar/activity_Nor.png",
+      "selectedIconPath": "images/tabBar/activity_Sel.png"
+    },
+    {
+      "pagePath": "pages/mine/mine/me",
+      "text": "我的",
+      "iconPath": "images/tabBar/mine_Nor.png",
+      "selectedIconPath": "images/tabBar/mine_Sel.png"
+    }
+    ],
+    "color":"#7a8389",
+    "selectedColor": "#60cad4",
+    "backgroundColor": "#ffffff",
+    "borderStyle":"black"
+  }
+
+}

@@ -1,0 +1,232 @@
+
+<!--pages/activity/activityDetail/activityDetail.wxml-->
+<block wx:if="{{info}}">
+
+  <!--内容区域-->
+  <view class="actContentView">
+
+    <!--选项区域-->
+    <block wx:if="{{info.status == 4}}">
+      <view class="optionView">
+        <text class="optionView_detail" data-type="{{0}}" catchtap="switchPage" style="{{opType == 0 ? 'background-color: white; color:#7a7a7a;' :'background-color: gray; color:white;'}}">详情</text>
+        <text class="optionView_review" data-type="{{1}}" catchtap="switchPage" style="{{opType == 1 ? 'background-color: white; color:#7a7a7a;' :'background-color: gray; color:white;'}}">回顾</text>
+      </view>
+    </block>
+    <block wx:if="{{opType == 0 || (opType == 1 && info.video == undefined)}}">
+
+      <!--音频-->
+      <blcok wx:if="{{info.background.length>0}}">
+        <audio src="{{fs_discovery_DownLoad_HostURL + '/' + info.background}}" id="myAudio" controls="{{false}}" loop="{{true}}"></audio>
+        <view class="audioView" style="animation-play-state:{{isplayingAudio ? 'running' : 'paused'}};-webkit-animation-play-state:{{isplayingAudio ? 'running' : 'paused'}}; top: {{info.status == 4 ? 65 : 20}}px;" bindtap="audioPlayAndPause">
+          <image src="/images/activity/activity_musicIcon.png"></image>
+        </view>
+      </blcok>
+
+      <!--封面图片-->
+      <image class="headImage" mode="aspectFill" src="{{fs_discovery_DownLoad_HostURL}}/{{info.bill}}"></image>
+    </block>
+
+    <!--回顾的视频-->
+    <block wx:if="{{opType == 1 && info.video.length > 0}}">
+      <video class="headImage" src="{{fs_discovery_DownLoad_HostURL}}/{{info.video}}" objectFit="cover" autoplay="{{false}}"></video>
+    </block>
+
+    <!--活动名称-->
+    <view class="cellItem">
+      <text class="activityName">{{info.name}}</text>
+    </view>
+    <view class="line"></view>
+
+    <!--选择响应的页面-->
+
+    <!--详情界面-->
+    <block wx:if="{{opType == 0}}">
+
+      <!--基本信息-->
+      <view class="basicInfoView">
+
+        <!--地点-->
+        <view class="cellItem">
+          <image class="item_icon" src="/images/activity/activity_location.png"></image>
+          <text class="item_text">{{info.provinceName + info.cityName + info.addr}}</text>
+        </view>
+        <view class="line"></view>
+
+        <!--时间-->
+        <view class="cellItem">
+          <image class="item_icon" src="/images/activity/activity_time.png"></image>
+          <text class="item_text">活动时间：{{info.beginTimeStr + ' ~ ' + info.endTimeStr}}</text>
+        </view>
+        <view class="line"></view>
+
+        <!--截止时间-->
+        <view class="cellItem">
+          <image class="item_icon" src="/images/activity/activity_deadline.png"></image>
+          <text class="item_text">报名截止：{{info.entryTerminalTimeStr}}</text>
+        </view>
+        <view class="line"></view>
+
+        <!--客服热线-->
+        <view class="cellItem">
+          <image class="item_icon" src="/images/activity/activity_tel.png"></image>
+          <text class="item_text">客服热线：{{info.call}}</text>
+        </view>
+      </view>
+
+      <!--活动费用说明-->
+      <view class="chargeTips">
+        <view class="cellItem">
+          <image class="item_icon" src="/images/activity/activity_chargeTips.png"></image>
+          <text class="item_text">活动费用说明</text>
+        </view>
+        <view class="line"></view>
+        <text class="chargeTips_Introduce">{{info.costExplain}}</text>
+      </view>
+
+      <!--报名须知-->
+      <view class="chargeTips">
+        <view class="cellItem">
+          <image class="item_icon" src="/images/activity/activity_joinTips.png"></image>
+          <text class="item_text">报名须知</text>
+        </view>
+        <view class="line"></view>
+        <text class="chargeTips_Introduce">{{info.note}}</text>
+      </view>
+
+      <!--参与情况-->
+      <view class="chargeTips">
+        <view class="cellItem">
+          <image class="item_icon" src="/images/activity/activity_joinpps.png"></image>
+          <text class="item_text">参与人数限额：{{info.quota}}人</text>
+        </view>
+        <view class="line"></view>
+        <view class="cellItem_joinedView" catchtap="showJoinedPersons">
+          <view class="cellItem_joinedView_leftView">
+            <image class="item_icon" src="/images/activity/activity_joinpp.png"></image>
+            <text class="item_text">{{joinedList.length}}人已参与</text>
+          </view>
+
+          <!--参与人数列表-->
+          <view class="cellItem_joinedView_rightView">
+            <block wx:for="{{joinedList}}" wx:key="*this">
+              <block wx:if="{{index<=2}}">
+                <image class="cellItem_joinedView_rightView_portriat" src="{{user_portrait_DownLoad_HostURL + '/' + item.portriat}}"></image>
+              </block>
+            </block>
+            <image class="cellItem_joinedView_rightView_arrow" src="/images/ticketPage/item_arrow.png"></image>
+          </view>
+        </view>
+      </view>
+
+      <!--活动详情-->
+      <view class="chargeTips">
+        <view class="cellItem">
+          <image class="item_icon" src="/images/activity/activity_detail.png"></image>
+          <text class="item_text">活动详情</text>
+        </view>
+        <view class="line"></view>
+
+        <!--循环遍历展示内容啦-->
+        <block wx:for="{{info.detailInfoArr}}" wx:key="{{*this}}">
+          <text wx:if="{{item.flag==0}}" class="chargeTips_Introduce">{{item.content}}</text>
+          <image wx:elif="{{item.flag == 1}}" class="actDetail_image" style="width:{{item.width}}rpx;height:{{item.height}}rpx;" data-imgidx="{{index}}" bindload="changeDetailImageSize" mode="aspectFill" src="{{fs_discovery_DownLoad_HostURL}}/{{item.content}}"></image>
+          <video class="actDetail_Video" wx:elif="{{item.flag == 2}}" src="{{fs_discovery_DownLoad_HostURL}}/{{item.content}}" objectFit="cover" autoplay="{{false}}"></video>
+        </block>
+      </view>
+
+      <!--站位的区域-->
+      <view class="blankView"></view>
+    </block>
+
+    <!--回顾界面-->
+    <block wx:if="{{opType == 1}}">
+
+      <!--reviewArts-->
+      <block wx:for="{{reviewArts}}" wx:key="{{item.id}}">
+        <view class="review_itemView" data-art="{{item}}" catchtap="showReviewArticlesDetail">
+          <image class="review_itemView_poster" mode="aspectFill" src="/images/default/default_placeholder.png"></image>
+          <image class="review_itemView_poster" mode="aspectFill" src="{{fs_discovery_DownLoad_HostURL}}/{{item.banner}}"></image>
+          <image class="review_itemView_videoPlay" wx:if="{{item.isVideo}}" src="/images/activity/activity_videoPlay.png"></image>
+          <text class="review_itemView_title">{{item.title}}</text>
+          <text class="review_itemView_artType" wx:if="{{item.type == 1}}">人物篇</text>
+          <text class="review_itemView_artType" wx:elif="{{item.type == 2}}">图片篇</text>
+          <text class="review_itemView_artType" wx:elif="{{item.type == 3}}">技巧篇</text>
+        </view>
+      </block>
+    </block>
+  </view>
+
+  <!--底部悬浮区域,只有显示详情界面的时候才显示,同时如果为发布的活动(通过二维码扫进来的)也不展示-->
+  <view class="floatView" wx:if="{{opType == 0 || info.status == 0}}">
+
+    <!--用户未登录状态-->
+    <block wx:if="{{isLogin == 0}}">
+      <view class="floatLefttView">
+        <text class="floatLeftText">报名费：{{info.cost}}元</text>
+      </view>
+      <view class="floatRightView" catchtap="joinBtnClocked" style="{{info.status == 1 ? '' : '-webkit-filter: grayscale(100%); filter: grayscale(100%);'}}">
+        <text class="floatRightText" wx:if="{{info.status == 1}}">立即报名</text>
+        <text class="floatRightText" wx:elif="{{info.status == 2}}">等待抽签</text>
+        <text class="floatRightText" wx:elif="{{info.status == 3}}">已抽签(比赛中)</text>
+        <text class="floatRightText" wx:elif="{{info.status == 4}}">已结束</text>
+        <text class="floatRightText" wx:elif="{{info.status == 5}}">已暂停</text>
+        <text class="floatRightText" wx:elif="{{info.status == 6}}">已取消</text>
+      </view>
+    </block>
+
+    <!--用户已登录状态-->
+    <block wx:else>
+
+      <!--1已发布（报名中）-->
+      <block wx:if="{{info.status == 1}}">
+        <view class="floatLefttView">
+          <text class="floatLeftText" wx:if="{{userState.isJoin == false}}">报名费：{{info.cost}}元</text>
+          <text class="floatLeftText" wx:if="{{userState.isJoin == true && userState.number == 0}}">待抽签</text>
+          <text class="floatLeftText" wx:if="{{userState.isJoin == true && userState.number != 0}}">签号：{{userState.number}}</text>
+        </view>
+        <view class="floatRightView" catchtap="joinBtnClocked" style="{{userState.isJoin == false ? '' : '-webkit-filter: grayscale(100%); filter: grayscale(100%);'}}">
+          <text class="floatRightText" wx:if="{{userState.isJoin == false}}">立即报名</text>
+          <text class="floatRightText" wx:if="{{userState.isJoin == true}}">已报名</text>
+        </view>
+      </block>
+
+      <!--2待抽签（报名结束）,3已抽签（比赛中）-->
+      <block wx:if="{{info.status == 2 || info.status == 3}}">
+        <view class="floatLefttView">
+          <text class="floatLeftText" wx:if="{{userState.isJoin == false}}">报名费：{{info.cost}}元</text>
+          <text class="floatLeftText" wx:if="{{userState.isJoin == true && userState.number == 0}}">待抽签</text>
+          <text class="floatLeftText" wx:if="{{userState.isJoin == true && userState.number != 0}}">签号：{{userState.number}}</text>
+        </view>
+        <view class="floatRightView" catchtap="joinBtnClocked" style="-webkit-filter: grayscale(100%); filter: grayscale(100%);">
+          <text class="floatRightText" wx:if="{{info.status == 2 && userState.isJoin == false}}">报名结束</text>
+          <text class="floatRightText" wx:if="{{info.status == 3 && userState.isJoin == false}}">正在比赛</text>
+          <text class="floatRightText" wx:if="{{userState.isJoin == true}}">已报名</text>
+        </view>
+      </block>
+
+      <!--4已结束,5暂停-->
+      <block wx:if="{{info.status == 4 || info.status == 5}}">
+        <view class="floatLefttView">
+          <text class="floatLeftText">报名费：{{info.cost}}元</text>
+        </view>
+        <view class="floatRightView" catchtap="joinBtnClocked" style="-webkit-filter: grayscale(100%); filter: grayscale(100%);">
+          <text class="floatRightText" wx:if="{{info.status == 4}}">活动结束</text>
+          <text class="floatRightText" wx:if="{{info.status == 5}}">活动暂停</text>
+        </view>
+      </block>
+
+      <!--6已取消-->
+      <block wx:if="{{info.status == 6}}">
+        <view class="floatLefttView">
+          <text class="floatLeftText" wx:if="{{userState.isJoin == false}}">报名费：{{info.cost}}元</text>
+          <text class="floatLeftText" wx:if="{{userState.isJoin == true && userState.isRefund == false}}">未退款：{{info.cost}}元</text>
+          <text class="floatLeftText" wx:if="{{userState.isJoin == true && userState.isRefund == true}}">已退款：{{info.cost}}元</text>
+        </view>
+        <view class="floatRightView" catchtap="joinBtnClocked" style="-webkit-filter: grayscale(100%); filter: grayscale(100%);">
+          <text class="floatRightText" wx:if="{{userState.isJoin == false}}">活动取消</text>
+          <text class="floatRightText" wx:if="{{userState.isJoin == true}}">已报名</text>
+        </view>
+      </block>
+    </block>
+  </view>
+</block>

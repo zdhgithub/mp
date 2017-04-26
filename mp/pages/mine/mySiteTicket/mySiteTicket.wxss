@@ -1,0 +1,170 @@
+/* pages/mine/mySiteTicket/mySiteTicket.wxss */
+.optionView{
+    background-color: white;
+    border-bottom: #d6d6d6 solid 0.5px;
+    position: fixed;
+    width: 750rpx;
+    height: 50px;
+    top: 0px;
+    left: 0px;
+}
+.itemsView{
+    /*background-color: blue;*/
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 48px;
+}
+.itemsView view{
+    /*background-color: yellow;*/
+    color: #7a8389;
+    font-size: 15px;
+    width: 250rpx;
+    height: 50px;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.indexView{
+    width: 250rpx;
+    height: 2px;
+    background-color: #60cad4;
+}
+
+/*票列表界面*/
+.ticketView{
+    margin-top: 50px;
+}
+.ticketItemView{
+    background-color: white;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    border-bottom: #d6d6d6 solid 0.5px;
+}
+.arrowImg{
+    width: 18rpx;
+    height: 34rpx;
+    margin-right: 12px;
+}
+.ticketContent{
+    display: flex;
+    display: -webkit-flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.ticketImage{
+    margin-left: 12px;
+    margin-right: 12px;
+    width: 75px;
+    height: 75px;
+}
+.ticketContent_text{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    /*background-color: blue;*/
+}
+.ticketContent_text text{
+    display: inline-block;
+    
+}
+
+.tangName{
+    color: black;
+    font-size: 17px;
+
+}
+.fishSiteName{
+    color: #a9a9a9;
+    font-size: 13px;
+    margin-top: 6px;
+    
+}
+.buyTime{
+    color: #a9a9a9;
+    font-size: 13px;
+    margin-top: 6px;
+    
+}
+.juanID{
+    color: #f6807d;
+    font-size: 12px;
+    margin-top: 6px;
+    
+}
+
+/*二维码相关*/
+.qrcodeView{
+    background-color: rgba(0, 0, 0, 0.2);
+    /*background-color: yellow;*/
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.qrcode_contentView{
+    background-color: white;
+    width: 600rpx;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.qrcode_fishSiteName{
+    align-self: flex-start;
+    margin-top: 8px;
+    margin-left: 10px;
+    color: black;
+    font-size: 12px;
+}
+.qrcode_tangName{
+    font-size: 17px;
+}
+.qrcode_canvas{
+    background-color: white;
+    margin-top: 36rpx;
+    width: 180px;
+    height: 180px;
+
+}
+.qrcode_code{
+    font-size: 19px;
+    margin-top: 10px;
+
+}
+.qrcode_tips{
+    color: #999;
+    font-size: 14px;
+
+}
+.qrcode_cancel{
+    /*background-color: red;*/
+    width: 100%;
+    height: 50px;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: #0dd4e6;
+    font-size: 17px;
+    border-top: #e5e5e5 solid 0.5px;
+    margin-top: 17px;
+}

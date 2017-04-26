@@ -1,0 +1,101 @@
+
+<!--pages/fishSite/siteDetail/siteDetail.wxml-->
+<view class="body">
+  <image wx:if="{{fishSiteId}}" class="headerImage" src="/images/siteDetail/siteDetail_header.png"></image>
+  <!--在线购票-->
+  <view wx:if="{{fishSiteId && authType == 1}}" class="buyTicket">
+    <button hover-class="none" catchtap="buyTicketClicked" type="primary">在 线 购 票</button>
+  </view>
+  <!--钓场位置-->
+  <view wx:if="{{addr}}" class="site-position">
+    <view class="position-top">
+      <image class="position-icon" src="/images/siteDetail/siteDetail_location.png"></image>
+      <text class="position-loc">钓场位置</text>
+      <view class="position-line"></view>
+    </view>
+    <text class="position-addr">{{addr}}</text>
+  </view>
+
+  <!--联系方式-->
+  <view wx:if="{{fishSiteId && (contactMan.length != 0 || phoneNum.length != 0)}}" class="site-contact">
+    <view class="position-top">
+      <image class="position-icon" src="/images/siteDetail/siteDetail_contact.png"></image>
+      <text class="position-loc">联系方式</text>
+      <view class="position-line"></view>
+    </view>
+    <view class="position-top">
+      <text class="name-title">名字</text>
+      <text class="name-name">{{contactMan}}</text>
+      <view class="position-line"></view>
+    </view>
+    <view class="position-top">
+      <text class="name-title">电话</text>
+      <text class="name-name">{{phoneNum}}</text>
+    </view>
+  </view>
+
+  <!--钓场简介-->
+  <view wx:if="{{fishSiteInfo.length > 1}}" class="site-contact">
+    <view class="position-top">
+      <image class="position-icon" src="/images/siteDetail/siteDetail_resume.png"></image>
+      <text class="position-loc">钓场简介</text>
+      <view class="position-line"></view>
+    </view>
+    <text class="position-addr">{{fishSiteInfo}}</text>
+  </view>
+
+  <!--钓场图片-->
+  <view wx:if="{{pics.length > 0}}" class="site-contact" data-pics="{{resources}}" bindtap="siteImageDetail">
+    <view class="position-top">
+      <image class="position-icon" src="/images/siteDetail/siteDetail_picture.png"></image>
+      <text class="position-loc">钓场图片</text>
+      <image class="arrow" src="/images/siteDetail/siteDetail_picture_arrow.png"></image>
+      <view class="position-line"></view>
+    </view>
+    <view class="site-images">
+      <image wx:for="{{pics}}" wx:key="*this" src="https://fs-profile.oss-cn-shenzhen.aliyuncs.com/{{item}}"></image>
+    </view>
+  </view>
+
+  <!--钓场规模-->
+  <view wx:if="{{body.length > 0}}" class="site-contact">
+    <view class="position-top">
+      <image class="position-icon" src="/images/siteDetail/siteDetail_size.png"></image>
+      <text class="position-loc">钓场规模</text>
+      <view class="position-line"></view>
+    </view>
+    <text class="size-tang" wx:for="{{body}}" wx:key="{{item.fishPondName}}">{{item.fishPondName}}：{{item.area}}平米，水深{{item.depth}}米，钓位{{item.capacity}}个，限杆数{{item.fishRodLimit}}，以{{item.mainFishType}}为主，兼备{{item.viceFishType}} 等，备注:{{item.pondRemarks}}。
+    </text>
+  </view>
+
+  <!--收费情况-->
+  <view wx:if="{{body.length > 0}}" class="site-contact">
+    <view class="position-top">
+      <image class="position-icon" src="/images/siteDetail/siteDetail_charge.png"></image>
+      <text class="position-loc">收费情况</text>
+      <view class="position-line"></view>
+    </view>
+    <text class="size-tang" wx:for="{{body}}" wx:key="{{item.fishPondName}}">{{item.fishPondName}}：{{item.payType == 0 ? '钟塘，' : '斤塘，'}}{{item.admissionTicket}}元/{{item.unitPrice}}{{item.payType == 0 ? '小时' : '次'}}
+    </text>
+  </view>
+
+  <!--回鱼情况-->
+  <view wx:if="{{backFishDesc.length > 0 && backFishDesc != 'undefined'}}" class="site-contact">
+    <view class="position-top">
+      <image class="position-icon" src="/images/siteDetail/siteDetail_fishBack.png"></image>
+      <text class="position-loc">回鱼情况</text>
+      <view class="position-line"></view>
+    </view>
+    <text class="position-addr">{{backFishDesc}}</text>
+  </view>
+
+  <!--配套设施-->
+  <view wx:if="{{facility.length > 0}}" class="site-contact">
+    <view class="position-top">
+      <image class="position-icon" src="/images/siteDetail/siteDetail_facility.png"></image>
+      <text class="position-loc">配套设施</text>
+      <view class="position-line"></view>
+    </view>
+    <text class="position-addr">{{facility}}</text>
+  </view>
+</view>

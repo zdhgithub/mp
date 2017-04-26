@@ -1,0 +1,37 @@
+/* pages/mine/guide/guide.wxss */
+
+.contentView {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contentView image {
+  width: 700rpx;
+  height: 520rpx;
+  margin: 50rpx 30rpx 0px 30rpx;
+}
+
+.tipTitle {
+  margin: 40rpx 30rpx 0px 30rpx;
+  color: black;
+  font-size: 24px;
+  align-self: center;
+}
+
+.tipContent {
+  margin: 50rpx 30rpx 0px 30rpx;
+  color: #111;
+  font-size: 17px;
+  line-height: 22px;
+  text-indent: 76rpx;
+}
+
+.contentView button {
+  width: 700rpx;
+  margin-top: 60rpx;
+  margin-bottom: 20px;
+  background-color: #0dd4e6;
+  border-color: #0cc0d0;
+}
