@@ -1,0 +1,69 @@
+
+<!--pages/fishSite/ticketPage/ticketPage.wxml-->
+<view class="body">
+  <view class="fishSiteNameView" bindtap="showSiteDetail">
+    <view class="fishSiteNameView_leftView">
+      <image class="fishSiteNameView_icon" src="/images/ticketPage/ticketPage_fishSiteIcon.png"></image>
+      <text>{{body.fishSiteName}}</text>
+    </view>
+    <image class="fishSiteNameView_arrow" src="/images/ticketPage/ticketPage_fishSiteIcon_arrow.png"></image>
+  </view>
+
+  <!--票列表-->
+  <view class="itemView" wx:for="{{body.list}}" wx:key="{{item.goodId}}">
+
+    <!--左侧-->
+    <view class="leftSide">
+      <image src="/images/ticketPage/ticketPage_leftSide.png"></image>
+      <view class="leftSide-content">
+        <text class="name">{{item.name}}</text>
+        <text class="charge">{{item.discountPrice}}元/{{item.hourLong}}小时</text>
+      </view>
+    </view>
+
+    <!--中部-->
+    <view class="centerSide">
+      <text class="itemUnit">¥</text>
+      <text class="discountPrice">{{item.discountPrice}}</text>
+      <text class="yuan">元</text>
+      <view class="centerSide-bottomContent">
+        <text class="kucun">库存：</text>
+        <text class="amount">{{item.amount}}</text>
+        <text class="fen">份</text>
+      </view>
+      <view class="center-rightContent">
+        <view class="center-rightContent-add" data-ticket="{{item}}" catchtap="addTicketClicked">
+          <image src="/images/ticketPage/ticketPage_addIcon.png"></image>
+        </view>
+        <view class="center-rightContent-count">{{item.selCount == undefined ? 0 : item.selCount}}
+        </view>
+        <view class="center-rightContent-del" data-ticket="{{item}}" catchtap="delTicketClicked">
+          <image src="/images/ticketPage/ticketPage_delIcon.png"></image>
+        </view>
+      </view>
+    </view>
+
+    <!--右侧-->
+    <view class="rightSide">
+      <image src="/images/ticketPage/ticketPage_rightSide.png"></image>
+    </view>
+  </view>
+
+  <!--我这里是用来占位的,以免当滑动到底部的时候被购物栏盖住-->
+  <view class="itemViewBottomPlaceholder">
+  </view>
+</view>
+
+<!--底部购物栏-->
+<view class="shoppingBar">
+  <view class="shoppingContentZone">
+    <text class="unit">¥</text>
+    <text class="totalMoney">{{tMoneyStr}}</text>
+    <view class="gotopay" bindtap="payClicked">去支付</view>
+  </view>
+  <view class="shoppingCarZone">
+    <image class="shoppingCar" src="/images/ticketPage/ticketPage_shoppingCar.png"></image>
+    <view class="chooseCount">{{tCount}}
+    </view>
+  </view>
+</view>

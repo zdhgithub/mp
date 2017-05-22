@@ -1,0 +1,19 @@
+
+<!--pages/activity/activityDetail/reviewArticles/reviewArticles.wxml-->
+
+<!--头部的标题和时间-->
+<view class="headView">
+  <text class="headView_title">{{content.title}}</text>
+  <text class="headView_time">{{content.createTimeStr}}</text>
+</view>
+
+<!--文章的内容-->
+
+<!--循环遍历展示内容啦-->
+<block wx:for="{{content.conInfoArr}}" wx:key="{{*this}}">
+  <view style="background-color:white;">
+    <text wx:if="{{item.flag==0}}" class="content_text">{{item.content}}</text>
+    <image wx:elif="{{item.flag == 1}}" class="content_image" style="width:{{item.width}}rpx;height:{{item.height}}rpx;" data-imgidx="{{index}}" bindload="changeDetailImageSize" mode="aspectFill" src="{{fs_discovery_DownLoad_HostURL}}/{{item.content}}"></image>
+    <video class="content_video" wx:elif="{{item.flag == 2}}" src="{{fs_discovery_DownLoad_HostURL}}/{{item.content}}" objectFit="cover" autoplay="{{false}}"></video>
+  </view>
+</block>

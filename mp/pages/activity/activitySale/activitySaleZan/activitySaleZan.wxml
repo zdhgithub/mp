@@ -1,0 +1,93 @@
+<block>
+  <view class="container">
+
+
+ <!--发布内容  releasePicsClick  seePicsClick  -->
+  <view class="releaseView" bindtap="{{isReleased == true ? 'seePicsTapMethod' : 'releasePicsClick'}}">
+    <image wx:if="{{isReleased == true}}" class="see" mode="aspectFill" src="/images/activity/activity_see.png"></image>
+    <image wx:else class="see" mode="aspectFill" src="/images/activity/activity_releaseIcon.png"></image>
+    <text wx:if="{{isReleased == true}}" class="viewContent">我的照片</text>
+    <text wx:else class="viewContent">我要参加</text>
+  </view>
+
+
+    <!--发布人头像 昵称-->
+    <view class="releaserInfo">
+      <image class="releaserInfo_icon" mode="aspectFill" src="{{releasedData.portriat == Undefined ? '/images/my/my_portrait.png' : releasedData.portriat}}"></image>
+      <text class="releaserInfo_nickname">{{releasedData.nickname == Undefined ? '未设置' : releasedData.nickname}}</text>
+    </view>
+
+    <!--文字-->
+    <text class="text">{{releasedData.pictureDesc}}</text>
+    <text class="zanCount_share" bindtap="shareTap">帮他分享</text>
+
+    <!--图片-->
+    <view class="itemList">
+      <view class="itemList_cell" wx:for="{{releasedData.imgs}}" wx:key="{{releasedData.marketingId}}">
+        <image class="itemList_cell_img" data-idx="{{index}}" bindload="changeDetailImageSize" style="width:{{item.w}}rpx;height:{{item.h}}rpx" mode="aspectFill" src="{{fs_discovery_DownLoad_HostURL}}/{{item.img}}"></image>
+        <!--<text>{{item.w}}*{{item.h}}图片</text>-->
+      </view>
+    </view>
+
+    <!--点赞-->
+    <view class="zan">
+      <view class="zanCount">
+      <view class="zanCount_area" catchtap="zanMethod">
+        <text class="zanCount_count">{{releasedData.likeCount}}</text>
+        <image class="zanCount_img" src="{{releasedData.likeCount > 0 ? '/images/activity/activity_zan.png' : '/images/activity/activity_nozan.png'}}"></image>
+        
+      </view>
+      
+      </view>
+
+      <!--点赞人数为0 隐藏-->
+      <view wx:if="{{releasedData.likeCount == 0}}" class="zanName"></view>
+
+      <!--不隐藏-->
+
+      <!--收起-->
+      <view wx:elif="{{isMore == false}}" class="zanName">
+        <image class="zanName_img" src="/images/activity/activity_zan1.png"></image>
+        <view class="zanName_names">
+          <text class="zanName_names_text">{{releasedData.nicknames}}</text>
+        </view>
+        <view class="zanName_btn" bindtap="showMoreNicknames">
+          <text class="zanName_btn_text">更多</text>
+        </view>
+      </view>
+
+      <!--更多-->
+      <view wx:else class="zanName_more">
+        <image class="zanName_img_more" src="/images/activity/activity_zan1.png"></image>
+        <view class="zanName_names_more">
+          <text class="zanName_names_more_text">{{releasedData.nicknames}}</text>
+        </view>
+        <view class="zanName_btn_more" bindtap="showLessNicknames">
+          <text class="zanName_btn_more_text">收起</text>
+        </view>
+      </view>
+      <!--更多结束-->
+    </view>
+    <!--点赞结束-->
+    <button class="btn" bindtap="knowSaleDetail">
+      <image class="btn_img" src="/images/activity/activity_knowAct.png"></image>
+      <text class="btn_text">了解活动</text>
+    </button>
+  </view>
+
+
+<!--点击右上角帮他分享视图-->
+<view class="helpShare">
+
+<view wx:if="{{isShareMask}}" class="helpShare_mask" catchtouchstart="hiddenMask"></view>
+<view wx:else class="helpShare_mask_hidden" catchtouchstart="hiddenMask"></view>
+
+<image wx:if="{{isShareMask}}" class="helpShare_img" mode="widthFix" src="/images/activity/activity_share.png"></image>
+<image wx:else class="helpShare_img_hidden" mode="widthFix" src="/images/activity/activity_share.png"></image>
+
+<text wx:if="{{isShareMask}}" class="helpShare_text">点击右上角，可分享给朋友哦！</text>
+<text wx:else class="helpShare_text_hidden" >点击右上角，可分享给朋友哦！</text>
+</view>
+
+
+</block>

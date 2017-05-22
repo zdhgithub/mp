@@ -1,0 +1,309 @@
+/* pages/activity/activitySale/activitySale.wxss */
+
+/*发布内容*/
+.releaseView {
+  position: absolute;
+  width: 66rpx;
+  height: 230rpx;
+  right: 24rpx;
+  top: 456rpx;
+  background-color: rgba(65, 65, 65, 0.8);
+  border-radius: 33rpx;
+}
+
+
+.see {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 13px;
+  left: 7px;
+}
+
+.viewContent {
+  position: absolute;
+  font-size: 14px;
+  color: #60cad4;
+  width: 14px;
+  top: 30px;
+  left: 7px;
+  line-height: 100%;
+}
+
+/*封面图*/
+
+.headImage {
+  width: 750rpx;
+  height: 350rpx;
+  background-color: lightgray;
+}
+
+/*活动详情*/
+
+.activityDetail {
+  border-top: #e5e5e5 solid 1px;
+  margin-top: 10px;
+  background-color: white;
+  /*padding-bottom: 10px;*/
+}
+
+.cellItem {
+  background-color: #fff;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  display: -webkit-flex;
+}
+
+.item_icon {
+  display: flex;
+  width: 57rpx;
+  height: 57rpx;
+  margin-left: 24rpx;
+  margin-right: 30rpx;
+}
+
+.item_text {
+  display: flex;
+  font-size: 14px;
+  color: #333;
+}
+
+.item_arrow {
+  display: flex;
+  margin-left: 470rpx;
+  width: 14rpx;
+  height: 25rpx;
+}
+
+.line {
+  background-color: #e5e5e5;
+  width: 100%;
+  height: 1px;
+}
+
+.activityDetail_Introduce {
+  display: inline-block;
+  color: #888;
+  font-size: 14px;
+  text-indent: 2em;
+  margin: 16px 12px 0px 12px;
+  line-height: 20px;
+}
+
+/*===============================cell=================================*/
+
+.itemListsArea_cell {
+  /*background-color: cyan;*/
+}
+
+.longLine {
+  background-color: #e5e5e5;
+  height: 1px;
+}
+
+.cell_userInfo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 68rpx;
+  margin-top: 30rpx;
+  /*background-color: red;*/
+}
+
+.cell_userInfo_icon {
+  display: flex;
+  margin-left: 25rpx;
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+}
+
+.cell_userInfo_nickname {
+  display: flex;
+  margin-left: 20rpx;
+  color: #60cad4;
+  font-size: 14px;
+}
+
+.cell_pictureDesc {
+  display: block;
+  margin: 0 auto;
+  width: 700rpx;
+  text-indent: 2em;
+  margin-top: 22rpx;
+  color: #888;
+  font-size: 15px;
+  word-wrap: break-word;
+  line-height: 150%;
+}
+
+.cell_imgs_area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 25rpx;
+  margin-top: 30rpx;
+  width: 700rpx;
+  height: 210rpx;
+  /*background-color: cyan;*/
+}
+
+.cell_imgs {
+  display: flex;
+  /*background-color: red;*/
+}
+
+.cell_img {
+  display: flex;
+  width: 222rpx;
+  height: 210rpx;
+}
+
+/*--------------------------------------赞--------------------------------------*/
+
+.zan {
+  display: block;
+  /*margin-top: 30rpx;*/
+}
+
+.zanCount {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  /*background-color: green;*/
+  margin-right: 25rpx;
+}
+.zanCount_area {
+  display: flex;
+  height: 30px;
+  width: 50px;
+  flex-direction: row-reverse;
+  align-items: center;
+/*background-color: red;*/
+}
+
+.zanCount_img {
+  display: flex;
+  width: 24rpx;
+  height: 24rpx;
+  /*background-color: red;*/
+}
+
+.zanCount_count {
+  display: flex;
+  font-size: 12px;
+  color: #4c5154;
+  padding-left: 12rpx;
+}
+
+/*------------------------------收起------------------------------*/
+
+.zanName {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*margin-top: 20rpx;*/
+  margin-left: 25rpx;
+  margin-bottom: 30rpx;
+  /*background-color: greenyellow;*/
+  overflow: hidden;
+}
+
+.zanName_img {
+  display: flex;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.zanName_names {
+  display: flex;
+  margin-top: 13rpx;
+  width: 560rpx;
+  height: 40rpx;
+  overflow: hidden;
+  /*background-color: red;*/
+}
+
+.zanName_names_text {
+  display: flex;
+  font-size: 13px;
+  color: #7a7d7e;
+  text-overflow: ellipsis; /*尾部省略号裁剪*/
+  white-space: nowrap;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.zanName_btn {
+  display: flex;
+  margin-right: 25rpx;
+  width: 86rpx;
+  height: 40rpx;
+  border-radius: 4.0px;
+  border: #999 solid 1px;
+  justify-content: center;
+  align-items: center;
+}
+
+.zanName_btn_text {
+  display: flex;
+  /*margin-left: 5px;*/
+  padding: 0px;
+  color: #949899;
+  font-size: 9px;
+}
+
+/*------------------------------展开------------------------------*/
+
+.zanName_more {
+  display: flex;
+  flex-wrap: warp;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: space-between;
+  margin-top: 20rpx;
+  margin-left: 25rpx;
+  margin-bottom: 30rpx;
+  /*background-color: greenyellow;*/
+  overflow: hidden;
+}
+
+.zanName_img_more {
+  display: flex;
+  flex: none;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.zanName_names_more {
+  display: flex;
+  /*margin-top: 2rpx;*//*background-color: red;*/
+}
+
+.zanName_names_more_text {
+  display: flex;
+  font-size: 13px;
+  color: #7a7d7e;
+  line-height: 150%;
+}
+
+.zanName_btn_more {
+  display: flex;
+  flex: none;
+  flex-wrap: warp;
+  margin-right: 25rpx;
+  width: 86rpx;
+  height: 40rpx;
+  border-radius: 4.0px;
+  border: #999 solid 1px;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+}
+
+.zanName_btn_more_text {
+  display: flex;
+  color: #949899;
+  font-size: 9px;
+}

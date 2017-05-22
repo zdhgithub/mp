@@ -1,0 +1,132 @@
+/* pages/fishSite/mainPage/mainPage.wxss */
+
+.itemView{
+    background-color: white;
+    position: relative;
+    border-bottom: #d3d9da solid 1px;
+    height: 97px;
+    padding-top: 13px;
+    padding-left: 12px;
+}
+.itemView image{
+    display: block;
+    width: 117px;
+    height: 86px;
+}
+.itemView .fishSiteName{
+    font-size: 17px;
+    position: absolute;
+    top: 14px;
+    right: 20%;
+    left: 140px;
+
+    word-break:break-all;
+    display:-webkit-box;
+    -webkit-line-clamp:1;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+
+}
+.itemView .location{
+    display: inline-block;
+    width: 8px;
+    height: 10px;
+    position: absolute;
+    margin-top: 3px;
+    left: 140px;
+    top: 48px;
+
+}
+.itemView .addr{
+    display: block;
+    color: #888888;
+    font-size: 14px;
+    position: absolute;
+    top: 45px;
+    left: 150px;
+    right: 2%;
+
+    word-break:break-all;
+    display:-webkit-box;
+    -webkit-line-clamp:1;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+
+}
+.itemView .distance{
+    display: block;
+    position: absolute;
+    font-size: 14px;
+    color: #555555;
+    top: 80px;
+    right: 12px;
+}
+.chargeView{
+    position: absolute;
+    left: 140px;
+    top: 74px;
+}
+.redText{
+    color: #f6807d;
+    font-size: 16px;
+
+}
+.normalText{
+    color: #555555;
+    font-size: 16px;
+}
+
+.buyTicket{
+    color: rgb(113, 206, 215);
+    border: 1px solid #60cad4;
+    font-size: 14px;
+    border-radius: 4px;
+    width: 60px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    position: absolute;
+    right: 12px;
+    top: 14px;
+}
+
+/*上拉加载更多*/
+.upLoadMore{
+    height: 44px;
+    width: 100%;
+    text-align: center;
+    line-height: 44px;
+    color: #8A8A8A;
+}
+.upLoadMore view{
+    border: none;
+    height: 44px;
+    width: 100%;
+    text-align: center;
+    line-height: 44px;
+    font-size: 14px;
+}
+
+/*当获取不到地理位置时的界面布局*/
+.nodata_content{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    align-items: center;
+}
+.nodata_tip{
+    margin-top: 107px;
+    font-size: 20px;
+    color: black;
+}
+.nodata_introduce{
+    margin: 20px 60rpx 0px 60rpx;
+    font-size: 14px;
+    color: #888888;
+    text-indent: 30px;
+
+}
+.nodata_button{
+    margin-top: 34px;
+    width: 700rpx;
+}

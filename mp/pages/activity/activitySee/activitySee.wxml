@@ -1,0 +1,58 @@
+<block>
+  <view class="container">
+
+    <!--发布人头像 昵称  {{item.portriat == 0 ? '/images/my/my_portrait.png' : item.portriat}}-->
+    <view class="releaserInfo">
+      <image class="releaserInfo_icon" mode="aspectFill" src="{{releasedData.portriat == Undefined ? '/images/my/my_portrait.png' : releasedData.portriat}}"></image>
+      <text class="releaserInfo_nickname">{{releasedData.nickname == Undefined ? '未设置' : releasedData.nickname}}</text>
+    </view>
+    <!--文字-->
+    <text class="text">{{releasedData.pictureDesc}}</text>
+
+    <!--图片{{fs_discovery_DownLoad_HostURL}}/{{item.img}}-->
+    <view class="itemList">
+      <view class="itemList_cell" wx:for="{{releasedData.imgs}}" wx:key="{{releasedData.marketingId}}">
+        <image class="itemList_cell_img" bindload="changeDetailImageSize" data-idx="{{index}}" style="width:{{item.w}}rpx;height:{{item.h}}rpx" mode="aspectFill" src="{{fs_discovery_DownLoad_HostURL}}/{{item.img}}"></image>
+      </view>
+    </view>
+
+    <!--点赞-->
+    <view class="zan">
+      <view class="zanCount">
+      <view class="zanCount_area" catchtap="zanMethod">
+        <text class="zanCount_count">{{releasedData.likeCount}}</text>
+        <image class="zanCount_img" src="{{releasedData.likeCount > 0 ? '/images/activity/activity_zan.png' : '/images/activity/activity_nozan.png'}}"></image>
+        </view>
+      </view>
+
+      <!--点赞人数为0 隐藏-->
+      <view wx:if="{{releasedData.likeCount == 0}}" class="zanName"></view>
+
+      <!--不隐藏-->
+
+      <!--收起-->
+      <view wx:elif="{{isMore == false}}" class="zanName">
+        <image class="zanName_img" src="/images/activity/activity_zan1.png"></image>
+        <view class="zanName_names">
+          <text class="zanName_names_text">{{releasedData.nicknames}}</text>
+        </view>
+        <view class="zanName_btn" bindtap="showMoreNicknames">
+          <text class="zanName_btn_text">更多</text>
+        </view>
+      </view>
+
+      <!--更多-->
+      <view wx:else class="zanName_more">
+        <image class="zanName_img_more" src="/images/activity/activity_zan1.png"></image>
+        <view class="zanName_names_more">
+          <text class="zanName_names_more_text">{{releasedData.nicknames}}</text>
+        </view>
+        <view class="zanName_btn_more" bindtap="showLessNicknames">
+          <text class="zanName_btn_more_text">收起</text>
+        </view>
+      </view>
+      <!--更多结束-->
+    </view>
+    <!--点赞结束-->
+  </view>
+</block>

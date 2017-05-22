@@ -1,0 +1,207 @@
+/* pages/shun/shunExperience/shunExperience.wxss */
+
+.container {
+  display: block;
+}
+
+.shun_experience_poster {
+  display: flex;
+  margin-top: 0rpx;
+  width: 750rpx;
+  height: 300rpx;
+}
+
+/*---------------------加盟视图------------------*/
+
+.releaseArea {
+  position: absolute;
+  width: 90rpx;
+  height: 230rpx;
+  right: 12rpx;
+  bottom: 270rpx;
+  /*background-color: rgba(240, 104, 156, 1);*/
+}
+
+.releaseView {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 66rpx;
+  height: 230rpx;
+  right: 12rpx;
+  bottom: 0rpx;
+  background-color: rgba(65, 65, 65, 0.8);
+  border-radius: 33rpx;
+}
+
+.see {
+  display: flex;
+  width: 15px;
+  height: 15px;
+}
+
+.viewContent {
+  display: flex;
+  margin-top: 10rpx;
+  font-size: 14px;
+  color: #159ceb;
+  width: 14px;
+  line-height: 100%;
+}
+
+.shun-experience-detail {
+  display: block;
+  width: 100%;
+  height: 1000rpx;
+  /*background-color: rgba(100, 100, 100, 0.3);*/
+}
+
+.shun-experience-detail-bg {
+  position: relative;
+  display: block;
+  background-color: #fff;
+  margin-top: 10px;
+  border-top: #e5e5e5 solid 1px;
+  border-bottom: #e5e5e5 solid 1px;
+}
+
+.shun-experience-detail-img {
+  display: inline-block;
+  width: 130px;
+  height: 130px;
+  margin-top: 15px;
+  margin-left: 25rpx;
+}
+
+.shun-experience-detail-shop {
+  position: absolute;
+  top: 15px;
+  left: 150px;
+  right: 70px;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.shun-experience-detail-name, .shun-experience-detail-phone,
+.shun-experience-detail-addr {
+  position: absolute;
+  top: 41px;
+  left: 150px;
+  right: 25rpx;
+  color: #4c4c4c;
+  font-size: 12px;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.shun-experience-detail-phone {
+  top: 63px;
+}
+
+.shun-experience-detail-addr {
+  top: 84px;
+}
+
+.shun-experience-detail-distance {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 15px;
+  right: 25rpx;
+  border: #159ceb solid 1px;
+  border-radius: 4px;
+  width: 55px;
+  height: 16px;
+}
+
+.shun-experience-detail-distance-text {
+  display: flex;
+  color: #159ceb;
+  font-size: 9px;
+}
+
+.shun-experience-detail-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 110px;
+  left: 150px;
+  background-color: #f46467;
+  border-radius: 4px;
+  width: 93px;
+  height: 30px;
+}
+
+.shun-experience-detail-nav-text {
+  display: flex;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.line {
+  display: block;
+  width: 700rpx;
+  height: 1px;
+  background-color: #e5e5e5;
+  margin: 15px auto;
+}
+
+.shun-experience-detail-bottom {
+  display: block;
+  width: 700rpx;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  /*background-color: rgba(100, 100, 100, 0.3);*/
+}
+
+.shun-experience-detail-bottom-text {
+  display: block;
+  color: #000;
+  font-size: 15px;
+}
+
+.shun-experience-detail-bottom-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+  /*background-color: rgba(200, 155, 200, 0.3);*/
+}
+
+.shun-experience-detail-bottom-items-cell {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /*width: 160px;*/
+  /*background-color: yellow;*/
+  height: 32px;
+}
+
+.shun-experience-detail-bottom-items-cell-icon {
+  display: flex;
+  width: 11px;
+  height: 11px;
+}
+
+.shun-experience-detail-bottom-items-cell-text {
+  display: flex;
+  color: #4c4c4c;
+  font-size: 11px;
+  /*margin-left: 10px;*/
+}

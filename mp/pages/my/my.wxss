@@ -1,0 +1,86 @@
+
+
+.userInfo {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 180rpx;
+    background-color: #159ceb;
+}
+.userInfo_portrait {
+    position: relative;
+    display: inline-block;
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+    margin-top: 45rpx;
+    margin-left: 24rpx;
+}
+.userInfo_portrait image {
+    position: absolute;
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+}
+.userInfo_name {
+    position: absolute;
+    display: inline-block;
+    font-size: 16px;
+    color: #fff;
+    margin-top: 75rpx;
+    margin-left: 26rpx;
+}
+.accountInfo {
+    position: relative;
+    display: inline-block;
+    margin-top: 20rpx;
+    width: 100%;
+    height: 90rpx;
+    background-color: #fff;
+    border-top: #e5e5e5 solid 1px;
+    border-bottom: #e5e5e5 solid 1px;
+}
+.myCoupon {
+    position: relative;
+    display: inline-block;
+    margin-top: -1rpx;
+    width: 100%;
+    height: 90rpx;
+    background-color: #fff;
+    border-top: #e5e5e5 solid 1px;
+    border-bottom: #e5e5e5 solid 1px;
+}
+.accountInfo_icon {
+    display: inline-block;
+    width: 50rpx;
+    height: 50rpx;
+    margin-top: 24rpx;
+    margin-left: 24rpx;
+}
+.accountInfo_name {
+    position: absolute;
+    margin-left: 40rpx;
+    margin-top: 24rpx;
+    font-size: 15px;
+    color: #4c4c4c;
+}
+.accountInfo_arrow {
+    position: absolute;
+    width: 14rpx;
+    height: 25rpx;
+    right: 40rpx;
+    margin-top: 31rpx;
+}
+.contactView {
+display: flex;
+justify-content: center;
+align-items: flex-start;
+margin-top: 50rpx;
+background-color: green;
+}
+.contact {
+  display: flex;
+  background-color: red;
+  /*position: fixed;*/
+  /*bottom: 50rpx;*/
+}

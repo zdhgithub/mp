@@ -1,0 +1,9 @@
+<block>
+  <view class="container">
+
+    <block class="imgs" wx:for="{{items}}" wx:key="{{item.img}}">
+      <image class="img" data-idx="{{index}}" bindload="changeImgSize" mode="aspectFill" style="width:{{item.w}}rpx;height:{{item.h}}rpx;" src="{{item.img}}"></image>
+    </block>
+
+  </view>
+</block>

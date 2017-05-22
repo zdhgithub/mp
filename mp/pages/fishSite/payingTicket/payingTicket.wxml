@@ -1,0 +1,43 @@
+
+<!--pages/fishSite/payingTicket/payingTicket.wxml-->
+<view >
+  <!--显示区域-->
+  <view>
+    <!--订单金额区域-->
+    <view class="totalPay">
+      <text class="itemName">订单金额</text>
+      <text class="totalMoney">{{tMoney}}元</text>
+    </view>
+    <!--优惠券区域-->
+    <view catchtap="chooseDiscount" class="discountView">
+      <view class="discountView_leftPart">
+        <text class="itemName_discount">优惠券</text>
+        <text wx:if="{{discountAmount > 0}}" class="totalDiscount">{{discountAmount}}张可用</text>
+      </view>
+      <view class="discountView_rightPart">
+        <text class="useTip" wx:if="{{selDiscount}}">选择了一张{{selDiscount.coupon.money}}元的优惠券</text>
+        <text  class="useTip" wx:else>{{discountAmount > 0 ? '未使用': '无优惠券可用'}}</text>
+        <image wx:if="{{discountAmount > 0}}" class="arrow" src="/images/ticketPage/item_arrow.png"></image>
+      </view>
+    </view>
+    <!--漂币提示-->
+    <view class="piaoCoinView">
+      <text wx:if="{{piaoCoins != undefined}}">漂币余额(使用黑漂APP支付可抵扣):{{piaoCoins}}</text>
+    </view>
+    <!--显示计算区域-->
+    <view class="caculateView">
+      <text wx:if="{{selDiscount}}">总付款{{tMoney}}元-优惠券{{selDiscount.coupon.money}}元</text>
+      <text wx:else>总付款{{tMoney}}元</text>
+    </view>
+    <!--需要支付金额区域-->
+    <view class="needPayView">
+      <text class="itemName">还需支付</text>
+      <text class="totalMoney">¥{{(tMoney - (selDiscount ? selDiscount.coupon.money : 0)) > 0 ? (tMoney - (selDiscount ? selDiscount.coupon.money : 0)) : 0}}元</text>
+    </view>
+  </view>
+  <!--确认支付区域-->
+  <view class="confirmView">
+    <text>如果使用黑漂APP，还可以使用漂币抵扣，\n另外支付成功则有机会获得漂币奖励哟。</text>
+    <button catchtap="comfirmBtnClicked" hover-class="none" type="primary">确认支付</button>
+  </view>
+</view>

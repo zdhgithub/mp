@@ -1,0 +1,11 @@
+/* pages/my/myHeipiao/myHeipiao.wxss */
+
+
+
+.container {
+    display: block;
+}
+.img {
+    display: block;
+    margin: 20rpx auto;
+}

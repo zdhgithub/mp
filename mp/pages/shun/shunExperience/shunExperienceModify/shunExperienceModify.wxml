@@ -1,0 +1,70 @@
+<!--pages/shun/shunExperience/shunExperienceModify/shunExperienceModify.wxml-->
+
+<view class="container">
+
+  <view class="shun-experience-modify-title">
+    <text class="shun-experience-modify-title-text">我们一起为钓友服务吧！</text>
+  </view>
+
+
+  <!--输入视图-->
+  <view class="inputArea">
+    <view class="textAndPhoneNum">
+      <text class="textAndInput_text">手机号码</text>
+      <view class="textAndInput_phoneNum">
+        <text class="textAndInput_phoneNum_num">传入手机号码</text>
+      </view>
+    </view>
+
+    <view class="textAndInput">
+      <text class="textAndInput_text">渔具店名称</text>
+      <input class="textAndInput_input" type="text" placeholder-class="placeholderClass" placeholder="输入必填，20个字符" maxlength="20" confirm-type="next" />
+    </view>
+
+    <view class="textAndInput">
+      <text class="textAndInput_text">姓名</text>
+      <input class="textAndInput_input" type="text" placeholder-class="placeholderClass" placeholder="输入，您的姓名，必填，10个字符" maxlength="10" confirm-type="next" />
+    </view>
+
+    <view class="textAndInput">
+      <text class="textAndInput_text">地址</text>
+      <input class="textAndInput_input" type="text" placeholder-class="placeholderClass" placeholder="输入，店铺地址，必填，30个字符" maxlength="30" confirm-type="done" />
+    </view>
+  </view>
+  <!--提供导航-->
+  <view class="lineTop"></view>
+  <view class="shun-experience-join-nav">
+    <view class="shun-experience-join-nav-imgAndText">
+      <image class="shun-experience-join-nav-img" src="/images/shun/experience/shun_experience_nav.png"></image>
+      <text class="shun-experience-join-nav-text">提供导航(必选)</text>
+    </view>
+    <button class="shun-experience-join-nav-btn" bindtap="modifyLocation">修改位置</button>
+  </view>
+  <view class="lineBottom"></view>
+
+  <!--存货信息-->
+  <view class="store-info">
+    <view class="store-info-text">存货信息</view>
+    <view class="store-info-detail">
+      <block wx:for="{{items}}" wx:key="{{*this}}">
+        <view class="store-info-detail-cell">
+          <text class="store-info-detail-text">{{item.text}}</text>
+          <switch type="switch" checked="{{item.have}}" />
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!--修改取消按钮-->
+  <view class="shun-experience-join-btn">
+    <view class="shun-experience-join-btn-applyfor" bindtap="modify">
+      <text class="shun-experience-join-btn-text">修改</text>
+    </view>
+
+    <view class="shun-experience-join-btn-cancal" bindtap="cancal">
+      <text class="shun-experience-join-btn-text">取消</text>
+    </view>
+  </view>
+
+
+</view>

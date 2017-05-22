@@ -1,0 +1,149 @@
+/*pages/activity/activityRelease/activityRelease*/
+
+.contentView {
+  margin: 0px;
+}
+
+.textView {
+  margin: 0px auto;
+  margin-top: 30rpx;
+  margin-bottom: 48rpx;
+  display: block;
+  width: 700rpx;
+}
+
+.topText {
+  display: flex;
+  font-size: 13px;
+  color: #888;
+  line-height: 150%;
+}
+
+.releaseTextarea {
+  display: block;
+  word-wrap: break-word;
+  font-size: 14px;
+  /*top: 30rpx;*/
+  width: 750rpx;
+  height: 35px;
+  background-color: white;
+}
+
+.tips {
+  position: relative;
+  color: #999;
+  font-size: 12px;
+  left: 650rpx;
+  /*background-color: red;*/
+}
+
+.line {
+  margin-top: 10px;
+  background-color: #e5e5e5;
+  margin-left: 12px;
+  margin-right: 12px;
+  height: 1px;
+}
+
+/*图片*/
+
+.whitebg {
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+}
+
+.uploaderpics {
+  background-color: #fff;
+  border-bottom: #e5e5e5 solid 1px;
+  margin-top: -10px;
+  height: 280rpx;
+}
+
+.weui-uploader__bd {
+  margin-top: 60rpx;
+  margin-bottom: -4px;
+  margin-left: 24rpx;
+  overflow: hidden;
+}
+
+.weui-uploader__file {
+  float: left;
+  margin-right: 9px;
+  margin-bottom: 9px;
+}
+
+.weui-uploader__img {
+  display: block;
+  width: 220rpx;
+  height: 220rpx;
+}
+
+.weui-uploader__input-box_3pics {
+  float: left;
+  position: relative;
+  width: 0rpx;
+  height: 0rpx;
+  display: none;
+}
+
+.weui-uploader__input-box {
+  float: left;
+  position: relative;
+  margin-right: 9px;
+  margin-bottom: 9px;
+  width: 220rpx;
+  height: 220rpx;
+  border: 1px solid #d9d9d9;
+}
+
+.weui-uploader__input-box:before, .weui-uploader__input-box:after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #d9d9d9;
+}
+
+.weui-uploader__input-box:before {
+  width: 2px;
+  height: 39.5px;
+}
+
+.weui-uploader__input-box:after {
+  width: 39.5px;
+  height: 2px;
+}
+
+.weui-uploader__input-box:active {
+  border-color: #999;
+}
+
+.weui-uploader__input-box:active:before, .weui-uploader__input-box:active:after {
+  background-color: #999;
+}
+
+.weui-uploader__input {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.weui-uploader__input_3pics {
+  display: none;
+}
+
+.releaseBtn {
+  margin-top: 30px;
+  width: 700rpx;
+  /*height: 90rpx;*/
+  background-color: #60cad4;
+  color: #fff;
+  align-items: center;
+  font-size: 18px;
+}

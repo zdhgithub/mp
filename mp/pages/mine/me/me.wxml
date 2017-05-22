@@ -1,0 +1,28 @@
+<view class="headView">
+  <view class="img-head"></view>
+  <view class="portraitView" bindtap="accountClicked">
+    <image src="/images/mine/mine_defaultPortrait.png"></image>
+    <image wx:if="{{user}}" src="{{user.avatarUrl}}"></image>
+    <image wx:if="{{user}}" src="{{user_portrait_DownLoad_HostURL}}/{{user.portriat}}"></image>
+    <text>{{hasLogin == true ? (user.nickname ? user.nickname : user.nickName) : '未登录'}}</text>
+  </view>
+</view>
+<view class="itemsList">
+  <view class="{{idx == 0 ? 'itemsGroupNoGap' : 'itemsGroup'}}" wx:for="{{items}}" wx:for-index="idx" wx:for-item="im" wx:key="{{*this}}">
+    <view class="itemview" wx:for="{{im}}" wx:key="{{item.name}}" bindtap="{{item.action}}">
+      <view class="itemview_contentView">
+        <view class="itemView_leftView">
+          <image src="{{item.icon}}"></image>
+          <text class="itemView_itemName">{{item.name}}</text>
+        </view>
+        <view class="itemView_rightView">
+          <text wx:if="{{item.name == '我的漂币' }}" style="color:#f6807d;font-size:15px;">{{piaoCoins}}</text>
+          <image class="arrow_Img" style="width:9px;heigth:17px;" src="/images/ticketPage/item_arrow.png"></image>
+        </view>
+      </view>
+      <view class="line" wx:if="{{index != im.length-1}}"></view>
+    </view>
+  </view>
+</view>
+<!--<button bindtap="cishi">测试入口</button>-->
+

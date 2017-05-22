@@ -1,0 +1,32 @@
+<block>
+  <view class="container">
+
+    <!--审核不通过-->
+    <view class="cheching_view">
+      <image class="cheching_img" src="/images/activity/activity_checkfail.png"></image>
+      <text class="cheching_text">审核不通过</text>
+    </view>
+
+    <!--不通过原因-->
+    <view class="chechFail_reason">
+      <text class="chechFail_text">原因：{{json.refundReason}}</text>
+    </view>
+
+    <!--文字-->
+    <view class="text_view">
+      <text class="text">{{json.pictureDesc}}</text>
+    </view>
+
+    <!--图片-->
+    <view class="imgs">
+      <view class="itemList">
+        <view class="itemList_cell" wx:for="{{json.imgs}}" wx:key="{{json.marketingId}}">
+          <image class="itemList_cell_img" data-idx="{{index}}" bindtap="selectImg" mode="aspectFill" src="{{item.img}}"></image>
+        </view>
+      </view>
+    </view>
+
+    <!--重新发布按钮-->
+    <button class="button" bindtap="releaseAgain">重新发布</button>
+  </view>
+</block>

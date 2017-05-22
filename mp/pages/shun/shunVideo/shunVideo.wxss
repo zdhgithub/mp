@@ -1,0 +1,15 @@
+.container {
+  display: block;
+}
+
+.video {
+  display: block;
+  background-color: lightgray;
+  width: 750rpx;
+  margin: 20rpx auto;
+}
+
+.img {
+  display: block;
+  margin: 20rpx auto;
+}

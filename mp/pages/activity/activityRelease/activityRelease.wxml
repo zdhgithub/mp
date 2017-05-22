@@ -1,0 +1,40 @@
+<!--pages/activity/activityRelease/activityRelease-->
+<block>
+  <view class="contentView">
+
+    <!--文字区域-->
+    <view class="textView">
+
+      <!--说明文字-->
+      <text class="topText">上传照片
+        <br></br>1、上传3张与钓鱼相关的照片；
+        <br></br>2、照片要求：至少一张本人和鱼获的照片，上传与钓鱼无关照片将审核不通过。
+      </text>
+    </view>
+
+    <view class="whitebg">
+      <!--输入框 auto-height -->
+      <textarea class="releaseTextarea" maxlength="20" bindblur="inputFinish" bindinput="input" placeholder="必填，限20个字符" placeholder-style="color:#ccc;font-size:14px;" focus />
+      <text class="tips">{{textLength + '/20'}}</text>
+
+      <!--图片区域-->
+      <view class="line"></view>
+      <view class="uploaderpics">
+        <view class="weui-uploader__bd">
+          <view class="weui-uploader__files">
+            <block wx:for="{{imageList}}" wx:for-item="image">
+              <view class="weui-uploader__file">
+                <image mode="aspectFill" class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+              </view>
+            </block>
+          </view>
+          <view class="{{imageList.length == 3 ? 'weui-uploader__input-box_3pics' : 'weui-uploader__input-box'}}">
+            <view class="{{imageList.length == 3 ? 'weui-uploader__input_3pics' : 'weui-uploader__input'}}" bindtap="chooseImage"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--发布按钮-->
+    <button class="releaseBtn" bindtap="releaseBtnClicked"> 发布 </button>
+  </view>
+</block>

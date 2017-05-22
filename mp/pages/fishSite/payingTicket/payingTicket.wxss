@@ -1,0 +1,163 @@
+/* pages/fishSite/payingTicket/payingTicket.wxss */
+
+/*总金额区域*/
+
+.totalPay {
+  background-color: white;
+  height: 100rpx;
+  border-top: #d3d9da solid 1px;
+  border-bottom: #d3d9da solid 1px;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemName {
+  margin-left: 12px;
+  color: #333;
+  font-size: 36rpx;
+}
+
+.totalMoney {
+  margin-right: 12px;
+  color: #f6807d;
+  font-size: 36rpx;
+}
+
+/*优惠券区域*/
+
+.discountView {
+  background-color: white;
+  height: 100rpx;
+  border-top: #d3d9da solid 1px;
+  border-bottom: #d3d9da solid 1px;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.discountView_leftPart {
+  /*background-color: yellowgreen;*/
+  height: 100rpx;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+}
+
+.discountView_rightPart {
+  /*background-color: blue;*/
+  height: 100rpx;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+}
+
+.itemName_discount {
+  margin-left: 12px;
+  color: #333;
+  font-size: 36rpx;
+  line-height: 100rpx;
+}
+
+.totalDiscount {
+  display: inline-block;
+  background-color: #f81010;
+  color: white;
+  font-size: 24rpx;
+  border-radius: 2px;
+  line-height: 30rpx;
+  margin-left: 10rpx;
+  margin-top: 20rpx;
+  align-self: flex-start;
+}
+
+.useTip {
+  color: #888;
+  font-size: 28rpx;
+  margin-right: 12px;
+}
+
+.arrow {
+  width: 18rpx;
+  height: 34rpx;
+  margin-right: 12px;
+}
+
+/*漂币提示view*/
+
+.piaoCoinView {
+  background-color: white;
+  height: 100rpx;
+  border-top: #d3d9da solid 1px;
+  border-bottom: #d3d9da solid 1px;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.piaoCoinView text {
+  margin-left: 12px;
+  color: #b2b2b2;
+  font-size: 36rpx;
+}
+
+/*计算区域*/
+
+.caculateView {
+  height: 100rpx;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.caculateView text {
+  color: #888;
+  font-size: 28rpx;
+}
+
+/*需要支付金额区域*/
+
+.needPayView {
+  background-color: white;
+  height: 100rpx;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-top: #d3d9da solid 1px;
+  border-bottom: #d3d9da solid 1px;
+}
+
+/*确认支付区域*/
+
+.confirmView {
+  /*background-color: yellow;*/
+  margin-bottom: 58rpx;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirmView text {
+  display: inline-block;
+  margin: 28rpx auto 28rpx auto;
+  text-align: center;
+  color: #888;
+  font-size: 28rpx;
+  line-height: 35rpx;
+}
+
+.confirmView button {
+  width: 700rpx;
+  margin-top: 30px;
+  background-color: #0dd4e6;
+  border-color: #0cc0d0;
+}

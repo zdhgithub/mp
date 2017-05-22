@@ -1,0 +1,75 @@
+{
+  "pages":[
+    "pages/shun/shunExperience/shunExperience",
+    "pages/fishHappy/fishHappy",
+    "pages/shun/shun",
+    "pages/shun/shunIntroduce/shunIntroduce",
+    "pages/shun/shunStory/shunStory",
+    "pages/shun/shunBusiness/shunBusiness",
+    "pages/shun/shunVideo/shunVideo",
+    "pages/my/my",
+    "pages/my/myHeipiao/myHeipiao",
+    "pages/fishSite/mainPage/mainPage",
+    "pages/activity/activityList/activityList",
+    "pages/fishSite/siteDetail/siteDetail",
+    "pages/fishSite/siteDetail/picsDetail/picsDetail",
+    "pages/fishSite/ticketPage/ticketPage",
+    "pages/fishSite/payingTicket/payingTicket",
+    "pages/fishSite/discount/discount",
+    "pages/fishSite/payingSuccess/payingSuccess",
+    "pages/verify/verifyNum/verifyNum",
+    "pages/activity/activityDetail/activityDetail",
+    "pages/activity/activityDetail/offlineJoin/offlineJoin",
+    "pages/activity/activityDetail/reviewArticles/reviewArticles",
+    "pages/activity/activityDetail/joinedPersons/joinedPersons",
+    "pages/my/myAccount/myAccount",
+    "pages/mine/mySiteTicket/mySiteTicket",
+    "pages/mine/checkTktSuccess/checkTktSuccess",
+    "pages/mine/guide/guide",
+    "pages/paying/shopPaying/shopPaying",
+    "pages/paying/shopDiscount/shopDiscount",
+    "pages/paying/shopPayingSuccess/shopPayingSuccess",
+    "pages/activity/activitySale/activitySale",
+    "pages/activity/activitySale/activitySaleDetail/activitySaleDetail",
+    "pages/activity/activitySale/activitySaleZan/activitySaleZan",
+    "pages/activity/activityRelease/activityRelease",
+    "pages/activity/activitySee/activitySee",
+    "pages/activity/activitySee/checking/checking",
+    "pages/activity/activitySee/checkFail/checkFail",
+    "pages/shun/shunExperience/shunExperienceModify/shunExperienceModify",
+    "pages/shun/shunExperience/shunExperienceJoin/shunExperienceJoin"
+  ],
+  "window":{
+    "backgroundTextStyle": "black",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "鱼乐",
+    "navigationBarTextStyle": "black",
+    "backgroundColor":"#fff"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/shun/shunExperience/shunExperience",
+      "text": "鱼乐",
+      "iconPath": "images/tabBar/fishHappy_nor.png",
+      "selectedIconPath": "images/tabBar/fishHappy_sel.png"
+    },
+    {
+      "pagePath": "pages/shun/shun",
+      "text": "舜",
+      "iconPath": "images/tabBar/shun.png",
+      "selectedIconPath": "images/tabBar/shun.png"
+    },
+    {
+      "pagePath": "pages/my/my",
+      "text": "我的",
+      "iconPath": "images/tabBar/my_nor.png",
+      "selectedIconPath": "images/tabBar/my_sel.png"
+    }
+    ],
+    "color":"#7a8389",
+    "selectedColor": "#60cad4",
+    "backgroundColor": "#ffffff",
+    "borderStyle":"black"
+  }
+
+}

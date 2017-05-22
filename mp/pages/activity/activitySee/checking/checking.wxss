@@ -1,0 +1,56 @@
+.container {
+  display: inline-block;
+  position: relative;
+  width: 750rpx;
+}
+
+.cheching_view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 150rpx;
+  background-color: #f15e6f;
+  width: 100%;
+}
+
+.cheching_img {
+  display: flex;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.cheching_text {
+  display: flex;
+  margin-top: 10rpx;
+  font-size: 14px;
+  color: #fff;
+}
+
+.text {
+  display: block;
+  word-wrap: break-word;
+  line-height: 150%;
+  text-indent: 2em;
+  font-size: 14px;
+  color: #888;
+  padding: 34rpx 25rpx 10rpx;
+}
+
+.itemList {
+  display: inline-block;
+  text-align: center;
+  padding-bottom: 20rpx;
+}
+
+.itemList_cell {
+  display: inline-block;
+  text-align: center;
+}
+
+.itemList_cell_img {
+  display: inline-block;
+  width: 700rpx;
+  height: 350rpx;
+  margin-top: 20rpx;
+}

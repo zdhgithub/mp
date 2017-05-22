@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="userInfo">
+
+    <view class="userInfo_portrait" bindtap="loginAndShowUserInfo">
+      <image src="/images/my/my_portrait.png"></image>
+      <image wx:if="{{user}}" src="{{user.avatarUrl}}"></image>
+      <image wx:if="{{user}}" src="{{user_portrait_DownLoad_HostURL}}/{{user.portriat}}"></image>
+    </view>
+    <text class="userInfo_name">{{hasLogin == true ? (user.nickname ? user.nickname : user.nickName) : '未登录'}}</text>
+  </view>
+
+
+  <view class="itemsList">
+    <view class="{{idx == 0 ? 'accountInfo' : 'myCoupon'}}" wx:for="{{items}}" wx:for-index="idx" wx:key="{{*this}}" bindtap="{{item.action}}">
+      <image class="accountInfo_icon" src="{{item.icon}}"></image>
+      <text class="accountInfo_name">{{item.name}}</text>
+      <image class="accountInfo_arrow" src="../../images/my/arrow_right.png"></image>
+    </view>
+  </view>
+
+<view class="contactView">
+<!--<button class="contact"  open-type="contact" size="20" session-from="weapp">黑漂客服</button>-->
+  <!--<contact-button class="contact" size="20" session-from="weapp">黑漂客服</contact-button>-->
+  </view>
+
+</view>

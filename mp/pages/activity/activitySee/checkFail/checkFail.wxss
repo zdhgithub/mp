@@ -1,0 +1,90 @@
+.container {
+  display: inline-block;
+  position: relative;
+  width: 750rpx;
+}
+
+.cheching_view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 150rpx;
+  background-color: #f15e6f;
+  width: 100%;
+}
+
+.cheching_img {
+  display: flex;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.cheching_text {
+  display: flex;
+  margin-top: 10rpx;
+  font-size: 14px;
+  color: #fff;
+}
+.text_view {
+    background-color: #fff;
+}
+.text {
+  display: block;
+  word-wrap: break-word;
+  line-height: 150%;
+  text-indent: 2em;
+  font-size: 14px;
+  color: #888;
+  padding: 34rpx 25rpx 10rpx;
+}
+
+.chechFail_reason {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-bottom: #e5e5e5 solid 1px;
+  height: 134rpx;
+}
+
+.chechFail_text {
+  color: #f15e6f;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+.imgs {
+  display: block;
+  width: 100%;
+  /*margin: 0 auto;*/
+  background-color: #fff;
+}
+
+.itemList {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 25rpx;
+  width: 700rpx;
+  padding-bottom: 20rpx;
+  background-color: #fff;
+}
+
+.itemList_cell {
+  display: flex;
+}
+
+.itemList_cell_img {
+  display: flex;
+  width: 210rpx;
+  height: 210rpx;
+  margin-top: 20rpx;
+}
+.button {
+    background-color: #60cad4;
+    color: #fff;
+    font-size: 18px;
+    width: 690rpx;
+    /*height: 40px;*/
+    margin-top: 60rpx;
+}

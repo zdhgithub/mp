@@ -1,0 +1,18 @@
+<view class="container">
+
+  <!--<image class="banner" mode="aspectFill" src="{{fs_discovery_DownLoad_HostURL}}/{{json.banner}}"></image>-->
+
+  <!--循环遍历展示内容啦-->
+  <!--<view class="actDetail">
+    <block wx:for="{{json.detailInfoArr}}" wx:key="{{*this}}">
+      <text wx:if="{{item.flag==0}}" class="actDetail_Introduce">{{item.content}}</text>
+      <image wx:elif="{{item.flag == 1}}" class="actDetail_image" style="width:{{item.width}}rpx;height:{{item.height}}rpx;" data-imgidx="{{index}}" bindload="changeDetailImageSize" mode="aspectFill" src="{{fs_discovery_DownLoad_HostURL}}/{{item.content}}"></image>
+      <video wx:elif="{{item.flag == 2}}" class="actDetail_Video" src="{{fs_discovery_DownLoad_HostURL}}/{{item.content}}" objectFit="cover" autoplay="{{false}}"></video>
+    </block>
+  </view>-->
+
+<block wx:for="{{items}}" wx:key="{{item.img}}">
+<image class="actDetail_image" style="width:{{item.width}}rpx;height:{{item.height}}rpx;" data-imgidx="{{index}}" bindload="changeImageSize" mode="aspectFill" src="{{item.img}}"></image>
+</block>
+
+</view>
