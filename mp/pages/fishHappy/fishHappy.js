@@ -33,43 +33,65 @@ Page({
 
   },
   onLoad: function (options) {
-    console.log('openType', this.data.openType);
+    console.log('openType onLoad', this.data.openType);
 
-    // 直接写死
-    this.setData({
-      actId: 2
-    });
-  },
-  onShow: function () {
     var that = this;
+
     if (app.user) {
-      console.log('登陆了');
-      //加载发布图片列表
-      this.loadPicsData(this.data.actId, function (picsList) {
+      // 营销活动列表
+      this.loadSaleList(1, function (res) {
+        var actId = res[0].id
+        console.log('营销活动列表', res, actId);
         that.setData({
-          picsList: picsList
+          actId: actId
         })
+
+        //加载发布图片列表
+        that.loadPicsData(actId, function (picsList) {
+          that.setData({
+            picsList: picsList
+          })
+        })
+
       })
-      //判断是否发布
-      this.judgeRelOrNot(app.user.id, this.data.actId);
+
 
     } else {
       VF.checkUserBindPhoneNumber(function (result) {
         console.log('result', result);
         if (result == 1) {
-          //加载发布图片列表
-          that.loadPicsData(that.data.actId, function (picsList) {
-            that.setData({
-              picsList: picsList
-            })
-          })
-        }
-        //判断是否发布
-        that.judgeRelOrNot(app.user.id, that.data.actId);
 
+          // 营销活动列表
+          that.loadSaleList(1, function (res) {
+            var actId = res[0].id
+            console.log('营销活动列表', res, actId);
+            that.setData({
+              actId: actId
+            })
+
+            //加载发布图片列表
+            that.loadPicsData(actId, function (picsList) {
+              that.setData({
+                picsList: picsList
+              })
+            })
+
+          })
+
+        }
       })
     }
-    
+
+
+
+
+
+  },
+  onShow: function () {
+    console.log('onShow')
+    //判断是否发布
+    if (this.data.actId == undefined){ return }
+    this.judgeRelOrNot(app.user.id, this.data.actId);
   },
   actMethod: function () {
 
@@ -103,7 +125,7 @@ Page({
       }
     });
   },
-  
+
   // 下啦刷新
   onPullDownRefresh: function () {
     console.log('openType', this.data.openType);
@@ -133,8 +155,7 @@ Page({
       // 获取用户获取了几条数据了
       // var size = this.data.actLists.length > 0 ? this.data.actLists.length : 10; 这个存在一个bug,当添加新活动,刷新的时候,最后一个活动会被省略掉。于是直接固定size为10就好了。
       var size = 10;
-      //加载数据
-      var that = this;
+      
       //加载数据
       this.loadActivitys(1, size, function (lists) {
         //将数据保存起来
@@ -160,6 +181,9 @@ Page({
     if (openType == 0) {
 
     } else if (openType == 1) {
+
+      console.log('onReachBottom  1', this.data.isLoadMore, this.data.isLoadAllData)
+
       //判断是否正在加载
       if (this.data.isLoadMore == false && this.data.isLoadAllData == false) {
         //设置上拉加载状态
@@ -197,7 +221,8 @@ Page({
 
     }
 
-  },//加载活动列表
+  },
+  //加载活动列表
   //index:页码
   // size:范围
   //callback:回调,活动列表数据
@@ -669,34 +694,15 @@ Page({
 
   saleTap: function (e) {
     console.log('saleTap', e);
-
+    
     this.setData({
-      openType: 0
+      openType: 0,
+      isLoadMore: false,
+      isLoadAllData:false,
+      listPage:1,
+      loadMoreState: "点击或上拉可加载更多"
     })
     console.log('openType', this.data.openType);
   },
-  // siteTap: function (e) {
-  //   console.log('siteTap', e);
 
-
-
-
-
-  //   console.log('openType', this.data.openType);
-
-  //   var openType = this.data.openType;
-  //   var currentOpenType = e.currentTarget.dataset.type;
-  //   console.log('currentOpenType', currentOpenType);
-  //   if (currentOpenType == openType) {
-  //     return;
-  //   }
-
-
-
-  //   this.setData({
-  //     openType: 2
-  //   })
-
-
-  // },
 })

@@ -117,7 +117,7 @@
                 <image class="cellItem_joinedView_rightView_portriat" src="{{user_portrait_DownLoad_HostURL + '/' + item.portriat}}"></image>
               </block>
             </block>
-            <image class="cellItem_joinedView_rightView_arrow" src="/images/ticketPage/item_arrow.png"></image>
+            <image class="cellItem_joinedView_rightView_arrow" src="/images/my/arrow_right.png"></image>
           </view>
         </view>
       </view>

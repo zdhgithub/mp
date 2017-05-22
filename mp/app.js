@@ -36,10 +36,10 @@ App({
 
   //外网测试
   basicURL: "https://api.heipiaola.cn/v1/",
+
+
+  
   //内网测试
-
-
-
   // basicURL: "http://192.168.1.220:8081/v1/",
   OSS: {
     //1.钓场和渔具店主图/图片/视频

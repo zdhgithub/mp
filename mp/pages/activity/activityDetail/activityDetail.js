@@ -103,6 +103,7 @@ Page({
 
       //解析活动详情
       var detailStr = res.body.detail;
+      console.log('detailStr', detailStr);
       //用于分隔成段落的
       var FGstr = String.fromCharCode(31);
       //用于标识文本段落
@@ -113,8 +114,8 @@ Page({
       var FGmov = String.fromCharCode(34);
       //通过\31分隔
       var conArr = detailStr.split(FGstr);
-      // console.log('分隔的数据');
-      // console.log(conArr);
+      console.log('分隔的数组', conArr);
+      
       //创建一个空数据 用来装数据的
       var detailInfoArr = [];
       for (var i = 0; i < conArr.length; i++) {
@@ -154,6 +155,7 @@ Page({
       res.body.detailInfoArr = detailInfoArr;
       //将数据回调
       callback(res.body);
+      console.log('活动详情信息',res.body)
     });
   },
   //加载报名人数数据

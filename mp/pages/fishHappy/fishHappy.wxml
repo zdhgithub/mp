@@ -133,6 +133,8 @@
 
       </block>
 
+
+
       <!--------活动-------->
       <block wx:elif="{{openType == 1}}">
         <block wx:for="{{actLists}}" wx:key="{{item.id}}">
