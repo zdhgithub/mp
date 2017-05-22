@@ -120,6 +120,22 @@ function uuid() {
 }
 
 
+// ---------------------------gcjj02转换到百度地图经纬度方法 (这个方法有待验证)----------------------------//
+function gcj2bd(lat, lon) {
+
+  var x_pi = 3.14159265358979324 * 3000.0 / 180.0;
+  var x = lon, y = lat;
+  var z = Math.sqrt(x * x + y * y) + 0.00002 * Math.sin(y * x_pi);
+  var theta = Math.atan2(y, x) + 0.000003 * Math.cos(x * x_pi);
+  var bd_lon = z * Math.cos(theta) + 0.0065;
+  var bd_lat = z * Math.sin(theta) + 0.006;
+  var result = [];
+  result.push(bd_lat);
+  result.push(bd_lon);
+
+  return result;
+}
+
 //为日期类添加一个方法,这个方法用于将时间戳转成特定的字符串 传入参数是num型毫秒级
 // var d = new Date(1495162106000)
 // console.log(d.format('yyyy-MM-dd-hh-mm-ss'))

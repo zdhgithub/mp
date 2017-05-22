@@ -1,4 +1,0 @@
-<!--pages/fishSite/siteDetail/picsDetail/picsDetail.wxml-->
-<view class="content">
-    <image  wx:for="{{pics}}" wx:key="*this" src="https://fs-profile.oss-cn-shenzhen.aliyuncs.com/{{item}}" ></image>
-</view>

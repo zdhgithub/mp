@@ -1,3 +1,8 @@
+
+
+//绘制二维码  QR.qrApi.draw(options.tid.toString(), 'qrcode', 180, 180);
+// <canvas class="qrcode_canvas" canvas-id="qrcode" />
+
 var QR = (function () {
 
     // alignment pattern
