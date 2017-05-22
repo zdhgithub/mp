@@ -1,7 +1,0 @@
-<!--pages/mine/guide/guide.wxml-->
-<view class="contentView">
-    <image src="/images/mine/mine_guideImage.png"></image>
-    <text class="tipTitle">更多操作,请打开黑漂APP!</text>
-    <text class="tipContent">黑漂APP提供更多服务,包括精准钓点信息、放鱼信息、精准渔具店、大师分享、领取优惠券、邀请获漂币、账单等。另外，马上还会上漂友圈，关注以及分享有趣的钓鱼生活，各大应用市场都有上架。</text>
-    <button hover-class="none" catchtap="backClicked" type="primary">返回</button>
-</view>

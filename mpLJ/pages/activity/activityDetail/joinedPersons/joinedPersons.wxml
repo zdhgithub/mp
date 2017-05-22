@@ -1,8 +1,0 @@
-<!--pages/activity/activityDetail/joinedPersons/joinedPersons.wxml-->
-<block wx:for="{{list}}" wx:key="*this">
-    <view class="itemView">
-    <image  src="{{user_portrait_DownLoad_HostURL}}/{{item.portriat}}"></image>
-    <text>{{item.name}}</text>
-</view>
-</block>
-
