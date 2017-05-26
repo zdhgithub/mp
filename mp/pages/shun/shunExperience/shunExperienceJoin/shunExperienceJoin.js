@@ -121,10 +121,23 @@ Page({
     wx.chooseLocation({
       success: function (res) {
 
+        // 地图坐标转火星坐标
+        // var poi = {
+        //   lat: res.latitude,
+        //   lng: res.longitude
+        // }
+        // console.log('地图坐标', poi);
+        // var gcj = hp.wgs2gcj(poi);
+        // console.log('火星坐标', gcj);
+
+        // that.setData({
+        //   lat: gcj.lat,
+        //   lon: gcj.lng
+        // })
+
         that.setData({
           lat: res.latitude,
-          lon: res.longitude,
-          addrName: res.name
+          lon: res.longitude
         })
 
         console.log('选择位置success', res, that.data.lat)
@@ -160,14 +173,14 @@ Page({
           title: '申请已提交',
         })
         // 2秒后调用函数
-        var time = setTimeout(function () {
+        setTimeout(function () {
           wx.navigateBack({})
         }, 2000)
 
-      }else{
+      } else {
         wx.showToast({
           title: '申请失败',
-          icon:'loading'
+          icon: 'loading'
         })
       }
     })
@@ -178,16 +191,9 @@ Page({
     wx.navigateBack({})
   },
   join: function (callback) {
-    // 显示菊花
-    wx.showToast({
-      title: '申请中...',
-      icon: 'loading',
-      mask: true,
-      duration: 10000
-    })
-
-    var url = app.basicV2Url + 'alliance'
     
+    var url = app.basicV2Url + 'alliance'
+
     if (this.data.phoneNumber.isPhoneNum() == false) {
       wx.showToast({
         title: '手机号码有误，请重新输入',
@@ -232,13 +238,19 @@ Page({
 
     console.log('申请加盟 para', para)
 
+    // 显示菊花
+    wx.showToast({
+      title: '申请中...',
+      icon: 'loading',
+      mask: true,
+      duration: 10000
+    })
+
     hp.ctoRequest('POST', url, para, function (res) {
-      // 隐藏菊花
-      wx.hideToast()
       console.log('申请加盟', res)
       callback(res)
     })
-    
+
 
 
   },

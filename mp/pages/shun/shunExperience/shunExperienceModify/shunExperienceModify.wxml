@@ -46,10 +46,10 @@
   <view class="store-info">
     <view class="store-info-text">存货信息</view>
     <view class="store-info-detail">
-      <block wx:for="{{items}}" wx:key="{{*this}}">
+      <block wx:for="{{info.store}}" wx:key="{{*this}}">
         <view class="store-info-detail-cell">
           <text class="store-info-detail-text">{{item.text}}</text>
-          <switch type="switch" data-idx="{{index}}" bindchange="switchChange" checked="{{item.have}}" />
+          <switch type="switch" data-idx="{{index}}" bindchange="switchChange" checked="{{item.bl}}" />
         </view>
       </block>
     </view>

@@ -23,33 +23,11 @@ Page({
     lon: '',
     // 记录开关状态的数组
     switchArr: [
-      { idx: 0, bl: false },
-      { idx: 1, bl: false },
-      { idx: 2, bl: false },
-      { idx: 3, bl: false },
-      { idx: 4, bl: false },
-    ],
-    items: [
-      {
-        text: '一杆钓江山·舜·540',
-        have: false
-      },
-      {
-        text: '一杆钓江山·舜·630',
-        have: false
-      },
-      {
-        text: '一杆钓江山·舜·720',
-        have: false
-      },
-      {
-        text: '一杆钓江山·舜·810',
-        have: false
-      },
-      {
-        text: '一杆钓江山·舜·900',
-        have: false
-      },
+      { text: '一杆钓江山·舜·540', idx: 0, bl: false },
+      { text: '一杆钓江山·舜·630', idx: 1, bl: false },
+      { text: '一杆钓江山·舜·720', idx: 2, bl: false },
+      { text: '一杆钓江山·舜·810', idx: 3, bl: false },
+      { text: '一杆钓江山·舜·900', idx: 4, bl: false },
     ],
   },
 
@@ -129,52 +107,35 @@ Page({
   },
   // 查询当前加盟商信息
   seeInfo: function (callback) {
+
+    var that = this
+
     var url = app.basicV2Url + 'alliance/' + app.user.id;
 
     hp.ctoRequest('Get', url, {}, function (res) {
-      console.log('查询当前加盟商信息', res)
+      console.log('查询当前加盟商信息 res', res)
+
+      var info = res.data
+      console.log('查询当前加盟商信息 info', info)
+      var switchArr = that.data.switchArr
+      if (info.stock == null) {
+        info.store = switchArr
+      } else {
+        var store = JSON.parse(info.stock)
+        console.log('查询当前加盟商信息 store', store)
+        for (var i = 0; i < store.length; i++) {
+          var storeObj = store[i]
+
+          if (storeObj.idx == switchArr[i].idx) {
+            switchArr[i].bl = storeObj.bl
+          }
+        }
+        info.store = switchArr
+      }
+      console.log('查询当前加盟商信息  解析后', res)
+
       callback(res)
     })
-  },
-  // 修改位置
-  modifyLocation: function () {
-    var that = this;
-    console.log('修改位置')
-    wx.chooseLocation({
-      success: function (res) {
-
-        var location = {
-          lat: res.latitude,
-          lon: res.longitude,
-          name: res.name,
-          addr: res.address
-        }
-        that.setData({
-          location: location
-        })
-
-        console.log('选择位置success', res, that.data.location.addr)
-
-      },
-      fail: function (res) {
-        console.log('选择位置fail', res)
-        if (res.errMsg == 'chooseLocation:fail cancel') {
-          wx.showToast({
-            title: '选择位置失败，请重新选择',
-            icon: 'loading',
-            duration: 2000
-          })
-        } else if (res.errMsg == 'chooseLocation:fail auth deny') {
-          wx.showToast({
-            title: '您已拒绝授权，请10分钟后重试',
-            icon: 'loading',
-            duration: 2000
-          })
-        } else { }
-      },
-
-    })
-
   },
   inputShopName: function (e) {
     console.log('修改 shop', e.detail.value)
@@ -194,15 +155,40 @@ Page({
       ad: e.detail.value
     })
   },
+  // 修改位置
   modifyLocation: function () {
     var that = this;
     console.log('选择位置')
     wx.chooseLocation({
       success: function (res) {
 
+        var info = that.data.info
+        var shopName = (that.data.sn.length == 0) ? info.shopName : that.data.sn
+        var name = (that.data.n.length == 0) ? info.name : that.data.n
+        var address = (that.data.ad.length == 0) ? info.address : that.data.ad
+
         var info = that.data.info;
+
+        info.shopName = shopName;
+        info.name = name;
+        info.address = address;
+
+
         info.latitude = res.latitude;
         info.longitude = res.longitude;
+
+        // 地图坐标转火星坐标
+        // var poi = {
+        //   lat: res.latitude,
+        //   lng: res.longitude
+        // }
+        // console.log('地图坐标', poi);
+        // var gcj = hp.wgs2gcj(poi);
+        // console.log('火星坐标', gcj);
+
+        // info.latitude = gcj.lat;
+        // info.longitude = gcj.lng;
+
 
         that.setData({
           info: info
@@ -250,6 +236,13 @@ Page({
   },
   modifyMethod: function (callback) {
 
+    wx.showToast({
+      title: '修改中...',
+      icon: 'loading',
+      mask: true,
+      duration: 10000
+    })
+
     var url = app.basicV2Url + 'alliance/' + app.user.id
 
     var info = this.data.info
@@ -270,15 +263,9 @@ Page({
       "stock": stock
     }
     console.log('修改信息参 para', para)
-    wx.showToast({
-      title: '修改中...',
-      icon: 'loading',
-      mask: true,
-      duration: 10000
-    })
+    
     hp.ctoRequest('PUT', url, para, function (res) {
       console.log('修改信息 res', res)
-      wx.hideToast()
       callback(res)
     })
   },
@@ -288,10 +275,18 @@ Page({
     this.modifyMethod(function (res) {
       if (res.statusCode == 200) {
         wx.showToast({
-          title: '修改成功'
+          title: '修改成功',
+          duration:2000
         })
         // 2秒后返回
-        setTimeout(wx.navigateBack({}), 2000)
+        setTimeout(function () {
+          wx.navigateBack({})
+        }, 2000)
+      }else{
+        wx.showToast({
+          title: '修改失败',
+          icon:'loading'
+        })
       }
     })
   },

@@ -31,7 +31,8 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "鱼乐",
     "navigationBarTextStyle": "black",
-    "backgroundColor":"#fff"
+    "backgroundColor":"#fff",
+    "enablePullDownRefresh":true
   },
   "tabBar": {
     "list": [{

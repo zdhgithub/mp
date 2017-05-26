@@ -115,14 +115,14 @@
 
 .shun-experience-detail-distance {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   position: absolute;
   top: 15px;
   right: 25rpx;
-  border: #159ceb solid 1px;
+  /*border: #159ceb solid 1px;*/
   border-radius: 4px;
-  width: 55px;
+  /*width: 55px;*/
   height: 16px;
 }
 

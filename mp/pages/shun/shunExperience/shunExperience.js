@@ -30,101 +30,7 @@ Page({
       { img: '/images/shun/experience/22.png' },
       { img: '/images/shun/experience/33.png' },
     ],
-    items: [
-      //   {
-      //     shop: '黑漂虚拟渔具店黑漂虚拟渔具店',
-      //     name: '王先生黑漂虚拟渔具店黑漂虚拟渔具店',
-      //     phone: 13312922911,
-      //     addr: '深圳市福田区车公庙深圳市福田区车公庙',
-      //     lat: 22.365425,
-      //     lon: 114.256325,
-      //     distance: 9,
-      //     gan: [
-      //       {
-      //         text: '一杆钓江山.舜.540 有货',
-      //         have: true,
-      //       },
-      //       {
-      //         text: '一杆钓江山.舜.630 无货',
-      //         have: false,
-      //       },
-      //       {
-      //         text: '一杆钓江山.舜.720 有货',
-      //         have: true,
-      //       },
-      //       {
-      //         text: '一杆钓江山.舜.810 无货',
-      //         have: false,
-      //       },
-      //       {
-      //         text: '一杆钓江山.舜.900 有货',
-      //         have: true,
-      //       },
-      //     ],
-      //   },
-      //   {
-      //     shop: '虚拟渔具店',
-      //     name: 'liu先生',
-      //     phone: 13312922911,
-      //     addr: '深圳市福田区车公庙',
-      //     lat: 22.545425,
-      //     lon: 114.256325,
-      //     distance: 9,
-      //     gan: [
-      //       {
-      //         text: '一杆钓江山.舜.540 有货',
-      //         have: true,
-      //       },
-      //       {
-      //         text: '一杆钓江山.舜.630 无货',
-      //         have: false,
-      //       },
-      //       {
-      //         text: '一杆钓江山.舜.720 有货',
-      //         have: true,
-      //       },
-      //       {
-      //         text: '一杆钓江山.舜.810 无货',
-      //         have: false,
-      //       },
-      //       {
-      //         text: '一杆钓江山.舜.900 有货',
-      //         have: true,
-      //       },
-      //     ],
-      //   },
-      //   {
-      //     shop: 'niu渔具店',
-      //     name: '先生',
-      //     phone: 13312922911,
-      //     addr: '深圳市福田区车公庙',
-      //     lat: 22.365425,
-      //     lon: 114.254325,
-      //     distance: 9,
-      //     gan: [
-      //       {
-      //         text: '一杆钓江山.舜.540 有货',
-      //         have: true,
-      //       },
-      //       {
-      //         text: '一杆钓江山.舜.630 无货',
-      //         have: false,
-      //       },
-      //       {
-      //         text: '一杆钓江山.舜.720 有货',
-      //         have: true,
-      //       },
-      //       {
-      //         text: '一杆钓江山.舜.810 无货',
-      //         have: false,
-      //       },
-      //       {
-      //         text: '一杆钓江山.舜.900 有货',
-      //         have: true,
-      //       },
-      //     ],
-      //   },
-    ],
+    items: [],
   },
 
   /**
@@ -286,7 +192,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onLoadMethod()
+    this.onShowMethod()
   },
 
   /**
@@ -347,33 +254,17 @@ Page({
   },
   // 一键导航
   navMethod: function (e) {
-    // wx.getLocation({
-    //   type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-    //   success: function (res) {
-    //     console.log(res)
-    //     var latitude = res.latitude
-    //     var longitude = res.longitude
-    //     wx.openLocation({
-    //       latitude: latitude,
-    //       longitude: longitude,
-    //       scale: 28
-    //     })
-    //   }
-    // })
-
-    // latitude:22.543099
-    // longitude:114.057868
-
+ 
     console.log('一键导航')
     var item = e.currentTarget.dataset.item
     console.log(item)
 
     wx.openLocation({
-      latitude: item.lat,
-      longitude: item.lon,
+      latitude: item.latitude,
+      longitude: item.longitude,
       scale: 28,
-      name: item.name,
-      address: item.addr,
+      name: item.shopName,
+      address: item.address,
       success: function (res) {
         console.log('success', res)
       },
