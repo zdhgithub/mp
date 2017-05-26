@@ -4,7 +4,7 @@
 
   <!--说明文字-->
   <view class="topText">
-    <text class="topText_text">您是渔具店老板，您认同黑漂钓鱼营销模式，您相信 黑漂平台能为您导来流量，那么，您就赶快加入我们吧!</text>
+    <text class="topText_text">您是渔具店老板，您认同黑漂钓鱼营销模式，您相信黑漂平台能为您导来流量，那么，您就赶快加入我们吧!</text>
     <text class="topText_text">您提交申请后，黑漂市场人员会与您取得联系，等一切准备工作完成后，您的宝店将会在钓友体验附近渔具店列表显示。</text>
   </view>
 
@@ -12,22 +12,22 @@
   <view class="inputArea">
     <view class="textAndInput">
       <text class="textAndInput_text">手机号码</text>
-      <input class="textAndInput_input" type="number" placeholder-class="placeholderClass" placeholder="输入必填，11个字符，不可更改" maxlength="11" auto-focus confirm-type="next" />
+      <input class="textAndInput_input" bindblur="inputPhone" type="number" placeholder-class="placeholderClass" placeholder="必填，11个字符，不可更改" maxlength="11" auto-focus confirm-type="next" />
     </view>
 
     <view class="textAndInput">
       <text class="textAndInput_text">渔具店名称</text>
-      <input class="textAndInput_input" type="text" placeholder-class="placeholderClass" placeholder="输入必填，20个字符" maxlength="20" confirm-type="next" />
+      <input class="textAndInput_input" bindblur="inputShopName" type="text" placeholder-class="placeholderClass" placeholder="必填，20个字符" maxlength="20" confirm-type="next" />
     </view>
 
     <view class="textAndInput">
       <text class="textAndInput_text">姓名</text>
-      <input class="textAndInput_input" type="text" placeholder-class="placeholderClass" placeholder="输入，您的姓名，必填，10个字符" maxlength="10" confirm-type="next" />
+      <input class="textAndInput_input" bindblur="inputName" type="text" placeholder-class="placeholderClass" placeholder="必填，您的姓名，10个字符" maxlength="10" confirm-type="next" />
     </view>
 
     <view class="textAndInput">
       <text class="textAndInput_text">地址</text>
-      <input class="textAndInput_input" type="text" placeholder-class="placeholderClass" placeholder="输入，店铺地址，必填，30个字符" maxlength="30" confirm-type="done" />
+      <input class="textAndInput_input" bindblur="inputAddr" type="text" placeholder-class="placeholderClass" placeholder="必填，店铺地址，30个字符" maxlength="30" confirm-type="done" />
     </view>
   </view>
   <!--提供导航-->
@@ -36,7 +36,7 @@
   
     <view class="shun-experience-join-nav-imgAndText">
       <image class="shun-experience-join-nav-img" src="/images/shun/experience/shun_experience_nav.png"></image>
-      <text class="shun-experience-join-nav-text">提供导航(必选)</text>
+      <text class="shun-experience-join-nav-text">{{lat.length == 0 ? '提供导航(必选)' : '经度:'+lon+'\n纬度:'+lat}}</text>
     </view>
 
     <button class="shun-experience-join-nav-btn" bindtap="chooseLocation">选择位置</button>

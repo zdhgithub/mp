@@ -9,10 +9,10 @@
     <block wx:for="{{items}}" wx:key="{{*this}}">
       <view class="shun-experience-detail-bg">
         <image class="shun-experience-detail-img" src="{{imgs[index].img}}"></image>
-        <text class="shun-experience-detail-shop">{{item.shop}}</text>
+        <text class="shun-experience-detail-shop">{{item.shopName}}</text>
         <text class="shun-experience-detail-name">姓名：{{item.name}}</text>
-        <text class="shun-experience-detail-phone">手机号码：{{item.phone}}</text>
-        <text class="shun-experience-detail-addr">地址：{{item.addr}}</text>
+        <text class="shun-experience-detail-phone">手机号码：{{item.phoneNumber}}</text>
+        <text class="shun-experience-detail-addr">地址：{{item.address}}</text>
 
         <view class="shun-experience-detail-distance">
           <text class="shun-experience-detail-distance-text">距离我:{{item.distance}}km</text>
@@ -22,25 +22,29 @@
           <text class="shun-experience-detail-nav-text">一键导航</text>
         </view>
 
-        <view class="line"></view>
+        <!--中间分割线-->
+        <view wx:if="{{item.store != null}}" style="display:block;" class="line"></view>
+        <view wx:if="{{item.store == null}}" style="display:block;margin: 15px auto;width:100%;" class="line"></view>
+
         <!--体验详情-->
-        <view class="shun-experience-detail-bottom">
+        <view wx:if="{{item.store != null}}" style="display:block;" class="shun-experience-detail-bottom">
           <view class="shun-experience-detail-bottom-text">体验详情</view>
 
           <view class="shun-experience-detail-bottom-items">
 
-            <block wx:for="{{item.gan}}" wx:key="{{*this}}">
+            <block wx:for="{{item.store}}" wx:key="{{*this}}">
               <view class="shun-experience-detail-bottom-items-cell">
-                <image wx:if="{{item.have == true}}" class="shun-experience-detail-bottom-items-cell-icon" src="/images/shun/experience/shun_experience_havegan.png"></image>
+                <image wx:if="{{item.bl == true}}" class="shun-experience-detail-bottom-items-cell-icon" src="/images/shun/experience/shun_experience_havegan.png"></image>
                 <image wx:else class="shun-experience-detail-bottom-items-cell-icon" src="/images/shun/experience/shun_experience_nogan.png"></image>
                 <!--根据屏幕宽度确定style-->
-                <text wx:if="{{screenWidth == 320}}" style="margin-left: 0px;" class="shun-experience-detail-bottom-items-cell-text">{{item.text}}</text>
-                <text wx:else style="margin-left: 10px;" class="shun-experience-detail-bottom-items-cell-text">{{item.text}}</text>
+                <text wx:if="{{item.bl == true}}" class="shun-experience-detail-bottom-items-cell-text">{{item.text}} 有货</text>
+                <text wx:else class="shun-experience-detail-bottom-items-cell-text">{{item.text}} 无货</text>
               </view>
             </block>
 
           </view>
         </view>
+        <view wx:if="{{item.store == null}}" style="display:none;" class="shun-experience-detail-bottom"></view>
 
       </view>
     </block>
@@ -48,7 +52,7 @@
 
 
   <!--我要加盟-->
-  <view wx:if="{{join == 0}}" class="releaseArea" catchtap="wantToJoin">
+  <view wx:if="{{join == 0 || join == -1}}" class="releaseArea" catchtap="wantToJoin">
     <view class="releaseView">
       <image class="see" mode="aspectFill" src="/images/shun/experience/shun_experience_add.png"></image>
       <text class="viewContent">我要加盟</text>

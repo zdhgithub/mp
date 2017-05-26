@@ -103,21 +103,21 @@
 /*基本信息view*/
 
 .basicInfoView {
-  background-color: white;
+  background-color: #fff;
   border-bottom: #e5e5e5 solid 1px;
 }
 
 .cellItem {
-  background-color: white;
-  height: 50px;
+  background-color: #fff;
   display: flex;
   display: -webkit-flex;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .activityName {
   font-size: 18px;
-  margin-left: 12px;
+  margin: 12px;
 }
 
 .line {
@@ -126,26 +126,38 @@
   margin-right: 12px;
   height: 1px;
 }
-
-.item_icon {
-  width: 17px;
-  height: 17px;
-  margin-left: 12px;
-  margin-right: 15px;
+.item_icon_view {
+  display: flex;
+  /*background-color: greenyellow;*/
 }
-
+.item_icon {
+  /*background-color: blue;*/
+  display: flex;
+  width: 51rpx;
+  height: 51rpx;
+  margin-left: 12px;
+}
+.item_text_view {
+  display: flex;
+  /*background-color: red;*/
+}
 .item_text {
+  /*background-color: greenyellow;*/
+  display: flex;
+  margin: 15px 12px;
   font-size: 14px;
   color: #333;
+  line-height: 150%;
 }
 
 /*活动费用说明*/
 
 .chargeTips {
+  /*display: none;*/
   border-top: #e5e5e5 solid 1px;
   border-bottom: #e5e5e5 solid 1px;
   margin-top: 10px;
-  background-color: white;
+  background-color: #fff;
 }
 
 .chargeTips_Introduce {
@@ -181,7 +193,6 @@
   background-color: white;
   height: 50px;
   display: flex;
-  display: -webkit-flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
@@ -236,7 +247,6 @@
   border-top: #b2b2b2 solid 1px;
   background-color: blue;
   display: flex;
-  display: -webkit-flex;
   justify-content: space-between;
   align-items: center;
   z-index: 10000;

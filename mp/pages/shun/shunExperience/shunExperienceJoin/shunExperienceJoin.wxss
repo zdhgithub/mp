@@ -33,7 +33,7 @@
   margin-top: 10px;
   width: 700rpx;
   /*background-color: rgba(100, 100, 100, 0.3);*/
-  height: 50px;
+  /*height: 50px;*/
 }
 
 .textAndInput_text {
@@ -52,7 +52,7 @@
   color: #333;
   font-size: 14px;
   width: 500rpx;
-  height: 50px;
+  height: 35px;
   border: #e5e5e5 solid 1px;
 }
 
@@ -77,7 +77,7 @@
   align-items: center;
   margin-left: 25rpx;
   width: 700rpx;
-  height: 50px;
+  /*height: 50px;*/
 }
 
 .shun-experience-join-nav-imgAndText {
@@ -85,33 +85,41 @@
   justify-content: flex-start;
   align-items: center;
 }
-
 .shun-experience-join-nav-img {
   display: flex;
   width: 29rpx;
   height: 38rpx;
 }
-
 .shun-experience-join-nav-text {
   display: flex;
-  margin-left: 25rpx;
+  margin: 10px;
   color: #333;
   font-size: 14px;
-}
+  /*background-color: gray;*/
+  width: 400rpx;
 
+
+  word-break:break-all;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
 .shun-experience-join-nav-btn {
   display: flex;
   color: #fff;
   font-size: 15px;
   background-color: #f46467;
-  margin: 0rpx;
+  width: 90px;
+  height:36px;
+  margin: 10px 0;
 }
 
 .shun-experience-join-btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 30px;
   margin-left: 25rpx;
   width: 700rpx;
   /*background-color: rgba(100, 100, 140, 0.3);*/

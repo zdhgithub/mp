@@ -8,18 +8,18 @@ Page({
     items: [
       {
         img: "https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/bs2.png",
-        w: 750,
-        h: 763
+        // w: 750,
+        // h: 763
         },
       {
         img: "https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/bp.png",
-        w: 750,
-        h: 2000
+        // w: 750,
+        // h: 2000
         },
       {
         img: "https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/bs3.png",
         // w: 750,
-        // h: 644
+        // h: 778
         },
     ],
   },
@@ -68,7 +68,7 @@ Page({
     img.h = 750*imgh/imgw;
 
     this.setData({
-      ietms: this.data.items
+      items: this.data.items
     });
   }
 })

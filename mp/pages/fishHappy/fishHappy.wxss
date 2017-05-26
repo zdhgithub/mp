@@ -392,6 +392,7 @@ background-color: red;
 /********************************下面的tableView***************************/
 .tableView {
     background-color: #fff;
+    margin-top: 20px;
 }
 
 /***********************活动的CSS*************************/

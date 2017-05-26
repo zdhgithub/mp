@@ -19,7 +19,8 @@
       <image class="actBgImage" mode="aspectFill" src="{{fs_discovery_DownLoad_HostURL}}/{{item.bill}}"></image>
       <view class="contentView">
         <text class="actType">{{item.typeName}}</text>
-        <text class="actCharge">{{item.cost}}元</text>
+        <text wx:if="{{item.cost == 0}}" style="display:none;" class="actCharge">{{item.cost}}元</text>
+        <text wx:else style="display:inline-block;" class="actCharge">{{item.cost}}元</text>
         <text class="actLimit">限{{item.quota}}人</text>
 
         <!--<text class="actName">{{item.name}}</text>

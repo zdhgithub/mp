@@ -12,23 +12,23 @@
     <view class="textAndPhoneNum">
       <text class="textAndInput_text">手机号码</text>
       <view class="textAndInput_phoneNum">
-        <text class="textAndInput_phoneNum_num">传入手机号码</text>
+        <text class="textAndInput_phoneNum_num">{{info.phoneNumber}}</text>
       </view>
     </view>
 
     <view class="textAndInput">
       <text class="textAndInput_text">渔具店名称</text>
-      <input class="textAndInput_input" type="text" placeholder-class="placeholderClass" placeholder="输入必填，20个字符" maxlength="20" confirm-type="next" />
+      <input class="textAndInput_input" type="text" placeholder-class="placeholderClass" placeholder="必填，20个字符" maxlength="20" confirm-type="next" value="{{info.shopName}}" bindblur="inputShopName" />
     </view>
 
     <view class="textAndInput">
       <text class="textAndInput_text">姓名</text>
-      <input class="textAndInput_input" type="text" placeholder-class="placeholderClass" placeholder="输入，您的姓名，必填，10个字符" maxlength="10" confirm-type="next" />
+      <input class="textAndInput_input" type="text" placeholder-class="placeholderClass" placeholder="必填，您的姓名，10个字符" maxlength="10" confirm-type="next" value="{{info.name}}" bindblur="inputName" />
     </view>
 
     <view class="textAndInput">
       <text class="textAndInput_text">地址</text>
-      <input class="textAndInput_input" type="text" placeholder-class="placeholderClass" placeholder="输入，店铺地址，必填，30个字符" maxlength="30" confirm-type="done" />
+      <input class="textAndInput_input" type="text" placeholder-class="placeholderClass" placeholder="必填，店铺地址，30个字符" maxlength="30" confirm-type="done" value="{{info.address}}" bindblur="inputAddr" />
     </view>
   </view>
   <!--提供导航-->
@@ -36,7 +36,7 @@
   <view class="shun-experience-join-nav">
     <view class="shun-experience-join-nav-imgAndText">
       <image class="shun-experience-join-nav-img" src="/images/shun/experience/shun_experience_nav.png"></image>
-      <text class="shun-experience-join-nav-text">提供导航(必选)</text>
+      <text class="shun-experience-join-nav-text">{{'经度:'+info.longitude+'\n纬度:'+info.latitude}}</text>
     </view>
     <button class="shun-experience-join-nav-btn" bindtap="modifyLocation">修改位置</button>
   </view>
@@ -49,7 +49,7 @@
       <block wx:for="{{items}}" wx:key="{{*this}}">
         <view class="store-info-detail-cell">
           <text class="store-info-detail-text">{{item.text}}</text>
-          <switch type="switch" checked="{{item.have}}" />
+          <switch type="switch" data-idx="{{index}}" bindchange="switchChange" checked="{{item.have}}" />
         </view>
       </block>
     </view>

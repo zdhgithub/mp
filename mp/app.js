@@ -21,6 +21,7 @@ App({
   // user:null,
   //用户地理位置
   location: null,
+  user: null,
 
   //点赞上传图片
   uploadBucket: 'disc.res',
@@ -34,13 +35,13 @@ App({
 
   //---------------------------------测试环境主机地址和OSS地址--------------------------------//
 
-  //外网测试
-  basicURL: "https://api.heipiaola.cn/v1/",
+
+  // basicURL: "https://api.heipiaola.cn/v1/",  //外网测试
 
 
-  
-  //内网测试
-  // basicURL: "http://192.168.1.220:8081/v1/",
+
+  basicURL: "http://192.168.1.220:8081/v1/",    //内网测试
+  basicV2Url: "http://192.168.1.220:8180/",     // cto接口
   OSS: {
     //1.钓场和渔具店主图/图片/视频
     fs_profileBucketName: 'zt-fs-profile',

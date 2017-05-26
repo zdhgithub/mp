@@ -129,6 +129,33 @@
   font-size: 16px;
   color: #fff;
 }
+/*.shun_video {
+  text-align: left;
+  position: relative;
+  display: inline-block;
+  margin-top: 10rpx;
+  width: 700rpx;
+  height: 250rpx;
+  background-color: #3b96ff;
+  border-radius: 5.0px;
+  overflow: hidden;
+}
+
+.shun_video_img {
+  position: absolute;
+  margin-top: 100rpx;
+  margin-left: 135rpx;
+  width: 83rpx;
+  height: 58rpx;
+}
+
+.shun_video_name {
+  position: absolute;
+  margin-top: 110rpx;
+  margin-left: 300rpx;
+  font-size: 16px;
+  color: #fff;
+}*/
 
 .shun_experience {
   text-align: left;

@@ -32,13 +32,14 @@ function checkUserBindPhoneNumber(callback) {
         code: code,
         userInfo: user.userStr
       };
+      console.log('判断这个微信号是否已经绑定了手机号码了parameter', parameter)
       wx.request({
         url: url,
         data: parameter,
         method: 'POST',
         success: function (res) {
-          console.log('验证接口返回的数据',res);
-       
+          console.log('验证接口返回的数据', res);
+
           if (res.statusCode != 200) {
             wx.showToast({
               title: '哎呀,出错了(' + res.statusCode + ')',
@@ -71,7 +72,7 @@ function checkUserBindPhoneNumber(callback) {
             u.language = user.userInfo.language;
             u.gender = user.userInfo.gender;
 
-            console.log('验证是否登录时返回的用户信息',u);
+            console.log('验证是否登录时返回的用户信息', u);
 
             app.user = u;
             //缓存用户数据
@@ -90,8 +91,12 @@ function checkUserBindPhoneNumber(callback) {
             //拉起回调
             callback(1);
           } else {
-            //没有值,说明没有绑定
-            //重新再登录获取code
+
+            console.log('2', parameter)
+
+
+            // 没有值,说明没有绑定
+            // 重新再登录获取code
             getLoginCode(function (isS, code) {
               if (isS == false) {
                 //回调
@@ -106,11 +111,18 @@ function checkUserBindPhoneNumber(callback) {
                   return;
                 }
                 //跳转到绑定界面
-                verifyPhoneNumber(code, user.userStr);
+                // verifyPhoneNumber(code, user.userStr);
+
+                
+                // 直接登录
+                loginMethod(code, user.userStr, function (res) {
+                  console.log('直接登录', res)
+                  callback(res)
+                })
                 //隐藏提示框
                 wx.hideToast();
                 //回调
-                callback(2);
+                // callback(2);
               });
             });
           }
@@ -130,7 +142,7 @@ function getLoginCode(callback) {
   wx.login({
     success: function (res) {
       // success
-      console.log('login.res',res);
+      console.log('login.res', res);
       if (res.code) {
         callback(true, res.code);
       } else {
@@ -148,7 +160,7 @@ function getUserInformation(callback) {
   wx.getUserInfo({
     success: function (res) {
       // success
-      console.log('getUserInfo',res);
+      console.log('getUserInfo', res);
       var userInfo = {
         'iv': res.iv,
         'userInfo': res.userInfo,
@@ -176,16 +188,102 @@ function getUserInformation(callback) {
     }
   })
 }
-//跳转到绑定界面
-function verifyPhoneNumber(code, userStr) {
-  userStr = encodeURIComponent(userStr);
-  //跳转到验证手机号码界面 + code + 用户信息字符串
-  var urlStr = '/pages/verify/verifyNum/verifyNum?code=' + code + '&userStr=' + userStr;
-  console.log(urlStr);
-  wx.navigateTo({
-    url: urlStr
+
+// 调用登录接口直接登录
+function loginMethod(code, userInfo, callback) {
+  console.log('进入没有啊')
+  wx.showToast({
+    title: '加载中...',
+    icon: 'loading',
+    mask: true,
+    duration: 10000
   });
+  var that = this;
+  var para = {
+    "code": code,
+    "userInfo": userInfo
+  };
+  console.log('进入没有啊para',para)
+  var url = app.basicURL + 'users/login/wxMini';
+  //发起请求
+  wx.request({
+    url: url,
+    data: para,
+    method: 'POST',
+    success: function (res) {
+      console.log('进入没有啊 res', res)
+      // success
+      if (res.statusCode != 200) {
+        wx.showToast({
+          title: '哎呀,出错了(' + res.statusCode + ')',
+          icon: 'loading'
+        })
+        return;
+      }
+      if (res.data.status != 0) {
+        wx.showToast({
+          title: res.data.errMsg,
+          icon: 'loading'
+        })
+        return;
+      }
+
+      console.log('登录成功 停了？')
+
+      var u = res.data.body;
+      
+      //将微信的用户数据也添加上去
+      u.avatarUrl = userInfo.avatarUrl;
+      u.nickName = userInfo.nickName;
+      u.language = userInfo.language;
+      u.country = userInfo.country;
+      u.province = userInfo.province;
+      u.city = userInfo.city;
+      u.language = userInfo.language;
+      u.gender = userInfo.gender;
+      console.log('登录成功啦 u', u)
+      app.user = u;
+      console.log('登录成功啦 app.user', app.user)
+
+      //缓存用户数据
+      try {
+        wx.setStorageSync('user', app.user);
+        // wx.showToast({
+        //   title: '绑定成功',
+        //   icon: 'success',
+        // })
+      } catch (e) {
+        //如果保存失败了,就提示一下用户
+        wx.showToast({
+          title: "保存用户信息失败,请重试",
+          icon: "loading"
+        });
+        callback(0);
+      }
+      console.log('登录成功啦')
+      callback(1);
+      
+    },
+    fail: function () {
+      // fail
+      wx.hideToast();
+      console.log('登录fail啦')
+      //回调
+      callback(false);
+      
+    }
+  })
 }
+//跳转到绑定界面
+// function verifyPhoneNumber(code, userStr) {
+//   userStr = encodeURIComponent(userStr);
+//   //跳转到验证手机号码界面 + code + 用户信息字符串
+//   var urlStr = '/pages/verify/verifyNum/verifyNum?code=' + code + '&userStr=' + userStr;
+//   console.log(urlStr);
+//   wx.navigateTo({
+//     url: urlStr
+//   });
+// }
 
 
 

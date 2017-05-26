@@ -23,7 +23,7 @@ Page({
     screenWidth: app.sysInfo.screenWidth,
     bgColor: getRandomColor(),
     poster: 'https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/sun-bp.png',
-    // 状态0 未加盟  1已加盟  2审核中
+    // 状态0 未加盟  1已加盟  2审核中 审核失败-1
     join: 0,
     imgs: [
       { img: '/images/shun/experience/11.png' },
@@ -31,99 +31,99 @@ Page({
       { img: '/images/shun/experience/33.png' },
     ],
     items: [
-      {
-        shop: '黑漂虚拟渔具店黑漂虚拟渔具店',
-        name: '王先生黑漂虚拟渔具店黑漂虚拟渔具店',
-        phone: 13312922911,
-        addr: '深圳市福田区车公庙深圳市福田区车公庙',
-        lat: 22.365425,
-        lon: 114.256325,
-        distance: 9,
-        gan: [
-          {
-            text: '一杆钓江山.舜.540 有货体验',
-            have: true,
-          },
-          {
-            text: '一杆钓江山.舜.630 无货体验',
-            have: false,
-          },
-          {
-            text: '一杆钓江山.舜.720 有货体验',
-            have: true,
-          },
-          {
-            text: '一杆钓江山.舜.810 无货体验',
-            have: false,
-          },
-          {
-            text: '一杆钓江山.舜.900 有货体验',
-            have: true,
-          },
-        ],
-      },
-      {
-        shop: '虚拟渔具店',
-        name: 'liu先生',
-        phone: 13312922911,
-        addr: '深圳市福田区车公庙',
-        lat: 22.545425,
-        lon: 114.256325,
-        distance: 9,
-        gan: [
-          {
-            text: '一杆钓江山.舜.540 有货体验',
-            have: true,
-          },
-          {
-            text: '一杆钓江山.舜.630 无货体验',
-            have: false,
-          },
-          {
-            text: '一杆钓江山.舜.720 有货体验',
-            have: true,
-          },
-          {
-            text: '一杆钓江山.舜.810 无货体验',
-            have: false,
-          },
-          {
-            text: '一杆钓江山.舜.900 有货体验',
-            have: true,
-          },
-        ],
-      },
-      {
-        shop: 'niu渔具店',
-        name: '先生',
-        phone: 13312922911,
-        addr: '深圳市福田区车公庙',
-        lat: 22.365425,
-        lon: 114.254325,
-        distance: 9,
-        gan: [
-          {
-            text: '一杆钓江山.舜.540 有货',
-            have: true,
-          },
-          {
-            text: '一杆钓江山.舜.630 无货',
-            have: false,
-          },
-          {
-            text: '一杆钓江山.舜.720 有货',
-            have: true,
-          },
-          {
-            text: '一杆钓江山.舜.810 无货',
-            have: false,
-          },
-          {
-            text: '一杆钓江山.舜.900 有货',
-            have: true,
-          },
-        ],
-      },
+      //   {
+      //     shop: '黑漂虚拟渔具店黑漂虚拟渔具店',
+      //     name: '王先生黑漂虚拟渔具店黑漂虚拟渔具店',
+      //     phone: 13312922911,
+      //     addr: '深圳市福田区车公庙深圳市福田区车公庙',
+      //     lat: 22.365425,
+      //     lon: 114.256325,
+      //     distance: 9,
+      //     gan: [
+      //       {
+      //         text: '一杆钓江山.舜.540 有货',
+      //         have: true,
+      //       },
+      //       {
+      //         text: '一杆钓江山.舜.630 无货',
+      //         have: false,
+      //       },
+      //       {
+      //         text: '一杆钓江山.舜.720 有货',
+      //         have: true,
+      //       },
+      //       {
+      //         text: '一杆钓江山.舜.810 无货',
+      //         have: false,
+      //       },
+      //       {
+      //         text: '一杆钓江山.舜.900 有货',
+      //         have: true,
+      //       },
+      //     ],
+      //   },
+      //   {
+      //     shop: '虚拟渔具店',
+      //     name: 'liu先生',
+      //     phone: 13312922911,
+      //     addr: '深圳市福田区车公庙',
+      //     lat: 22.545425,
+      //     lon: 114.256325,
+      //     distance: 9,
+      //     gan: [
+      //       {
+      //         text: '一杆钓江山.舜.540 有货',
+      //         have: true,
+      //       },
+      //       {
+      //         text: '一杆钓江山.舜.630 无货',
+      //         have: false,
+      //       },
+      //       {
+      //         text: '一杆钓江山.舜.720 有货',
+      //         have: true,
+      //       },
+      //       {
+      //         text: '一杆钓江山.舜.810 无货',
+      //         have: false,
+      //       },
+      //       {
+      //         text: '一杆钓江山.舜.900 有货',
+      //         have: true,
+      //       },
+      //     ],
+      //   },
+      //   {
+      //     shop: 'niu渔具店',
+      //     name: '先生',
+      //     phone: 13312922911,
+      //     addr: '深圳市福田区车公庙',
+      //     lat: 22.365425,
+      //     lon: 114.254325,
+      //     distance: 9,
+      //     gan: [
+      //       {
+      //         text: '一杆钓江山.舜.540 有货',
+      //         have: true,
+      //       },
+      //       {
+      //         text: '一杆钓江山.舜.630 无货',
+      //         have: false,
+      //       },
+      //       {
+      //         text: '一杆钓江山.舜.720 有货',
+      //         have: true,
+      //       },
+      //       {
+      //         text: '一杆钓江山.舜.810 无货',
+      //         have: false,
+      //       },
+      //       {
+      //         text: '一杆钓江山.舜.900 有货',
+      //         have: true,
+      //       },
+      //     ],
+      //   },
     ],
   },
 
@@ -131,10 +131,110 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
     console.log('SystemInfo', app.sysInfo);
+  },
+  // 获取当前经纬度
+  getUserLoction: function (callback) {
+    wx.getLocation({
+      success: function (res) {
+        console.log('获取当前经纬度 success', res)
+        var loc = {
+          lon: res.longitude,
+          lat: res.latitude
+        }
+        callback({ isTrue: true, loc: loc })
+      },
+      fail: function (res) {
+        console.log('获取当前经纬度 fail', res)
+        callback({ isTrue: false, loc: null })
+      },
+    })
+  },
+  // 加载附近3条店铺信息
+  loadNear3ShopInfo: function (lon, lat, callback) {
+
+    var url = app.basicV2Url + 'alliance/top/3?longitude=' + lon + '&latitude=' + lat
+
+    hp.ctoRequest('GET', url, {}, function (res) {
+      callback(res)
+    })
+  },
+  onLoadMethod: function () {
+
+    var that = this;
+    this.getUserLoction(function (res) {
+      console.log('getUserLoction', res)
+      that.loadNear3ShopInfo(res.loc.lon, res.loc.lat, function (res) {
 
 
+        var arr = res.data;
+        for (var i = 0; i < arr.length; i++) {
+          var obj = arr[i]
+
+          var store = JSON.parse(obj.stock)
+
+          if (store != null) {
+            for (var j = 0; j < store.length; j++) {
+              var storeObj = store[j]
+              if (j == 0) { storeObj.text = '一杆钓江山.舜.540' }
+              else if (j == 1) { storeObj.text = '一杆钓江山.舜.630' }
+              else if (j == 2) { storeObj.text = '一杆钓江山.舜.720' }
+              else if (j == 3) { storeObj.text = '一杆钓江山.舜.810' }
+              else if (j == 4) { storeObj.text = '一杆钓江山.舜.900' }
+            }
+          }
+
+
+          obj.store = store
+          console.log('stock', obj.stock)
+          console.log('store', obj.store)
+
+          var distance = (obj.duration * 0.001).toFixed(1)
+          console.log('distance类型', typeof (distance))
+          obj.distance = distance;
+
+        }
+
+
+
+        that.setData({
+          items: res.data
+        })
+        console.log('加载附近3条店铺信息', that.data.items)
+      })
+    })
+  },
+  onShowMethod: function () {
+    var that = this;
+
+    this.searchJoinOrNot(function (res) {
+      // 未加盟
+      if (res.data === "") {
+        console.log('未加盟')
+        that.setData({
+          join: 0
+        })
+      }
+      // 0：审核中  1：审核已通过  -1：审核未通过
+      else if (res.data == 0) {
+        console.log('审核中')
+        that.setData({
+          join: 2
+        })
+      }
+      else if (res.data == 1) {
+        console.log('审核已通过')
+        that.setData({
+          join: 1
+        })
+      }
+      else if (res.data == -1) {
+        console.log('审核未通过 == 未加盟')
+        that.setData({
+          join: -1
+        })
+      }
+    })
   },
 
   /**
@@ -148,6 +248,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+    var that = this;
+
+    if (app.user) {
+      this.onLoadMethod()
+      this.onShowMethod()
+    } else {
+
+      VF.checkUserBindPhoneNumber(function (result) {
+        console.log(result)
+        if (result == 1) {
+          console.log('已经绑定手机号')
+          that.onLoadMethod()
+          that.onShowMethod();
+        }
+      })
+    }
 
   },
 
@@ -183,7 +300,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: app.user.nickName + '邀您一起体验舜！',
+      path: '/pages/shun/shunExperience/shunExperience'
+    }
   },
 
   /**
@@ -212,7 +332,7 @@ Page({
   // 我要加盟
   wantToJoin: function () {
     wx.navigateTo({
-      url: '/pages/shun/shunExperience/shunExperienceJoin/shunExperienceJoin',
+      url: '/pages/shun/shunExperience/shunExperienceJoin/shunExperienceJoin?join=' + this.data.join,
     })
   },
   // 修改信息
@@ -252,13 +372,38 @@ Page({
       latitude: item.lat,
       longitude: item.lon,
       scale: 28,
-      name:item.name,
-      address:item.addr,
-      success:function(res){
-        console.log('success',res)
+      name: item.name,
+      address: item.addr,
+      success: function (res) {
+        console.log('success', res)
       },
-      fail:function(res){
-        console.log('fail',res)
+      fail: function (res) {
+        console.log('fail', res)
+      }
+    })
+  },
+  // 查询加盟商状态
+  searchJoinOrNot: function (callback) {
+    var url = app.basicV2Url + 'alliance/status/' + app.user.id
+    console.log('查询加盟商状态', url)
+    // hp.ctoRequest('GET', url, {}, function (res) {
+    //   console.log('查询加盟商状态', res)
+    //   callback(res)
+    // })
+    wx.request({
+      url: url,
+      data: {},
+      method: 'GET',
+      success: function (res) {
+
+        console.log('查询加盟商状态res', res, res.data, res.errMsg);
+        callback(res);
+      },
+      fail: function () {
+        wx.showToast({
+          title: '请求出错了^o^',
+          icon: 'loading'
+        })
       }
     })
   },

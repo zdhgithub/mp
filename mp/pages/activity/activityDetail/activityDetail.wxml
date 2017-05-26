@@ -1,4 +1,3 @@
-
 <!--pages/activity/activityDetail/activityDetail.wxml-->
 <block wx:if="{{info}}">
 
@@ -49,17 +48,25 @@
       <!--基本信息-->
       <view class="basicInfoView">
 
-        <!--地点-->
+        <!--地点 activity_location-->
         <view class="cellItem">
-          <image class="item_icon" src="/images/activity/activity_location.png"></image>
-          <text class="item_text">{{info.provinceName + info.cityName + info.addr}}</text>
+          <view class="item_icon_view">
+            <image class="item_icon" src="/images/activity/activity_location.png"></image>
+          </view>
+          <view class="item_text_view">
+            <text class="item_text">{{info.provinceName + info.cityName + info.addr}}</text>
+          </view>
         </view>
         <view class="line"></view>
 
-        <!--时间-->
+        <!--时间 activity_time-->
         <view class="cellItem">
-          <image class="item_icon" src="/images/activity/activity_time.png"></image>
-          <text class="item_text">活动时间：{{info.beginTimeStr + ' ~ ' + info.endTimeStr}}</text>
+          <view class="item_icon_view">
+            <image class="item_icon" src="/images/activity/activity_time.png"></image>
+          </view>
+          <view class="item_text_view">
+            <text class="item_text">活动时间：{{info.beginTimeStr + ' ~ ' + info.endTimeStr}}</text>
+          </view>
         </view>
         <view class="line"></view>
 
@@ -103,13 +110,15 @@
           <image class="item_icon" src="/images/activity/activity_joinpps.png"></image>
           <text class="item_text">参与人数限额：{{info.quota}}人</text>
         </view>
-        <view class="line"></view>
-        <view class="cellItem_joinedView" catchtap="showJoinedPersons">
-          <view class="cellItem_joinedView_leftView">
+
+        <view wx:if="{{info.cost == 0}}" style="display:none;" class="line"></view>
+        <view wx:else style="display:flex;" class="line"></view>
+
+        <view class="cellItem_joinedView" wx:if="{{info.cost != 0}}" style="display:flex;" catchtap="showJoinedPersons">
+          <view class="cellItem">
             <image class="item_icon" src="/images/activity/activity_joinpp.png"></image>
             <text class="item_text">{{joinedList.length}}人已参与</text>
           </view>
-
           <!--参与人数列表-->
           <view class="cellItem_joinedView_rightView">
             <block wx:for="{{joinedList}}" wx:key="*this">
@@ -120,6 +129,7 @@
             <image class="cellItem_joinedView_rightView_arrow" src="/images/my/arrow_right.png"></image>
           </view>
         </view>
+        <view class="cellItem_joinedView" wx:else style="display:none;"></view>
       </view>
 
       <!--活动详情-->
@@ -139,7 +149,9 @@
       </view>
 
       <!--站位的区域-->
-      <view class="blankView"></view>
+      <!--<view class="blankView"></view>-->
+      <view wx:if="{{info.cost == 0}}" style="display:none;" class="blankView"></view>
+      <view wx:else style="display:block;" class="blankView"></view>
     </block>
 
 
@@ -163,8 +175,14 @@
     </block>
   </view>
 
+
+
+
+
+
+
   <!--底部悬浮区域,只有显示详情界面的时候才显示,同时如果为发布的活动(通过二维码扫进来的)也不展示-->
-  <view class="floatView" wx:if="{{opType == 0 || info.status == 0}}">
+  <view class="floatView" wx:if="{{(opType == 0 || info.status == 0) && info.cost != 0}}">
 
     <!--用户未登录状态-->
     <block wx:if="{{isLogin == 0}}">
@@ -236,4 +254,6 @@
       </block>
     </block>
   </view>
+  <view class="floatView" style="display:none" wx:else></view>
+
 </block>

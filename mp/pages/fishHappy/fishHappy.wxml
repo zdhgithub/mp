@@ -15,28 +15,28 @@
     </view>
 
     <!--------------------------------切换按钮-------------------------------->
-    <block>
-      <view class="segmentBar">
+    <!--<block>
+      <view class="segmentBar">-->
 
-        <!--集赞-->
-        <view class="site" data-type="{{0}}" bindtap="saleTap">
+    <!--集赞-->
+    <!--<view class="site" data-type="{{0}}" bindtap="saleTap">
           <image src="../../images/fishHappy/fishHappy_sale.png" mode="aspectFill" class="sale_image"></image>
           <view class="{{openType == 0 ? 'site_name_sel' : 'site_name'}}">集赞</view>
-        </view>
+        </view>-->
 
-        <!--活动-->
-        <view class="activity" data-type="{{1}}" bindtap="activityTap">
+    <!--活动-->
+    <!--<view class="activity" data-type="{{1}}" bindtap="activityTap">
           <image src="../../images/fishHappy/fishHappy_activity.png" mode="aspectFill" class="activity_image"></image>
           <view class="{{openType == 1 ? 'activity_name_sel' : 'activity_name'}}">活动</view>
-        </view>
+        </view>-->
 
 
 
-        <!--指示线-->
-        <view wx:if="{{openType == 0}}" class="indexLine0"></view>
+    <!--指示线-->
+    <!--<view wx:if="{{openType == 0}}" class="indexLine0"></view>
         <view wx:else class="indexLine1"></view>
       </view>
-    </block>
+    </block>-->
 
     <!--------------------------------下面的table-------------------------------->
     <view class="tableView">
@@ -137,38 +137,39 @@
 
       <!--------活动-------->
       <block wx:elif="{{openType == 1}}">
-        <block wx:for="{{actLists}}" wx:key="{{item.id}}">
-          <block wx:if="{{item.status}}">
-            <!--gotoActivityDetail   gotoActivitySale-->
-            <view class="itemView" data-act="{{item}}" bindtap="{{item.style == 2 ? 'gotoActivitySale' : 'gotoActivityDetail'}}">
+        <view class="actLists_area">
+          <block wx:for="{{actLists}}" wx:key="{{item.id}}">
+            <block wx:if="{{item.status}}">
+              <view class="itemView" data-act="{{item}}" bindtap="gotoActivityDetail">
 
-              <!--状态图标-->
+                <!--状态图标-->
 
-              <!--1：报名中，2.待抽签，3.已抽签，4.已结束，5.已暂停，6.已取消-->
-              <text wx:if="{{item.status == 1}}" class="finishedIcon" style="background-color: #aa4fb0;">火热报名</text>
-              <text wx:if="{{item.status == 2}}" class="finishedIcon" style="background-color: #23aee8;">进行中...</text>
-              <text wx:elif="{{item.status == 3}}" class="finishedIcon" style="background-color: #23aee8;">进行中...</text>
-              <text wx:if="{{item.status == 4}}" class="finishedIcon" style="background-color: #aa4fb0;">精彩回顾</text>
-              <text wx:elif="{{item.status == 5}}" class="finishedIcon" style="background-color: #CDC9C9;">已暂停</text>
-              <text wx:elif="{{item.status == 6}}" class="finishedIcon" style="background-color: #CDC9C9;">已取消</text>
+                <!--1：报名中，2.待抽签，3.已抽签，4.已结束，5.已暂停，6.已取消-->
+                <text wx:if="{{item.status == 1}}" class="finishedIcon" style="background-color: #aa4fb0;">火热报名</text>
+                <text wx:if="{{item.status == 2}}" class="finishedIcon" style="background-color: #23aee8;">进行中...</text>
+                <text wx:elif="{{item.status == 3}}" class="finishedIcon" style="background-color: #23aee8;">进行中...</text>
+                <text wx:if="{{item.status == 4}}" class="finishedIcon" style="background-color: #aa4fb0;">精彩回顾</text>
+                <text wx:elif="{{item.status == 5}}" class="finishedIcon" style="background-color: #CDC9C9;">已暂停</text>
+                <text wx:elif="{{item.status == 6}}" class="finishedIcon" style="background-color: #CDC9C9;">已取消</text>
 
-              <!--单个活动内容-->
-              <image class="actBgImage" mode="aspectFill" src="{{fs_discovery_DownLoad_HostURL}}/{{item.bill}}"></image>
-              <view class="contentView">
-                <text class="actType">{{item.typeName}}</text>
-                <text class="actCharge">{{item.cost}}元</text>
-                <text class="actLimit">限{{item.quota}}人</text>
-
-                <!--<text class="actName">{{item.name}}</text>
+                <!--单个活动内容-->
+                <image class="actBgImage" mode="aspectFill" src="{{fs_discovery_DownLoad_HostURL}}/{{item.bill}}"></image>
+                <view class="contentView">
+                  <text class="actType">{{item.typeName}}</text>
+                  <text wx:if="{{item.cost == 0}}" style="display:none;" class="actCharge">{{item.cost}}元</text>
+                  <text wx:else style="display:inline-block;" class="actCharge">{{item.cost}}元</text>
+                  <text class="actLimit">限{{item.quota}}人</text>
+                  <!--<text class="actName">{{item.name}}</text>
         <text class="actTime">{{item.beginTimeStr}}</text>
         <text class="actCity">{{item.provinceName}}</text>
         <text class="actZone">{{item.cityName}}</text>
         <text class="actFishSite">{{item.addr}}</text>-->
-              </view>
+                </view>
 
-            </view>
+              </view>
+            </block>
           </block>
-        </block>
+        </view>
 
         <!--加载更多-->
         <view class="upLoadMore">

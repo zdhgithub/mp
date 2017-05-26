@@ -91,7 +91,7 @@ Page({
       });
     }
   },
-  //'绑定'按钮被点击的时候调用
+  // 调用登录接口直接登录
   verifyClicked: function (e) {
     wx.showToast({
       title: '加载中...',
@@ -107,8 +107,8 @@ Page({
       //获取用户信息
       that.getUserInformation(function (user) {
         var para = {
-          "phone": phone,
-          "verifyNum": code,
+          // "phone": phone,
+          // "verifyNum": code,
           "code": userCode,
           "userInfo": user.userStr
         };
@@ -144,13 +144,17 @@ Page({
             app.user.city = user.userInfo.city;
             app.user.language = user.userInfo.language;
             app.user.gender = user.userInfo.gender;
+
+
+
+            console.log('登录成功',app.user)
             //缓存用户数据
             try {
               wx.setStorageSync('user', app.user);
-              wx.showToast({
-                title: '绑定成功',
-                icon: 'success',
-              })
+              // wx.showToast({
+              //   title: '绑定成功',
+              //   icon: 'success',
+              // })
               //过1s后退出界面
               setTimeout(function () {
                 //退出绑定界面

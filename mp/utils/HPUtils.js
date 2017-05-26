@@ -2,6 +2,49 @@
 //-----------------下面是封装的方法--------------//
 
 var app = getApp();
+
+// 专为CTO做的网络请求封装类
+function ctoRequest(method, url, data, result) {
+  wx.request({
+    url: url,
+    data: data,
+    method: method, // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+    // header: {}, // 设置请求的 header
+    success: function (res) {
+      // success
+      console.log('requestUrl,res', url, res);
+
+// 200 201
+      var code = res.statusCode.toString().indexOf('20')
+      console.log('200 201', code);
+      if (code != 0) {
+        wx.showToast({
+          title: '哎呀,出错了(' + res.statusCode + ')',
+          icon: 'loading'
+        })
+        return;
+      }
+      // if (res.data.status != 0) {
+      //   wx.showToast({
+      //     title: res.data.errMsg,
+      //     icon: 'loading'
+      //   })
+      //   return;
+      // }
+      //将结果回调
+      result(res);
+
+    },
+    fail: function () {
+      // fail
+      wx.showToast({
+        title: '请求出错了^o^',
+        icon: 'loading'
+      })
+    }
+  })
+}
+
 // 网络请求封装
 function request(method, url, data, result) {
   wx.request({
@@ -165,7 +208,7 @@ Date.prototype.format = function (format) {
 
 // console.log('isPhoneNum', '13515235695'.isPhoneNum());
 String.prototype.isPhoneNum = function () {
-  return /^1[3578]\d{9}$/.test(this);
+  return /^1[34578]\d{9}$/.test(this);
 }
 
 
@@ -189,6 +232,7 @@ n表示第几项，从0开始算起。
 
 //导出
 module.exports = {
+  ctoRequest: ctoRequest,
   request: request,
   uploadFile2OSS: uploadFile2OSS,
   uuid: uuid

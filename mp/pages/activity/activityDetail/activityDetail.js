@@ -57,6 +57,7 @@ Page({
     })
     //加载报名人数数据
     this.loadJoinedData(options.actId, function (joinedList) {
+      console.log('加载报名人数数据', joinedList)
       that.setData({
         joinedList: joinedList
       });
@@ -419,7 +420,7 @@ Page({
   //页面分享按钮
   onShareAppMessage: function () {
     return {
-      title: this.data.info.name,
+      title: app.user.nickName +'邀您一起钓鱼去！',
       path: '/pages/activity/activityDetail/activityDetail?actId=' + this.data.info.id
     }
   },

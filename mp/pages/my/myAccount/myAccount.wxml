@@ -4,7 +4,7 @@
   <view>
     <view class="headView">
       <view class="img-head"></view>
-      <image src="/images/mine/mine_defaultPortrait.png"></image>
+      <image src="/images/my/my_defaultPortrait.png"></image>
       <image wx:if="{{user}}" src="{{user.avatarUrl}}"></image>
       <image wx:if="{{user}}" src="{{user_portrait_DownLoad_HostURL}}/{{user.portriat}}"></image>
     </view>

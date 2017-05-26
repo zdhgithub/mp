@@ -6,11 +6,11 @@ var app = getApp();
 Page({
     data: {
         items: [
-            {
-                name: "账户信息",
-                icon: "/images/my/my_account_info.png",
-                action: "loginAndShowUserInfo"
-            },
+            // {
+            //     name: "账户信息",
+            //     icon: "/images/my/my_account_info.png",
+            //     action: "loginAndShowUserInfo"
+            // },
             {
                 name: "关于黑漂",
                 icon: "/images/my/my_heipiao.png",

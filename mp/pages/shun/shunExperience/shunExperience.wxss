@@ -61,10 +61,10 @@
 .shun-experience-detail-bg {
   position: relative;
   display: block;
-  background-color: #fff;
   margin-top: 10px;
   border-top: #e5e5e5 solid 1px;
   border-bottom: #e5e5e5 solid 1px;
+  background-color: #fff;
 }
 
 .shun-experience-detail-img {
@@ -179,16 +179,16 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px;
   width: 100%;
   /*background-color: rgba(200, 155, 200, 0.3);*/
 }
 
 .shun-experience-detail-bottom-items-cell {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  /*width: 160px;*/
+  width: 140px;
   /*background-color: yellow;*/
   height: 32px;
 }
@@ -203,5 +203,5 @@
   display: flex;
   color: #4c4c4c;
   font-size: 11px;
-  /*margin-left: 10px;*/
+  margin-left: 10px;
 }
