@@ -1,99 +1,106 @@
-
-
 .container {
-    width: 750rpx;
-    overflow: hidden;
+  width: 750rpx;
+  overflow: hidden;
 }
+
 .swiper {
-    display: block;
-    width: 750rpx; 
-    height: 300rpx;
-    /*background-color: red;*/
+  display: block;
+  width: 750rpx;
+  height: 300rpx;
+  /*background-color: red;*/
 }
+
 .slide-image {
-    width: 750rpx; 
-    height: 330rpx;
+  width: 750rpx;
+  height: 330rpx;
 }
+
 .segmentBar {
-    display: block;
-    /*background-color: red;*/
-    width: 750rpx;
-    height: 150rpx;
-    border-bottom: #e5e5e5 solid 1px;
+  display: block;
+  /*background-color: red;*/
+  width: 750rpx;
+  height: 150rpx;
+  border-bottom: #e5e5e5 solid 1px;
 }
+
 .activity, .sale, .site {
-    display: inline-block;
-    /*background-color: blue;*/
-    width: 375rpx;
-    height: 150rpx;
+  display: inline-block;
+  /*background-color: blue;*/
+  width: 375rpx;
+  height: 150rpx;
 }
+
 /*.activity{
 background-color: blue;
 }
 .site{
 background-color: red;
 }*/
+
 .activity_image, .sale_image, .site_image {
-    position: relative;
-    top: 50rpx;
-    left: 162rpx;
-    width: 40rpx;
-    height: 40rpx;
+  position: relative;
+  top: 50rpx;
+  left: 162rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
+
 .activity_name, .sale_name, .site_name {
-    position: relative;
-    top: 50rpx;
-    left: 158rpx;
-    font-size: 11px;
-    color: #4c4c4c;
+  position: relative;
+  top: 50rpx;
+  left: 158rpx;
+  font-size: 11px;
+  color: #4c4c4c;
 }
+
 .activity_name_sel, .sale_name_sel, .site_name_sel {
-    position: relative;
-    top: 50rpx;
-    left: 158rpx;
-    font-size: 11px;
-    color: #159ceb;
+  position: relative;
+  top: 50rpx;
+  left: 158rpx;
+  font-size: 11px;
+  color: #159ceb;
 }
+
 .indexLine0 {
-    display: block;
-    width: 225rpx;
-    height: 1px;
-    background-color: #159ceb;
-    margin-left: 75rpx;
+  display: block;
+  width: 225rpx;
+  height: 1px;
+  background-color: #159ceb;
+  margin-left: 75rpx;
 }
+
 .indexLine1 {
-    display: block;
-    width: 225rpx;
-    height: 1px;
-    background-color: #159ceb;
-    margin-left: 450rpx;
+  display: block;
+  width: 225rpx;
+  height: 1px;
+  background-color: #159ceb;
+  margin-left: 450rpx;
 }
 
 /*----------------------------------------集赞视图----------------------------------------*/
 
 /*发布内容*/
+
 .releaseArea {
-  position: absolute;
-  width: 90rpx;
-  height: 230rpx;
-  right: 12rpx;
-  bottom: 270rpx;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 100px;
   /*background-color: rgba(156, 200, 65, 1);*/
 }
+
 .releaseView {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  width: 66rpx;
-  height: 230rpx;
-  right: 12rpx;
-  bottom: 0rpx;
+  width: 30px;
+  height: 100px;
   background-color: rgba(65, 65, 65, 0.8);
-  border-radius: 33rpx;
+  border-radius: 15px;
 }
-
 
 .see {
   display: flex;
@@ -253,13 +260,14 @@ background-color: red;
   /*background-color: green;*/
   margin-right: 25rpx;
 }
+
 .zanCount_area {
   display: flex;
   height: 30px;
   width: 50px;
   flex-direction: row-reverse;
   align-items: center;
-/*background-color: red;*/
+  /*background-color: red;*/
 }
 
 .zanCount_img {
@@ -293,25 +301,28 @@ background-color: red;
   display: flex;
   width: 40rpx;
   height: 40rpx;
+  margin-top: 10rpx;
 }
 
 .zanName_names {
   display: flex;
-  /*margin-top: 13rpx;*/
   width: 560rpx;
   height: 40rpx;
   overflow: hidden;
-  /*background-color: red;*/
 }
 
 .zanName_names_text {
   display: flex;
   font-size: 13px;
   color: #7a7d7e;
-  text-overflow: ellipsis; /*尾部省略号裁剪*/
-  white-space: nowrap;
   word-break: break-all;
-  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .zanName_btn {
@@ -336,6 +347,52 @@ background-color: red;
 /*------------------------------展开------------------------------*/
 
 .zanName_more {
+  display: inline-box;
+  margin: 0 25rpx 30rpx;
+  width: 700rpx;
+  /*background-color: greenyellow;*/
+}
+.zanName_img_more {
+  float: left;
+  margin-top: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.zanName_names_more {
+  display: inline;
+}
+
+.zanName_names_more_text {
+  display: inline;
+  margin-left:3px;
+  font-size: 13px;
+  color: #7a7d7e;
+  line-height: 150%;
+  word-break: break-all;
+  word-wrap:break-word;
+}
+
+.zanName_btn_more {
+  float: right;
+  display: inline-flex;
+  display: -webkit-inline-flex;
+  flex-flow: row warp;
+  justify-content: center;
+  align-items: center;
+  width: 86rpx;
+  height: 40rpx;
+  border-radius: 4.0px;
+  border: #999 solid 1px;
+}
+
+.zanName_btn_more_text {
+  display: flex;
+  color: #949899;
+  font-size: 9px;
+}
+
+/*.zanName_more {
   display: flex;
   flex-wrap: warp;
   justify-content: space-between;
@@ -344,7 +401,7 @@ background-color: red;
   margin-top: 20rpx;
   margin-left: 25rpx;
   margin-bottom: 30rpx;
-  /*background-color: greenyellow;*/
+  /*background-color: greenyellow;*
   overflow: hidden;
 }
 
@@ -357,7 +414,9 @@ background-color: red;
 
 .zanName_names_more {
   display: flex;
-  /*margin-top: 2rpx;*//*background-color: red;*/
+  /*margin-top: 2rpx;*/
+
+/*background-color: red;*
 }
 
 .zanName_names_more_text {
@@ -385,17 +444,17 @@ background-color: red;
   display: flex;
   color: #949899;
   font-size: 9px;
-}
-
-
+}*/
 
 /********************************下面的tableView***************************/
+
 .tableView {
-    background-color: #fff;
-    margin-top: 20px;
+  background-color: #fff;
+  margin-top: 20px;
 }
 
 /***********************活动的CSS*************************/
+
 .itemView {
   margin-top: 20rpx;
   position: relative;
@@ -494,138 +553,148 @@ background-color: red;
   font-size: 14px;
   padding: none;
 }
+
 .saleLists_img {
-display: block;
-margin: 20rpx 0 0;
+  display: block;
+  margin: 20rpx 0 0;
 }
+
 /****************************************钓场CSS*************************************/
-.site_itemView{
-    background-color: white;
-    position: relative;
-    border-bottom: #d3d9da solid 1px;
-    height: 97px;
-    padding-top: 13px;
-    padding-left: 12px;
-}
-.site_itemView image{
-    display: block;
-    width: 117px;
-    height: 86px;
-}
-.site_itemView .fishSiteName{
-    font-size: 17px;
-    position: absolute;
-    top: 14px;
-    right: 20%;
-    left: 140px;
 
-    word-break:break-all;
-    display:-webkit-box;
-    -webkit-line-clamp:1;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
-
-}
-.site_itemView .location{
-    display: inline-block;
-    width: 8px;
-    height: 10px;
-    position: absolute;
-    margin-top: 3px;
-    left: 140px;
-    top: 48px;
-
-}
-.site_itemView .addr{
-    display: block;
-    color: #888888;
-    font-size: 14px;
-    position: absolute;
-    top: 45px;
-    left: 150px;
-    right: 2%;
-
-    word-break:break-all;
-    display:-webkit-box;
-    -webkit-line-clamp:1;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
-
-}
-.site_itemView .distance{
-    display: block;
-    position: absolute;
-    font-size: 14px;
-    color: #555555;
-    top: 80px;
-    right: 12px;
-}
-.chargeView{
-    position: absolute;
-    left: 140px;
-    top: 74px;
-}
-.redText{
-    color: #f6807d;
-    font-size: 16px;
-
-}
-.normalText{
-    color: #555555;
-    font-size: 16px;
+.site_itemView {
+  background-color: white;
+  position: relative;
+  border-bottom: #d3d9da solid 1px;
+  height: 97px;
+  padding-top: 13px;
+  padding-left: 12px;
 }
 
-.buyTicket{
-    color: rgb(113, 206, 215);
-    border: 1px solid #60cad4;
-    font-size: 14px;
-    border-radius: 4px;
-    width: 60px;
-    height: 20px;
-    line-height: 20px;
-    text-align: center;
-    position: absolute;
-    right: 12px;
-    top: 14px;
+.site_itemView image {
+  display: block;
+  width: 117px;
+  height: 86px;
+}
+
+.site_itemView .fishSiteName {
+  font-size: 17px;
+  position: absolute;
+  top: 14px;
+  right: 20%;
+  left: 140px;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.site_itemView .location {
+  display: inline-block;
+  width: 8px;
+  height: 10px;
+  position: absolute;
+  margin-top: 3px;
+  left: 140px;
+  top: 48px;
+}
+
+.site_itemView .addr {
+  display: block;
+  color: #888;
+  font-size: 14px;
+  position: absolute;
+  top: 45px;
+  left: 150px;
+  right: 2%;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.site_itemView .distance {
+  display: block;
+  position: absolute;
+  font-size: 14px;
+  color: #555;
+  top: 80px;
+  right: 12px;
+}
+
+.chargeView {
+  position: absolute;
+  left: 140px;
+  top: 74px;
+}
+
+.redText {
+  color: #f6807d;
+  font-size: 16px;
+}
+
+.normalText {
+  color: #555;
+  font-size: 16px;
+}
+
+.buyTicket {
+  color: rgb(113, 206, 215);
+  border: 1px solid #60cad4;
+  font-size: 14px;
+  border-radius: 4px;
+  width: 60px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  position: absolute;
+  right: 12px;
+  top: 14px;
 }
 
 /*上拉加载更多*/
-.site_upLoadMore{
-    height: 44px;
-    width: 100%;
-    text-align: center;
-    line-height: 44px;
-    color: #8A8A8A;
+
+.site_upLoadMore {
+  height: 44px;
+  width: 100%;
+  text-align: center;
+  line-height: 44px;
+  color: #8a8a8a;
 }
-.site_upLoadMore view{
-    border: none;
-    height: 44px;
-    width: 100%;
-    text-align: center;
-    line-height: 44px;
-    font-size: 14px;
+
+.site_upLoadMore view {
+  border: none;
+  height: 44px;
+  width: 100%;
+  text-align: center;
+  line-height: 44px;
+  font-size: 14px;
 }
 
 /*当获取不到地理位置时的界面布局*/
-.nodata_content{
-    display: flex;
-    display: -webkit-flex;
-    flex-direction: column;
-    align-items: center;
-}
-.nodata_tip{
-    margin-top: 107px;
-    font-size: 20px;
-    color: black;
-}
-.nodata_introduce{
-    margin: 20px 60rpx 0px 60rpx;
-    font-size: 14px;
-    color: #888888;
-    text-indent: 30px;
 
+.nodata_content {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  align-items: center;
 }
-.nodata_button{
-    margin-top: 34px;
-    width: 700rpx;
+
+.nodata_tip {
+  margin-top: 107px;
+  font-size: 20px;
+  color: black;
+}
+
+.nodata_introduce {
+  margin: 20px 60rpx 0px 60rpx;
+  font-size: 14px;
+  color: #888;
+  text-indent: 30px;
+}
+
+.nodata_button {
+  margin-top: 34px;
+  width: 700rpx;
 }

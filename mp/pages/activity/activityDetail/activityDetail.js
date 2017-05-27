@@ -177,7 +177,7 @@ Page({
   },
   // 加载活动详情的图片信息尺寸
   changeDetailImageSize: function (e) {
-    console.log('加载活动详情的图片信息尺寸',e);
+    // console.log('加载活动详情的图片信息尺寸',e);
     //图片的位置
     var imgidx = e.currentTarget.dataset.imgidx;
     //取出图片
@@ -192,7 +192,7 @@ Page({
     this.setData({
       info: this.data.info
     });
-    console.log('更新渲染层数据', this.data.info);
+    // console.log('更新渲染层数据', this.data.info);
   },
   //获取支付参数
   getPayingParameter: function (actId, userId, openId, callback) {
@@ -202,7 +202,7 @@ Page({
       cid: actId,
       openid: openId
     }
-    console.log(para);
+    // console.log(para);
 
     hp.request('POST', urlStr, para, function (res) {
       //进行字符串解析

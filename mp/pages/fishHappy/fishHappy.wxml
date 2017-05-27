@@ -15,28 +15,28 @@
     </view>
 
     <!--------------------------------切换按钮-------------------------------->
-    <!--<block>
-      <view class="segmentBar">-->
+    <block>
+      <view class="segmentBar">
 
-    <!--集赞-->
-    <!--<view class="site" data-type="{{0}}" bindtap="saleTap">
+        <!--集赞-->
+        <view class="site" data-type="{{0}}" bindtap="saleTap">
           <image src="../../images/fishHappy/fishHappy_sale.png" mode="aspectFill" class="sale_image"></image>
           <view class="{{openType == 0 ? 'site_name_sel' : 'site_name'}}">集赞</view>
-        </view>-->
+        </view>
 
-    <!--活动-->
-    <!--<view class="activity" data-type="{{1}}" bindtap="activityTap">
+        <!--活动-->
+        <view class="activity" data-type="{{1}}" bindtap="activityTap">
           <image src="../../images/fishHappy/fishHappy_activity.png" mode="aspectFill" class="activity_image"></image>
           <view class="{{openType == 1 ? 'activity_name_sel' : 'activity_name'}}">活动</view>
-        </view>-->
+        </view>
 
 
 
-    <!--指示线-->
-    <!--<view wx:if="{{openType == 0}}" class="indexLine0"></view>
+        <!--指示线-->
+        <view wx:if="{{openType == 0}}" class="indexLine0"></view>
         <view wx:else class="indexLine1"></view>
       </view>
-    </block>-->
+    </block>
 
     <!--------------------------------下面的table-------------------------------->
     <view class="tableView">
@@ -48,7 +48,7 @@
 
 
         <!--发布内容  releasePicsClick  seePicsClick  -->
-        <view class="releaseArea" catchtap="{{isReleased == true ? 'seePicsTapMethod' : 'releasePicsClick'}}">
+        <view class="releaseArea" catchtap="{{isReleased == true ? 'seePicsTapMethod' : 'releasePicsClick'}}" style="left:{{left}}px;top:{{top}}px;" catchtouchmove="releaseViewTouchMove">
           <view class="releaseView">
             <image wx:if="{{isReleased == true}}" class="see" mode="aspectFill" src="/images/activity/activity_see.png"></image>
             <image wx:else class="see" mode="aspectFill" src="/images/activity/activity_releaseIcon.png"></image>
@@ -118,6 +118,7 @@
               <!--更多-->
               <view wx:else class="zanName_more">
                 <image class="zanName_img_more" src="/images/activity/activity_zan1.png"></image>
+               
                 <view class="zanName_names_more">
                   <text class="zanName_names_more_text">{{item.nicknames}}</text>
                 </view>
@@ -132,6 +133,11 @@
         </view>
 
       </block>
+
+
+
+
+
 
 
 

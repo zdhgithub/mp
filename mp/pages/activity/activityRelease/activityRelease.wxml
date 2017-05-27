@@ -22,7 +22,7 @@
       <view class="uploaderpics">
         <view class="weui-uploader__bd">
           <view class="weui-uploader__files">
-            <block wx:for="{{imageList}}" wx:for-item="image">
+            <block wx:for="{{imageList}}" wx:for-item="image" wx:key="{{*this}}">
               <view class="weui-uploader__file">
                 <image mode="aspectFill" class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
               </view>

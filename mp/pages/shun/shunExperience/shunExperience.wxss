@@ -14,11 +14,12 @@
 /*---------------------加盟视图------------------*/
 
 .releaseArea {
-  position: absolute;
-  width: 90rpx;
-  height: 230rpx;
-  right: 12rpx;
-  bottom: 270rpx;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 100px;
   /*background-color: rgba(240, 104, 156, 1);*/
 }
 
@@ -27,13 +28,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  width: 66rpx;
-  height: 230rpx;
-  right: 12rpx;
-  bottom: 0rpx;
+  width: 30px;
+  height: 100px;
   background-color: rgba(65, 65, 65, 0.8);
-  border-radius: 33rpx;
+  border-radius: 15px;
 }
 
 .see {
@@ -54,7 +52,6 @@
 .shun-experience-detail {
   display: block;
   width: 100%;
-  height: 1000rpx;
   /*background-color: rgba(100, 100, 100, 0.3);*/
 }
 

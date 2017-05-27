@@ -1,4 +1,5 @@
 {
     "navigationBarTitleText": "舜",
-    "backgroundColor": "#fff"
+    "backgroundColor": "#fff",
+    "enablePullDownRefresh": true
 }

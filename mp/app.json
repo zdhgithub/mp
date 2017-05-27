@@ -9,11 +9,11 @@
     "pages/shun/shunExperience/shunExperience",
     "pages/shun/shunExperience/shunExperienceModify/shunExperienceModify",
     "pages/shun/shunExperience/shunExperienceJoin/shunExperienceJoin",
+    "pages/verify/verifyNum/verifyNum",
     "pages/my/my",
     "pages/my/myAccount/myAccount",
     "pages/my/myHeipiao/myHeipiao",
-    "pages/activity/activityList/activityList",
-    "pages/verify/verifyNum/verifyNum",
+    "pages/activity/activityEnd/activityEnd",
     "pages/activity/activityDetail/activityDetail",
     "pages/activity/activityDetail/offlineJoin/offlineJoin",
     "pages/activity/activityDetail/reviewArticles/reviewArticles",
@@ -32,7 +32,7 @@
     "navigationBarTitleText": "鱼乐",
     "navigationBarTextStyle": "black",
     "backgroundColor":"#fff",
-    "enablePullDownRefresh":true
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "list": [{

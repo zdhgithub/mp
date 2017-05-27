@@ -1,0 +1,124 @@
+/* pages/activity/activityEnd/activityEnd.wxss */
+
+
+.actContentView {
+  position: relative;
+}
+/*音频*/
+
+.audioView {
+  position: absolute;
+  right: 20px;
+  top: 65px;
+  /*background-color: yellow;*/
+  width: 30px;
+  height: 30px;
+  animation: lalaland 5s infinite;
+  -webkit-animation: lalaland 5s infinite linear;
+}
+
+@keyframes lalaland {
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes lalaland {
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.audioView image {
+  width: 30px;
+  height: 30px;
+}
+
+/*封面图*/
+
+.headImage {
+  width: 750rpx;
+  height: 390rpx;
+  background-color: lightgray;
+}
+.cellItem {
+  background-color: #fff;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.activityName {
+  font-size: 18px;
+  margin: 12px;
+  margin-top: 10px;
+}
+.activityDetail {
+  display: block;
+  width: 700rpx;
+}
+.line {
+  margin-top: 10px;
+  background-color: #e5e5e5;
+  width: 100%;
+  height: 1px;
+}
+/*-----------------------回顾页面------------------------*/
+
+.review_itemView {
+  width: 750rpx;
+  height: 140px;
+  background-color: white;
+  position: relative;
+  border-bottom: #e5e5e5 solid 1px;
+}
+
+.review_itemView_poster {
+  position: absolute;
+  left: 12px;
+  top: 30px;
+  width: 100px;
+  height: 100px;
+}
+
+.review_itemView_videoPlay {
+  position: absolute;
+  left: 42px;
+  top: 60px;
+  width: 40px;
+  height: 40px;
+}
+
+.review_itemView_title {
+  position: absolute;
+  left: 124px;
+  top: 35px;
+  right: 12px;
+  color: #333;
+  font-size: 18px;
+
+}
+
+.review_itemView_artType {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: white;
+  font-size: 10px;
+  background-color: #0dd4e6;
+  padding: 4px 4px;
+  border-radius: 2px;
+}

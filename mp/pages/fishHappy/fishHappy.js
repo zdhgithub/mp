@@ -3,6 +3,9 @@ var VF = require('../verify/verifyNum/verify.js');
 var app = getApp();
 Page({
   data: {
+    // 悬浮视图初始位置
+    left: app.sysInfo.windowWidth - 54,
+    top: 240,
     // 轮播图
     imgUrls: [
       'https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/p1.png',
@@ -13,7 +16,7 @@ Page({
     // 是否第一次请求定位
     isFirstTimeReq: true,
     // 点击类型
-    openType: 1,
+    openType: 0,
     //活动列表数据
     actLists: null,
     //活动背景图片的OSS基本地址
@@ -37,64 +40,64 @@ Page({
 
     var that = this;
 
-    // if (app.user) {
-    //   // 营销活动列表
-    //   this.loadSaleList(1, function (res) {
-    //     var actId = res[0].id
-    //     console.log('营销活动列表', res, actId);
-    //     that.setData({
-    //       actId: actId
-    //     })
-
-    //     //加载发布图片列表
-    //     that.loadPicsData(actId, function (picsList) {
-    //       that.setData({
-    //         picsList: picsList
-    //       })
-    //     })
-
-    //   })
-
-
-    // } else {
-    //   VF.checkUserBindPhoneNumber(function (result) {
-    //     console.log('result', result);
-    //     if (result == 1) {
-
-    //       // 营销活动列表
-    //       that.loadSaleList(1, function (res) {
-    //         var actId = res[0].id
-    //         console.log('营销活动列表', res, actId);
-    //         that.setData({
-    //           actId: actId
-    //         })
-
-    //         //加载发布图片列表
-    //         that.loadPicsData(actId, function (picsList) {
-    //           that.setData({
-    //             picsList: picsList
-    //           })
-    //         })
-
-    //       })
-
-    //     }
-    //   })
-    // }
-
     if (app.user) {
-      this.actMethod()
-      console.log('怎么回事')
-    }
-    else {
+      // 营销活动列表
+      this.loadSaleList(1, function (res) {
+        var actId = res[0].id
+        console.log('营销活动列表', res, actId);
+        that.setData({
+          actId: actId
+        })
 
+        //加载发布图片列表
+        that.loadPicsData(actId, function (picsList) {
+          that.setData({
+            picsList: picsList
+          })
+        })
+
+      })
+
+
+    } else {
       VF.checkUserBindPhoneNumber(function (result) {
+        console.log('result', result);
         if (result == 1) {
-          console.log('11111怎么回事')
-          that.actMethod()
+
+          // 营销活动列表
+          that.loadSaleList(1, function (res) {
+            var actId = res[0].id
+            console.log('营销活动列表', res, actId);
+            that.setData({
+              actId: actId
+            })
+
+            //加载发布图片列表
+            that.loadPicsData(actId, function (picsList) {
+              that.setData({
+                picsList: picsList
+              })
+            })
+
+          })
+
         }
       })
     }
+
+    // if (app.user) {
+    //   this.actMethod()
+    //   console.log('怎么回事')
+    // }
+    // else {
+
+    //   VF.checkUserBindPhoneNumber(function (result) {
+    //     if (result == 1) {
+    //       console.log('11111怎么回事')
+    //       that.actMethod()
+    //     }
+    //   })
+    // }
 
 
 
@@ -119,7 +122,7 @@ Page({
         }
       })
     }
-    
+
   },
   actMethod: function () {
 
@@ -156,7 +159,7 @@ Page({
 
   // 下啦刷新
   onPullDownRefresh: function () {
-    console.log('openType', this.data.openType);
+    console.log('下啦刷新 你妈 openType', this.data.openType);
     var that = this;
 
     var openType = this.data.openType;
@@ -288,12 +291,28 @@ Page({
   },
   //点击一个活动cell,进入活动详情页面
   gotoActivityDetail: function (e) {
-    console.log(e);
-    console.log("gotoActivityDetail");
-    var actId = e.currentTarget.dataset.act.id;
-    wx.navigateTo({
-      url: '/pages/activity/activityDetail/activityDetail?actId=' + actId
-    })
+
+    // console.log('gotoActivityDetail',e);
+
+    var act = e.currentTarget.dataset.act
+    var actId = act.id
+    var status = act.status
+
+    console.log('status',status);
+    // 活动回顾
+    if (status == 4) {
+      var dataStr = JSON.stringify(act)
+      var dataStrUrl = encodeURIComponent(dataStr)
+      wx.navigateTo({
+        url: '/pages/activity/activityEnd/activityEnd?act=' + dataStrUrl
+      })
+    }
+    // 活动详情
+    else {
+      wx.navigateTo({
+        url: '/pages/activity/activityDetail/activityDetail?actId=' + actId
+      })
+    }
   },
   //点击一个活动cell,进入营销活动页面
   // gotoActivitySale: function (e) {
@@ -731,6 +750,33 @@ Page({
       loadMoreState: "点击或上拉可加载更多"
     })
     console.log('openType', this.data.openType);
+  },
+  releaseViewTouchMove: function (e) {
+
+    var windowWidth = app.sysInfo.windowWidth
+    var windowHeight = app.sysInfo.windowHeight
+
+    // 拖动视图尺寸
+    let viewW = 44
+    let viewH = 100
+    // 边界距离
+    let distance = 10
+
+    var x = e.touches[0].clientX - viewW * 0.5
+    var y = e.touches[0].clientY - viewH * 0.5
+
+    if (x < distance) { x = distance }
+    else if (x > windowWidth - viewW - distance) { x = windowWidth - viewW - distance }
+    else { }
+
+    if (y < distance) { y = distance }
+    else if (y > windowHeight - viewH - distance) { y = windowHeight - viewH - distance }
+    else { }
+    // console.log('x:' + x, 'y:' + y)
+    this.setData({
+      left: x,
+      top: y
+    })
   },
 
 })

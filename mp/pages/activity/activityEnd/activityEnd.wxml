@@ -1,0 +1,50 @@
+<!--pages/activity/activityEnd/activityEnd.wxml-->
+
+
+<!--内容区域-->
+<view class="actContentView">
+
+  <block wx:if="{{info.video == undefined}}">
+    <!--音频-->
+    <blcok wx:if="{{info.background.length>0}}">
+      <audio src="{{fs_discovery_DownLoad_HostURL + '/' + info.background}}" id="myAudio" controls="{{false}}" loop="{{true}}"></audio>
+      <view class="audioView" style="animation-play-state:{{isplayingAudio ? 'running' : 'paused'}};-webkit-animation-play-state:{{isplayingAudio ? 'running' : 'paused'}}; top: {{info.status == 4 ? 20 : 20}}px;" bindtap="audioPlayAndPause">
+        <image src="/images/activity/activity_musicIcon.png"></image>
+      </view>
+    </blcok>
+    <!--封面图片-->
+    <image class="headImage" mode="aspectFill" src="{{fs_discovery_DownLoad_HostURL}}/{{info.bill}}"></image>
+  </block>
+
+  <!--回顾的视频-->
+  <block wx:if="{{opType == 1 && info.video.length > 0}}">
+    <video class="headImage" src="{{fs_discovery_DownLoad_HostURL}}/{{info.video}}" objectFit="cover" autoplay="{{false}}"></video>
+  </block>
+
+  <!--活动名称-->
+  <view class="cellItem">
+    <text class="activityName">{{info.name}}</text>
+  </view>
+
+<!--活动详情按钮-->
+<button class="activityDetail" type="primary" bindtap="gotoActivityDetail">活动详情</button>
+
+  <view class="line"></view>
+</view>
+
+
+
+
+
+<!--回顾界面-->
+<block wx:for="{{reviewArts}}" wx:key="{{item.id}}">
+  <view class="review_itemView" data-art="{{item}}" catchtap="showReviewArticlesDetail">
+    <image class="review_itemView_poster" mode="aspectFill" src="/images/default/default_placeholder.png"></image>
+    <image class="review_itemView_poster" mode="aspectFill" src="{{fs_discovery_DownLoad_HostURL}}/{{item.banner}}"></image>
+    <image class="review_itemView_videoPlay" wx:if="{{item.isVideo}}" src="/images/activity/activity_videoPlay.png"></image>
+    <text class="review_itemView_title">{{item.title}}</text>
+    <text class="review_itemView_artType" wx:if="{{item.type == 1}}">人物篇</text>
+    <text class="review_itemView_artType" wx:elif="{{item.type == 2}}">图片篇</text>
+    <text class="review_itemView_artType" wx:elif="{{item.type == 3}}">技巧篇</text>
+  </view>
+</block>

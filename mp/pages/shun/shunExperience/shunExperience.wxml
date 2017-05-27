@@ -2,6 +2,8 @@
 
 <view class="container">
 
+
+
   <image src="{{poster}}" class="shun_experience_poster" mode="aspectFit" bindload="changeImgSize" style="width:{{w}}rpx;height:{{h}}rpx"></image>
 
   <!--cell-->
@@ -51,23 +53,24 @@
   </view>
 
 
+
   <!--我要加盟-->
-  <view wx:if="{{join == 0 || join == -1}}" class="releaseArea" catchtap="wantToJoin">
+  <view wx:if="{{join == 0 || join == -1}}" class="releaseArea" catchtouchmove="releaseViewTouchMove" catchtap="wantToJoin" style="left:{{left}}px;top:{{top}}px;">
     <view class="releaseView">
       <image class="see" mode="aspectFill" src="/images/shun/experience/shun_experience_add.png"></image>
       <text class="viewContent">我要加盟</text>
     </view>
   </view>
   <!--修改信息-->
-  <view wx:if="{{join == 1}}" class="releaseArea" catchtap="modifyInfo">
+  <view wx:if="{{join == 1}}" class="releaseArea" catchtouchmove="releaseViewTouchMove" catchtap="modifyInfo" style="left:{{left}}px;top:{{top}}px;">
     <view class="releaseView">
       <image class="see" mode="aspectFill" src="/images/shun/experience/shun_experience_modify.png"></image>
       <text class="viewContent">修改信息</text>
     </view>
   </view>
   <!--审核中-->
-  <view wx:if="{{join == 2}}" class="releaseArea" catchtap="checking">
-    <view class="releaseView">
+  <view wx:if="{{join == 2}}" class="releaseArea" catchtouchmove="releaseViewTouchMove" catchtap="checking">
+    <view class="releaseView" style="left:{{left}}px;top:{{top}}px;">
       <image class="see" mode="aspectFill" src="/images/shun/experience/shun_experience_cheching.png"></image>
       <text class="viewContent">审核中</text>
     </view>

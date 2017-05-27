@@ -20,6 +20,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 悬浮视图初始位置
+    left: app.sysInfo.windowWidth - 54,
+    top: 240,
     screenWidth: app.sysInfo.screenWidth,
     bgColor: getRandomColor(),
     poster: 'https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/sun-bp.png',
@@ -142,14 +145,6 @@ Page({
       }
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */
@@ -173,25 +168,11 @@ Page({
     }
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    console.log('页面相关事件处理函数--监听用户下拉动作')
     this.onLoadMethod()
     this.onShowMethod()
   },
@@ -211,20 +192,6 @@ Page({
       title: app.user.nickName + '邀您一起体验舜！',
       path: '/pages/shun/shunExperience/shunExperience'
     }
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
   },
   // 图片加载完成
   changeImgSize: function (e) {
@@ -254,7 +221,7 @@ Page({
   },
   // 一键导航
   navMethod: function (e) {
- 
+
     console.log('一键导航')
     var item = e.currentTarget.dataset.item
     console.log(item)
@@ -296,6 +263,35 @@ Page({
           icon: 'loading'
         })
       }
+    })
+  },
+  releaseViewTouchMove: function (e) {
+
+    wx.stopPullDownRefresh()
+
+    var windowWidth = app.sysInfo.windowWidth
+    var windowHeight = app.sysInfo.windowHeight
+
+    // 拖动视图尺寸
+    let viewW = 44
+    let viewH = 100
+    // 边界距离
+    let distance = 10
+
+    var x = e.touches[0].clientX - viewW * 0.5
+    var y = e.touches[0].clientY - viewH * 0.5
+
+    if (x < distance) { x = distance }
+    else if (x > windowWidth - viewW - distance) { x = windowWidth - viewW - distance }
+    else { }
+
+    if (y < distance) { y = distance }
+    else if (y > windowHeight - viewH - distance) { y = windowHeight - viewH - distance }
+    else { }
+    // console.log('x:' + x, 'y:' + y)
+    this.setData({
+      left: x,
+      top: y
     })
   },
 })

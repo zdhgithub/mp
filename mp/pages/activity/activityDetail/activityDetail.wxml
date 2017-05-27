@@ -5,22 +5,22 @@
   <view class="actContentView">
 
     <!--选项区域-->
-    <block wx:if="{{info.status == 4}}">
+    <!--<block wx:if="{{info.status == 4}}">
       <view class="optionView">
         <text class="optionView_detail" data-type="{{0}}" catchtap="switchPage" style="{{opType == 0 ? 'background-color: white; color:#7a7a7a;' :'background-color: gray; color:white;'}}">详情</text>
         <text class="optionView_review" data-type="{{1}}" catchtap="switchPage" style="{{opType == 1 ? 'background-color: white; color:#7a7a7a;' :'background-color: gray; color:white;'}}">回顾</text>
       </view>
-    </block>
-    <block wx:if="{{opType == 0 || (opType == 1 && info.video == undefined)}}">
+    </block>-->
 
+
+    <block wx:if="{{opType == 0 || (opType == 1 && info.video == undefined)}}">
       <!--音频-->
       <blcok wx:if="{{info.background.length>0}}">
         <audio src="{{fs_discovery_DownLoad_HostURL + '/' + info.background}}" id="myAudio" controls="{{false}}" loop="{{true}}"></audio>
-        <view class="audioView" style="animation-play-state:{{isplayingAudio ? 'running' : 'paused'}};-webkit-animation-play-state:{{isplayingAudio ? 'running' : 'paused'}}; top: {{info.status == 4 ? 65 : 20}}px;" bindtap="audioPlayAndPause">
+        <view class="audioView" style="animation-play-state:{{isplayingAudio ? 'running' : 'paused'}};-webkit-animation-play-state:{{isplayingAudio ? 'running' : 'paused'}}; top: {{info.status == 4 ? 20 : 20}}px;" bindtap="audioPlayAndPause">
           <image src="/images/activity/activity_musicIcon.png"></image>
         </view>
       </blcok>
-
       <!--封面图片-->
       <image class="headImage" mode="aspectFill" src="{{fs_discovery_DownLoad_HostURL}}/{{info.bill}}"></image>
     </block>
@@ -85,24 +85,24 @@
       </view>
 
       <!--活动费用说明-->
-      <view class="chargeTips">
+      <!--<view class="chargeTips">
         <view class="cellItem">
           <image class="item_icon" src="/images/activity/activity_chargeTips.png"></image>
           <text class="item_text">活动费用说明</text>
         </view>
         <view class="line"></view>
         <text class="chargeTips_Introduce">{{info.costExplain}}</text>
-      </view>
+      </view>-->
 
       <!--报名须知-->
-      <view class="chargeTips">
+      <!--<view class="chargeTips">
         <view class="cellItem">
           <image class="item_icon" src="/images/activity/activity_joinTips.png"></image>
           <text class="item_text">报名须知</text>
         </view>
         <view class="line"></view>
         <text class="chargeTips_Introduce">{{info.note}}</text>
-      </view>
+      </view>-->
 
       <!--参与情况-->
       <view class="chargeTips">
@@ -173,6 +173,8 @@
         </view>
       </block>
     </block>
+
+
   </view>
 
 

@@ -24,6 +24,7 @@
   word-wrap: break-word;
   font-size: 14px;
   /*top: 30rpx;*/
+  padding-left: 10px;
   width: 750rpx;
   height: 35px;
   background-color: white;
