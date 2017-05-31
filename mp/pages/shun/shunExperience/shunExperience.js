@@ -62,7 +62,7 @@ Page({
   // 加载附近3条店铺信息
   loadNear3ShopInfo: function (lon, lat, callback) {
 
-    var url = app.basicV2Url + 'alliance/top/3?longitude=' + lon + '&latitude=' + lat
+    var url = app.basicV2Url + 'alliance/top/8?longitude=' + lon + '&latitude=' + lat
 
     hp.ctoRequest('GET', url, {}, function (res) {
       callback(res)
@@ -292,6 +292,13 @@ Page({
     this.setData({
       left: x,
       top: y
+    })
+  },
+  callPhone: function (e) {
+    console.log('以及那拨号', e.currentTarget.dataset.item.phoneNumber)
+    var num = e.currentTarget.dataset.item.phoneNumber
+    wx.makePhoneCall({
+      phoneNumber: num,
     })
   },
 })

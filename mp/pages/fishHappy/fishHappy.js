@@ -36,7 +36,7 @@ Page({
 
   },
   onLoad: function (options) {
-    console.log('openType onLoad', this.data.openType);
+    app.log('app.log openType onLoad', this.data.openType);
 
     var that = this;
 

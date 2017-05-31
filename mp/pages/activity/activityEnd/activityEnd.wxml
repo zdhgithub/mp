@@ -26,9 +26,13 @@
     <text class="activityName">{{info.name}}</text>
   </view>
 
-<!--活动详情按钮-->
-<button class="activityDetail" type="primary" bindtap="gotoActivityDetail">活动详情</button>
-
+  <!--活动详情-->
+  <view class="line"></view>
+  <view class="activityItem" bindtap="gotoActivityDetail">
+    <image class="item_icon" src="/images/activity/activity_dzdetail.png"></image>
+    <text class="item_text">活动详情</text>
+    <image class="item_arrow" src="/images/my/arrow_right.png"></image>
+  </view>
   <view class="line"></view>
 </view>
 

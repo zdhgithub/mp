@@ -4,15 +4,21 @@ App({
     // wx.clearStorage();
     try {
       this.user = wx.getStorageSync('user');
-
       this.sysInfo = wx.getSystemInfoSync();
-
     } catch (e) {
       wx.showToast({
         title: '从文件中取出用户数据失败',
         icon: 'loading'
       })
     }
+
+    // 重写 console.log
+    // console.log = (function (oriLogFunc) {
+    //   return function (str) {
+    //     oriLogFunc.call(console, "hello:" + str);
+    //   }
+    // })(console.log);
+    // console.log("userName");
   },
   // 自定义的全局属性
   //获取系统属性
@@ -26,6 +32,19 @@ App({
   //点赞上传图片
   uploadBucket: 'disc.res',
   dlHost: 'https://disc.res.heipiaola.com',
+
+
+  //自定义打印
+  log: function (message) {
+    var bl = true;
+    try {
+      if (bl) {
+        console.log(message);
+      }
+    } catch (exception) {
+      return 'Error:the function  log is not exist.';
+    }
+  },
 
 
 

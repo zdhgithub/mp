@@ -209,7 +209,7 @@ background-color: red;
 .cell_userInfo_nickname {
   display: flex;
   margin-left: 20rpx;
-  color: #60cad4;
+  color: #159ceb;
   font-size: 14px;
 }
 
@@ -290,11 +290,11 @@ background-color: red;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /*margin-top: 20rpx;*/
   margin-left: 25rpx;
   margin-bottom: 30rpx;
   /*background-color: greenyellow;*/
   overflow: hidden;
+  padding-bottom: 10px;
 }
 
 .zanName_img {
@@ -350,6 +350,7 @@ background-color: red;
   display: inline-box;
   margin: 0 25rpx 30rpx;
   width: 700rpx;
+  padding-bottom: 10px;
   /*background-color: greenyellow;*/
 }
 .zanName_img_more {
