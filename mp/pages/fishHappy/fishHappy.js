@@ -36,54 +36,12 @@ Page({
 
   },
   onLoad: function (options) {
+
     app.log('app.log openType onLoad', this.data.openType);
 
     var that = this;
 
-    if (app.user) {
-      // 营销活动列表
-      this.loadSaleList(1, function (res) {
-        var actId = res[0].id
-        console.log('营销活动列表', res, actId);
-        that.setData({
-          actId: actId
-        })
-
-        //加载发布图片列表
-        that.loadPicsData(actId, function (picsList) {
-          that.setData({
-            picsList: picsList
-          })
-        })
-
-      })
-
-
-    } else {
-      VF.checkUserBindPhoneNumber(function (result) {
-        console.log('result', result);
-        if (result == 1) {
-
-          // 营销活动列表
-          that.loadSaleList(1, function (res) {
-            var actId = res[0].id
-            console.log('营销活动列表', res, actId);
-            that.setData({
-              actId: actId
-            })
-
-            //加载发布图片列表
-            that.loadPicsData(actId, function (picsList) {
-              that.setData({
-                picsList: picsList
-              })
-            })
-
-          })
-
-        }
-      })
-    }
+    
 
     // if (app.user) {
     //   this.actMethod()
@@ -107,22 +65,56 @@ Page({
   onShow: function () {
     console.log('onShow')
     var that = this;
-    //判断是否发布
-    if (this.data.actId == undefined) { return }
-    if (app.user) {
-      console.log('怎么回事')
-      this.judgeRelOrNot(app.user.id, this.data.actId);
-    }
-    else {
 
+
+
+    if (app.user) {
+      // 营销活动列表
+      this.loadSaleList(1, function (res) {
+        var actId = res[0].id
+        console.log('营销活动列表', res, actId);
+        that.setData({
+          actId: actId
+        })
+
+        //加载发布图片列表
+        that.loadPicsData(actId, function (picsList) {
+          that.setData({
+            picsList: picsList
+          })
+        })
+        //判断是否发布
+        that.judgeRelOrNot(app.user.id, that.data.actId);
+
+      })
+
+
+    } else {
       VF.checkUserBindPhoneNumber(function (result) {
+        console.log('result', result);
         if (result == 1) {
-          console.log('11111怎么回事')
-          that.judgeRelOrNot(app.user.id, that.data.actId);
+
+          // 营销活动列表
+          that.loadSaleList(1, function (res) {
+            var actId = res[0].id
+            console.log('营销活动列表', res, actId);
+            that.setData({
+              actId: actId
+            })
+
+            //加载发布图片列表
+            that.loadPicsData(actId, function (picsList) {
+              that.setData({
+                picsList: picsList
+              })
+            })
+            //判断是否发布
+            that.judgeRelOrNot(app.user.id, that.data.actId);
+          })
+
         }
       })
     }
-
   },
   actMethod: function () {
 
@@ -383,7 +375,7 @@ Page({
         // 头像解析
         var portriat = obj.portriat;
         console.log('头像解析portriat', portriat);
-        if (portriat == undefined) {
+        if (portriat == undefined || portriat.length == 0) {
           portriat = '';
         } else {
           console.log('indexOf', portriat.indexOf('http'));

@@ -35,7 +35,8 @@ Page({
     console.log("解码后数据json", json);
     //保存传过来的数据
     this.setData({
-      json: json
+      json: json,
+      actId: json.marketingId
     });
     console.log("解码后数据json", this.data.json);
   },
@@ -91,10 +92,11 @@ Page({
     for (var i = 0; i < 3; i++) {
       var imgPath = imgArr[i].img;
       if (imgPath.indexOf('http') == 0) {
-        // var str = imgPath.substring(54);
-        var str = imgPath.slice(-48);
-        // var str1 = imgPath.substr(-48);
-        console.log('http', str);
+
+        var index = imgPath.indexOf('marketing')
+        // var str = imgPath.slice(-57);
+        var str = imgPath.substring(index)
+        console.log('http index', str, index);
         pics.push(str);
       }
     }
@@ -108,12 +110,13 @@ Page({
 
         var str = hp.uuid();
 
-        hp.uploadFile2OSS(imgPath, str + '.png', 'release', app.OSS.fs_discoveryBucketName, function (keyPath) {
-          console.log("keyPath", keyPath);
-          pics.push(keyPath);
-          
+
+        var key = 'marketing/' + this.data.actId + '/' + app.user.id + '/' + str + '.jpg';
+
+        hp.uploadImage(imgPath, key, function (key) {
+          console.log('重新名称 地址', key, imgPath);
+          pics.push(key);
           if (pics.length == 3) {
-            console.log('pics', pics);
             picStr = pics.join(',');
             console.log('picStr', picStr);
             that.setData({
@@ -122,6 +125,21 @@ Page({
             that.releaseMethod()
           }
         })
+
+        // hp.uploadFile2OSS(imgPath, str + '.png', 'release', app.OSS.fs_discoveryBucketName, function (keyPath) {
+        //   console.log("keyPath", keyPath);
+        //   pics.push(keyPath);
+
+        //   if (pics.length == 3) {
+        //     console.log('pics', pics);
+        //     picStr = pics.join(',');
+        //     console.log('picStr', picStr);
+        //     that.setData({
+        //       picture: picStr
+        //     })
+        //     that.releaseMethod()
+        //   }
+        // })
 
       }
 

@@ -39,7 +39,7 @@ Page({
   },
   // 输入完成事件
   inputFinish: function (e) {
-    console.log(e.detail.value);
+    // console.log(e.detail.value);
     this.setData({
       text: e.detail.value
     })
@@ -80,7 +80,7 @@ Page({
     wx.showToast({
       title: '发布中...',
       icon: 'loading',
-      duration: 10000,
+      duration: 60000,
       mask: true
     });
 
@@ -101,16 +101,19 @@ Page({
     // 上传图片到oss
     var pics = [];
     var picStr = '';
+
+
     for (var i = 0; i < 3; i++) {
       var imgPath = imgArr[i];
       // console.log(imgPath);
 
       var str = hp.uuid();
-      // console.log(str);app-discovery  app.OSS.fs_discoveryBucketName
+      // 上传图片
+      var key = 'marketing/' + this.data.actId + '/' + app.user.id + '/' + str + '.jpg';
 
-      hp.uploadFile2OSS(imgPath, str + '.png', 'release', app.OSS.fs_discoveryBucketName , function (keyPath) {
-        // console.log("keyPath", keyPath);
-        pics.push(keyPath);
+      hp.uploadImage(imgPath, key, function (key) {
+        console.log('名称 地址', key, imgPath);
+        pics.push(key);
         if (pics.length == 3) {
           picStr = pics.join(',');
           console.log('picStr', picStr);
@@ -120,6 +123,24 @@ Page({
           that.releaseMethod()
         }
       })
+
+
+
+      // console.log(str);app-discovery  app.OSS.fs_discoveryBucketName
+
+      // hp.uploadFile2OSS(imgPath, i + '.png', 'marketing', app.OSS.fs_discoveryBucketName , function (keyPath) {
+      //   console.log("keyPakeyth", keyPath);
+      // pics.push(keyPath);
+      // if (pics.length == 3) {
+      //   picStr = pics.join(',');
+      //   console.log('picStr', picStr);
+      //   that.setData({
+      //     picture: picStr
+      //   })
+      //   that.releaseMethod()
+      // }
+      // })
+
     }
 
   },
@@ -149,7 +170,7 @@ Page({
       var status = res.status;
       // 发布成功
       if (status == 0) {
-      
+
         that.releaseSuccess()
         // 延迟2秒执行
         setTimeout(that.navigateBack, 2000)

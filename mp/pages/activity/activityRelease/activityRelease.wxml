@@ -1,5 +1,6 @@
 <!--pages/activity/activityRelease/activityRelease-->
 <block>
+
   <view class="contentView">
 
     <!--文字区域-->

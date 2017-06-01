@@ -85,7 +85,6 @@ function request(method, url, data, result) {
 }
 
 //上传文件到OSS  文件名拼接规则  bucketName/dirPath/fileName.png
-
 function uploadFile2OSS(filePath, fileName, dirPath, bucketName, result) {
 
   //1.先从后台拿到Signature和OSSAccessKeyId等信息
@@ -107,7 +106,12 @@ function uploadFile2OSS(filePath, fileName, dirPath, bucketName, result) {
     };
     //console.log('formData的格式是:');
     //console.log(fd);//res.body.host;  'https://disc-res.heipiaola.com'; 
-    var url = res.body.host;
+
+    var url = 'https://disc-res.heipiaola.com'
+    // var url = res.body.host;
+
+
+   
 
     //2.上传到OSS
     wx.uploadFile({
@@ -118,9 +122,9 @@ function uploadFile2OSS(filePath, fileName, dirPath, bucketName, result) {
       name: 'file',
       formData: fd,
       success: function (res) {
-        // success
-        console.log(url);
-        console.log('上传成功', res);
+
+        console.log('success',res);
+        
         if (res.statusCode != 200) {
           wx.showToast({
             title: '哎呀,出错了(' + res.statusCode + ')',
@@ -135,9 +139,9 @@ function uploadFile2OSS(filePath, fileName, dirPath, bucketName, result) {
 
       },
       fail: function (res) {
-        // fail data errMsg statusCode
-        console.log('失败了');
-        console.log(res);
+
+        console.log('失败了fail', res);
+        
         wx.showToast({
           title: '上传出错了^o^' + res.errMsg + ',' + res.statusCode,
           icon: 'loading'
@@ -145,10 +149,10 @@ function uploadFile2OSS(filePath, fileName, dirPath, bucketName, result) {
 
       },
       complete: function (res) {
-        // complete
+   
+        console.log('上传到OSS complete', res);
       }
     })
-
   })
 
 }
@@ -277,6 +281,37 @@ function wgs2gcj(poi) {
 }
 
 
+function uploadImage(imgPath, key,callback){
+  wx.uploadFile({
+    url: 'https://api.heipiaola.com/upload/oss',
+    filePath: imgPath,
+    name: 'file',
+    header: { '45FsoFgD44w13twc': '37MtBJGIFH3wgo363X60995n' },//写死的
+    formData: { 'key': key, 'file': imgPath },
+    success: function (res) {
+      console.log('requestUrl,res', res, key, imgPath);
+
+      if (res.statusCode != 200) {
+        wx.showToast({
+          title: '哎呀,出错了(' + res.statusCode + ')',
+          icon: 'loading'
+        })
+        return;
+      }
+      callback(key);
+      
+    },
+    fail: function (res) {
+      console.log('fail',res)
+      wx.showToast({
+        title: '请求出错了^o^',
+        icon: 'loading'
+      })
+      return;
+    }
+  })
+}
+
 
 
 //导出
@@ -284,6 +319,7 @@ module.exports = {
   ctoRequest: ctoRequest,
   request: request,
   uploadFile2OSS: uploadFile2OSS,
+  uploadImage: uploadImage,
   uuid: uuid,
   wgs2gcj: wgs2gcj
 }

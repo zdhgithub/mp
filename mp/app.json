@@ -58,6 +58,7 @@
     "selectedColor": "#159ceb",
     "backgroundColor": "#ffffff",
     "borderStyle":"black"
-  }
+  },
+  "networkTimeout":{"uploadFile":60000}
 
 }
