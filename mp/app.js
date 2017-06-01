@@ -85,8 +85,8 @@ App({
     //5.合伙人资料库(B端可能用不到)
     fs_discoveryBucketName: 'zt-app-discovery',
     fs_discovery_UpLoad_HostURL: 'https://oss-cn-shenzhen.aliyuncs.com',
-    fs_discovery_DownLoad_HostURL: 'https://app-discovery.oss-cn-shenzhen.aliyuncs.com',
-    // fs_discovery_DownLoad_HostURL: 'https://zt-app-discovery.oss-cn-shenzhen.aliyuncs.com',
+    // fs_discovery_DownLoad_HostURL: 'https://app-discovery.oss-cn-shenzhen.aliyuncs.com',
+    fs_discovery_DownLoad_HostURL: 'https://zt-app-discovery.oss-cn-shenzhen.aliyuncs.com',
   },
 
 

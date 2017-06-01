@@ -280,7 +280,7 @@ function wgs2gcj(poi) {
   return poi2;
 }
 
-
+// 上传图片
 function uploadImage(imgPath, key,callback){
   wx.uploadFile({
     url: 'https://api.heipiaola.com/upload/oss',
@@ -311,7 +311,17 @@ function uploadImage(imgPath, key,callback){
     }
   })
 }
+// 计算文本显示长度
+String.prototype.width = function (font) {
+  var f = font || '12px arial',
+    o = $('<text>' + this + '</text>')
+      .css({ 'position': 'absolute', 'float': 'left', 'white-space': 'nowrap', 'visibility': 'hidden', 'font': f })
+      .appendTo($('body')),
+    w = o.width();
 
+  o.remove();
+  return w;
+}  
 
 
 //导出

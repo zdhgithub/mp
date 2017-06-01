@@ -40,8 +40,24 @@
 
 
 
-<!--回顾界面-->
-<block wx:for="{{reviewArts}}" wx:key="{{item.id}}">
+<!--回顾界面   王总说直接显示返回的第一条数据即可-->
+<!--头部的标题和时间-->
+<!--<view class="headView">
+  <text class="headView_title">{{content.title}}</text>
+  <text class="headView_time">{{content.createTimeStr}}</text>
+</view>-->
+
+<!--文章的内容-->
+
+<!--循环遍历展示内容啦-->
+<block wx:for="{{content.conInfoArr}}" wx:key="{{*this}}">
+  <view style="background-color:white;">
+    <text wx:if="{{item.flag==0}}" class="content_text">{{item.content}}</text>
+    <image wx:elif="{{item.flag == 1}}" class="content_image" style="width:{{item.width}}rpx;height:{{item.height}}rpx;" data-imgidx="{{index}}" bindload="changeDetailImageSize" mode="aspectFill" src="{{fs_discovery_DownLoad_HostURL}}/{{item.content}}"></image>
+    <video class="content_video" wx:elif="{{item.flag == 2}}" src="{{fs_discovery_DownLoad_HostURL}}/{{item.content}}" objectFit="cover" autoplay="{{false}}"></video>
+  </view>
+</block>
+<!--<block wx:for="{{reviewArts}}" wx:key="{{item.id}}">
   <view class="review_itemView" data-art="{{item}}" catchtap="showReviewArticlesDetail">
     <image class="review_itemView_poster" mode="aspectFill" src="/images/default/default_placeholder.png"></image>
     <image class="review_itemView_poster" mode="aspectFill" src="{{fs_discovery_DownLoad_HostURL}}/{{item.banner}}"></image>
@@ -51,4 +67,4 @@
     <text class="review_itemView_artType" wx:elif="{{item.type == 2}}">图片篇</text>
     <text class="review_itemView_artType" wx:elif="{{item.type == 3}}">技巧篇</text>
   </view>
-</block>
+</block>-->
