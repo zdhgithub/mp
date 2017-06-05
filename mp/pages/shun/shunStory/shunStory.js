@@ -6,6 +6,9 @@ var hp = require('../../../utils/HPUtils.js');
 var app = getApp();
 Page({
   data: {
+    // 悬浮视图初始位置
+    left: app.sysInfo.windowWidth - 54,
+    top: 240,
     items: [
       {
         img: "https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/bs.jpg",
@@ -66,5 +69,45 @@ Page({
     this.setData({
       items: this.data.items
     });
-  }
+  },
+  releaseViewTouchMove: function (e) {
+
+    var windowWidth = app.sysInfo.windowWidth
+    var windowHeight = app.sysInfo.windowHeight
+
+    // 拖动视图尺寸
+    let viewW = 44
+    let viewH = 100
+    // 边界距离
+    let distance = 10
+
+    var x = e.touches[0].clientX - viewW * 0.5
+    var y = e.touches[0].clientY - viewH * 0.5
+
+    if (x < distance) { x = distance }
+    else if (x > windowWidth - viewW - distance) { x = windowWidth - viewW - distance }
+    else { }
+
+    if (y < distance) { y = distance }
+    else if (y > windowHeight - viewH - distance) { y = windowHeight - viewH - distance }
+    else { }
+    // console.log('x:' + x, 'y:' + y)
+    this.setData({
+      left: x,
+      top: y
+    })
+  },
+  // 点击右上角帮他分享
+  shareTap: function () {
+    console.log('点击右上角帮他分享');
+    this.setData({
+      isShareMask: true
+    })
+    console.log("点击右上角帮他分享", this.data.isShareMask);
+  },
+  hiddenMask: function () {
+    this.setData({
+      isShareMask: false
+    })
+  },
 })

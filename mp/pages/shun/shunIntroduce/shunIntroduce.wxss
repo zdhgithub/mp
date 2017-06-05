@@ -8,3 +8,83 @@
     margin: 20rpx auto;
 
 }
+
+/*发布内容*/
+
+.releaseArea {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 100px;
+  /*background-color: rgba(156, 200, 65, 1);*/
+}
+
+.releaseView {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 100px;
+  background-color: rgba(65, 65, 65, 0.8);
+  border-radius: 15px;
+}
+
+.see {
+  display: flex;
+  width: 15px;
+  height: 15px;
+}
+
+.viewContent {
+  display: flex;
+  font-size: 14px;
+  color: #159ceb;
+  width: 14px;
+  margin-top: 10rpx;
+  line-height: 100%;
+}
+.helpShare_mask {
+  display: block;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(100, 100, 100, 0.8);
+}
+
+.helpShare_img {
+  display: block;
+  position: fixed;
+  top: 0px;
+  right: 75rpx;
+  width: 525rpx;
+  height: 230rpx;
+}
+
+.helpShare_text {
+  display: block;
+  position: fixed;
+  top: 270rpx;
+  /*right: 180rpx;*/
+  left: 50rpx;
+  color: #fff;
+  font-size: 14px;
+}
+
+.helpShare_mask_hidden {
+  display: none;
+}
+
+.helpShare_img_hidden {
+  display: none;
+}
+
+.helpShare_text_hidden {
+  display: none;
+}

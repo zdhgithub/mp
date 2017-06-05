@@ -1,5 +1,5 @@
 /* pages/activity/activityDetail/activityDetail.wxss */
-
+@import "../../shun/shunIntroduce/shunIntroduce.wxss";
 /*内容部分*/
 
 .actContentView {

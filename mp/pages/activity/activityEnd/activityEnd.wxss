@@ -1,5 +1,5 @@
 /* pages/activity/activityEnd/activityEnd.wxss */
-
+@import "../../shun/shunIntroduce/shunIntroduce.wxss";
 
 .actContentView {
   position: relative;

@@ -259,3 +259,27 @@
   <view class="floatView" style="display:none" wx:else></view>
 
 </block>
+
+
+
+
+
+<!--发布内容  releasePicsClick  seePicsClick  -->
+<view class="releaseArea" catchtap="shareTap" style="left:{{left}}px;top:{{top}}px;" catchtouchmove="releaseViewTouchMove">
+  <view class="releaseView">
+    <image class="see" mode="aspectFill" src="/images/activity/activity_releaseIcon.png"></image>
+    <text  class="viewContent">帮忙转发</text>
+  </view>
+</view>
+<!--点击右上角帮他分享视图-->
+<view class="helpShare">
+
+<view wx:if="{{isShareMask}}" class="helpShare_mask" catchtouchstart="hiddenMask"></view>
+<view wx:else class="helpShare_mask_hidden" catchtouchstart="hiddenMask"></view>
+
+<image wx:if="{{isShareMask}}" class="helpShare_img" mode="widthFix" src="/images/activity/activity_share.png"></image>
+<image wx:else class="helpShare_img_hidden" mode="widthFix" src="/images/activity/activity_share.png"></image>
+
+<text wx:if="{{isShareMask}}" class="helpShare_text">点击右上角“转发”按钮，可分享给朋友哦！</text>
+<text wx:else class="helpShare_text_hidden" >点击右上角“转发”按钮，可分享给朋友哦！</text>
+</view>

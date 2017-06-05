@@ -1,6 +1,4 @@
-.container {
-  display: block;
-}
+@import "../shunIntroduce/shunIntroduce.wxss";
 
 .video {
   display: block;
@@ -9,7 +7,3 @@
   margin: 20rpx auto;
 }
 
-.img {
-  display: block;
-  margin: 20rpx auto;
-}
