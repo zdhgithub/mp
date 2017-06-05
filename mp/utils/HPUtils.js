@@ -11,10 +11,9 @@ function ctoRequest(method, url, data, result) {
     method: method, // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
     // header: {}, // 设置请求的 header
     success: function (res) {
-      // success
       console.log('requestUrl,res', url, res);
 
-// 200 201
+      // 200 201
       var code = res.statusCode.toString().indexOf('20')
       console.log('200 201', code);
       if (code != 0) {
@@ -24,19 +23,10 @@ function ctoRequest(method, url, data, result) {
         })
         return;
       }
-      // if (res.data.status != 0) {
-      //   wx.showToast({
-      //     title: res.data.errMsg,
-      //     icon: 'loading'
-      //   })
-      //   return;
-      // }
-      //将结果回调
       result(res);
 
     },
     fail: function () {
-      // fail
       wx.showToast({
         title: '请求出错了^o^',
         icon: 'loading'
@@ -111,7 +101,7 @@ function uploadFile2OSS(filePath, fileName, dirPath, bucketName, result) {
     // var url = res.body.host;
 
 
-   
+
 
     //2.上传到OSS
     wx.uploadFile({
@@ -123,8 +113,8 @@ function uploadFile2OSS(filePath, fileName, dirPath, bucketName, result) {
       formData: fd,
       success: function (res) {
 
-        console.log('success',res);
-        
+        console.log('success', res);
+
         if (res.statusCode != 200) {
           wx.showToast({
             title: '哎呀,出错了(' + res.statusCode + ')',
@@ -141,7 +131,7 @@ function uploadFile2OSS(filePath, fileName, dirPath, bucketName, result) {
       fail: function (res) {
 
         console.log('失败了fail', res);
-        
+
         wx.showToast({
           title: '上传出错了^o^' + res.errMsg + ',' + res.statusCode,
           icon: 'loading'
@@ -149,7 +139,7 @@ function uploadFile2OSS(filePath, fileName, dirPath, bucketName, result) {
 
       },
       complete: function (res) {
-   
+
         console.log('上传到OSS complete', res);
       }
     })
@@ -281,7 +271,7 @@ function wgs2gcj(poi) {
 }
 
 // 上传图片
-function uploadImage(imgPath, key,callback){
+function uploadImage(imgPath, key, callback) {
   wx.uploadFile({
     url: 'https://api.heipiaola.com/upload/oss',
     filePath: imgPath,
@@ -299,10 +289,10 @@ function uploadImage(imgPath, key,callback){
         return;
       }
       callback(key);
-      
+
     },
     fail: function (res) {
-      console.log('fail',res)
+      console.log('fail', res)
       wx.showToast({
         title: '请求出错了^o^',
         icon: 'loading'
@@ -321,7 +311,7 @@ String.prototype.width = function (font) {
 
   o.remove();
   return w;
-}  
+}
 
 
 //导出

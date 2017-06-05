@@ -29,7 +29,7 @@
 
 .text {
   display: block;
-  text-indent: 2em;
+  /*text-indent: 2em;*/
   font-size: 18px;
   color: #888;
   padding: 34rpx 25rpx 10rpx;
@@ -93,35 +93,39 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /*margin-top: 20rpx;*/
   margin-left: 25rpx;
   margin-bottom: 30rpx;
   /*background-color: greenyellow;*/
   overflow: hidden;
+  padding-bottom: 10px;
 }
 
 .zanName_img {
   display: flex;
   width: 40rpx;
   height: 40rpx;
+  margin-top: 10rpx;
 }
 
 .zanName_names {
   display: flex;
-  /*margin-top: 13rpx;*/
   width: 560rpx;
   height: 40rpx;
   overflow: hidden;
-  /*background-color: red;*/
 }
 
 .zanName_names_text {
   display: flex;
   font-size: 13px;
   color: #7a7d7e;
-  text-overflow: ellipsis; /*尾部省略号裁剪*/
-  white-space: nowrap;
   word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .zanName_btn {
@@ -146,49 +150,44 @@
 /*------------------------------展开------------------------------*/
 
 .zanName_more {
-  display: flex;
-  flex-wrap: warp;
-  justify-content: space-between;
-  align-items: flex-start;
-  align-content: space-between;
-  margin-top: 20rpx;
-  margin-left: 25rpx;
-  margin-bottom: 30rpx;
+  display: inline-box;
+  margin: 0 25rpx 30rpx;
+  width: 700rpx;
+  padding-bottom: 10px;
   /*background-color: greenyellow;*/
-  overflow: hidden;
 }
-
 .zanName_img_more {
-  display: flex;
-  flex: none;
+  float: left;
+  margin-top: 10rpx;
   width: 40rpx;
   height: 40rpx;
 }
 
 .zanName_names_more {
-  display: flex;
-  /*margin-top: 2rpx;*//*background-color: red;*/
+  display: inline;
 }
 
 .zanName_names_more_text {
-  display: flex;
+  display: inline;
+  margin-left:3px;
   font-size: 13px;
   color: #7a7d7e;
   line-height: 150%;
+  word-break: break-all;
+  word-wrap:break-word;
 }
 
 .zanName_btn_more {
-  display: flex;
-  flex: none;
-  flex-wrap: warp;
-  margin-right: 25rpx;
+  float: right;
+  display: inline-flex;
+  display: -webkit-inline-flex;
+  flex-flow: row warp;
+  justify-content: center;
+  align-items: center;
   width: 86rpx;
   height: 40rpx;
   border-radius: 4.0px;
   border: #999 solid 1px;
-  justify-content: center;
-  align-items: center;
-  align-self: flex-end;
 }
 
 .zanName_btn_more_text {

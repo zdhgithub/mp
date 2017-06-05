@@ -35,7 +35,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #60cad4;
+  background-color: #159ceb;
   width: 690rpx;
   margin-bottom: 30rpx;
 }
@@ -62,7 +62,7 @@
   bottom: 0px;
   width: 100%;
   height: 100%;
-  background-color: rgba(100, 100, 100, 0.5);
+  background-color: rgba(100, 100, 100, 0.8);
 }
 
 .helpShare_img {
@@ -78,7 +78,8 @@
   display: block;
   position: fixed;
   top: 270rpx;
-  right: 180rpx;
+  /*right: 180rpx;*/
+  left: 50rpx;
   color: #fff;
   font-size: 14px;
 }
@@ -96,31 +97,39 @@
 }
 
 
-/*发布内容*/
+/*-----------------------发布内容----------------------*/
+.releaseArea {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 100px;
+  /*background-color: rgba(156, 200, 65, 1);*/
+}
+
 .releaseView {
-  position: absolute;
-  width: 66rpx;
-  height: 230rpx;
-  right: 24rpx;
-  top: 700rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 100px;
   background-color: rgba(65, 65, 65, 0.8);
-  border-radius: 33rpx;
+  border-radius: 15px;
 }
 
 .see {
-  position: absolute;
+  display: flex;
   width: 15px;
   height: 15px;
-  top: 13px;
-  left: 7px;
 }
 
 .viewContent {
-  position: absolute;
+  display: flex;
   font-size: 14px;
   color: #159ceb;
   width: 14px;
-  top: 35px;
-  left: 7px;
+  margin-top: 10rpx;
   line-height: 100%;
 }

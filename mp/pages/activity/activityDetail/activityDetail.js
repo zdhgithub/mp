@@ -28,32 +28,74 @@ Page({
     reviewArts: undefined
   },
   onLoad: function (options) {
-    //保存活动id
-    this.setData({
-      actId: options.actId
-    });
-    //判断用户是否已经登录了
+
+    var that = this
+
     if (app.user) {
-      this.setData({
-        isLogin: true
-      });
+      this.onLoadMethod(options)
+    } else {
+
+      VF.checkUserBindPhoneNumber(function (result) {
+        if (result == 1) {
+          that.onLoadMethod(options)
+        }
+      })
     }
-    //加载活动详情信息
+
+    // //保存活动id
+    // this.setData({
+    //   actId: options.actId
+    // });
+    // //判断用户是否已经登录了
+    // if (app.user) {
+    //   this.setData({
+    //     isLogin: true
+    //   });
+    // }
+    // //加载活动详情信息
+    // var that = this;
+    // this.loadActivityData(options.actId, function (data) {
+    //   that.setData({
+    //     info: data
+    //   });
+    //   //再判断用户在该场活动的状态
+    //   //判断用户是否已经登录过了
+    //   if (app.user) {
+    //     //加载用户在该活动的状态
+    //     that.loadUserStateData(that.data.actId, app.user.id, function (data) {
+    //       that.setData({
+    //         userState: data
+    //       });
+    //     });
+    //   }
+    // })
+    // //加载报名人数数据
+    // this.loadJoinedData(options.actId, function (joinedList) {
+    //   console.log('加载报名人数数据', joinedList)
+    //   that.setData({
+    //     joinedList: joinedList
+    //   });
+    // })
+  },
+  onLoadMethod: function (options) {
+
     var that = this;
+
+    this.setData({
+      actId: options.actId,
+      isLogin: true
+    });
+    //加载活动详情信息
     this.loadActivityData(options.actId, function (data) {
       that.setData({
         info: data
       });
       //再判断用户在该场活动的状态
-      //判断用户是否已经登录过了
-      if (app.user) {
-        //加载用户在该活动的状态
-        that.loadUserStateData(that.data.actId, app.user.id, function (data) {
-          that.setData({
-            userState: data
-          });
+      that.loadUserStateData(that.data.actId, app.user.id, function (data) {
+        that.setData({
+          userState: data
         });
-      }
+      });
     })
     //加载报名人数数据
     this.loadJoinedData(options.actId, function (joinedList) {
@@ -89,7 +131,7 @@ Page({
   loadActivityData: function (id, callback) {
     var urlStr = app.basicURL + 'campaign/' + id;
     hp.request('GET', urlStr, {}, function (res) {
-      
+
       //设置时间格式
       var act = res.body;
       //开始时间
@@ -116,7 +158,7 @@ Page({
       //通过\31分隔
       var conArr = detailStr.split(FGstr);
       console.log('分隔的数组', conArr);
-      
+
       //创建一个空数据 用来装数据的
       var detailInfoArr = [];
       for (var i = 0; i < conArr.length; i++) {
@@ -156,14 +198,29 @@ Page({
       res.body.detailInfoArr = detailInfoArr;
       //将数据回调
       callback(res.body);
-      console.log('活动详情信息',res.body)
+      console.log('活动详情信息', res.body)
     });
   },
   //加载报名人数数据
   loadJoinedData: function (actId, callback) {
+    var that = this;
     var urlStr = app.basicURL + 'campaign/actor/list/' + actId + '/0';
     hp.request('GET', urlStr, {}, function (res) {
       //将数据回调
+
+      // 解析头像
+      var arr = res.body
+      for (var i = 0; i < arr.length; i++) {
+        var item = arr[i]
+        var icon = item.portriat
+        if (icon == undefined) continue
+        if (icon.indexOf('http') == 0) { } else {
+          icon = that.data.user_portrait_DownLoad_HostURL + '/' + icon
+        }
+        item.portriat = icon
+      }
+
+
       callback(res.body);
     });
   },
@@ -420,7 +477,7 @@ Page({
   //页面分享按钮
   onShareAppMessage: function () {
     return {
-      title: app.user.nickName +'邀您一起钓鱼去！',
+      title: app.user.nickName + '邀您一起钓鱼去！',
       path: '/pages/activity/activityDetail/activityDetail?actId=' + this.data.info.id
     }
   },

@@ -123,7 +123,7 @@
           <view class="cellItem_joinedView_rightView">
             <block wx:for="{{joinedList}}" wx:key="*this">
               <block wx:if="{{index<=2}}">
-                <image class="cellItem_joinedView_rightView_portriat" src="{{user_portrait_DownLoad_HostURL + '/' + item.portriat}}"></image>
+                <image class="cellItem_joinedView_rightView_portriat" src="{{item.portriat}}"></image>
               </block>
             </block>
             <image class="cellItem_joinedView_rightView_arrow" src="/images/my/arrow_right.png"></image>

@@ -8,20 +8,42 @@ Page({
     //文章id
     artId: undefined,
     //文章内容
-    content:undefined
+    content: undefined
   },
   onLoad: function (options) {
-    //记录下文章id
-    this.setData({
-      artId: options.artId
-    });
+
     var that = this;
-    //请求文章内容
-    this.loadArticleContent(options.artId,function(res){
-      that.setData({
-        content:res
+
+    if (app.user) {
+      //记录下文章id
+      this.setData({
+        artId: options.artId
       });
-    });
+      //请求文章内容
+      this.loadArticleContent(options.artId, function (res) {
+        that.setData({
+          content: res
+        });
+      });
+    } else {
+
+      VF.checkUserBindPhoneNumber(function (result) {
+        if (result == 1) {
+          //记录下文章id
+          that.setData({
+            artId: options.artId
+          });
+          //请求文章内容
+          that.loadArticleContent(options.artId, function (res) {
+            that.setData({
+              content: res
+            });
+          });
+        }
+      })
+    }
+
+
   },
   onReady: function () {
     // 页面渲染完成
@@ -34,7 +56,7 @@ Page({
   loadArticleContent: function (artId, callback) {
     var urlStr = app.basicURL + 'campaign/article/id/' + artId;
     hp.request('GET', urlStr, {}, function (res) {
-      
+
       //设置时间格式
       var art = res.body;
       //开始时间
@@ -42,7 +64,7 @@ Page({
       art.createTimeStr = beginDate.format('yyyy-MM-dd hh:mm');
 
 
-       //解析活动详情
+      //解析活动详情
       var detailStr = res.body.content;
       //用于分隔成段落的
       var FGstr = String.fromCharCode(31);

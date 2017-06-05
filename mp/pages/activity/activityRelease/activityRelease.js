@@ -128,7 +128,7 @@ Page({
 
       // console.log(str);app-discovery  app.OSS.fs_discoveryBucketName
 
-      // hp.uploadFile2OSS(imgPath, i + '.png', 'marketing', app.OSS.fs_discoveryBucketName , function (keyPath) {
+      // hp.uploadFile2OSS(imgPath, str + '.png', 'marketing', app.OSS.fs_discoveryBucketName , function (keyPath) {
       //   console.log("keyPakeyth", keyPath);
       // pics.push(keyPath);
       // if (pics.length == 3) {

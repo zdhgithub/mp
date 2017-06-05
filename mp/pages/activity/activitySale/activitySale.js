@@ -18,32 +18,42 @@ Page({
   },
   onLoad: function (options) {
     console.log("onLoad", options);
+
+    var that = this;
+
+    if (app.user) {
+      this.onLoadMethod(options)
+
+    } else {
+      
+      VF.checkUserBindPhoneNumber(function (result) {
+        if (result == 1) {
+          that.onLoadMethod(options)
+        }
+      })
+    }
+  },
+  onLoadMethod: function (options) {
+
+    var that = this;
+
     //保存活动id
     this.setData({
-      actId: options.actId
+      actId: options.actId,
+      isLogin: true
     });
-    //判断用户是否已经登录了
-    if (app.user) {
-      this.setData({
-        isLogin: true
-      });
-    }
     //加载活动详情信息
-    var that = this;
     this.loadActivityData(options.actId, function (data) {
       that.setData({
         info: data
       });
     })
     //加载图片列表
-    var that = this;
     this.loadPicsData(this.data.actId, function (picsList) {
-      // console.log('picsList', picsList);
       that.setData({
         picsList: picsList
       });
     })
-
   },
   onShow: function (options) {
     //判断是否发布

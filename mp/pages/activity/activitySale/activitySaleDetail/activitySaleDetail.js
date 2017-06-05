@@ -12,6 +12,17 @@ Page({
     ],
   },
   onLoad: function (options) {
+
+    if (app.user) {
+
+    } else {
+
+      VF.checkUserBindPhoneNumber(function (result) {
+        if (result == 1) {
+
+        }
+      })
+    }
     console.log("onLoad", options);
   },
   onShow: function (options) {

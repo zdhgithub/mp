@@ -23,11 +23,14 @@ Page({
     lon: '',
     // 记录开关状态的数组
     switchArr: [
-      { text: '一杆钓江山·舜·540', idx: 0, bl: false },
-      { text: '一杆钓江山·舜·630', idx: 1, bl: false },
-      { text: '一杆钓江山·舜·720', idx: 2, bl: false },
-      { text: '一杆钓江山·舜·810', idx: 3, bl: false },
-      { text: '一杆钓江山·舜·900', idx: 4, bl: false },
+      { text: '一杆钓江山·舜·360', idx: 0, bl: false },
+      { text: '一杆钓江山·舜·390', idx: 1, bl: false },
+      { text: '一杆钓江山·舜·450', idx: 2, bl: false },
+      { text: '一杆钓江山·舜·540', idx: 3, bl: false },
+      { text: '一杆钓江山·舜·630', idx: 4, bl: false },
+      { text: '一杆钓江山·舜·720', idx: 5, bl: false },
+      { text: '一杆钓江山·舜·810', idx: 6, bl: false },
+      { text: '一杆钓江山·舜·900', idx: 7, bl: false },
     ],
   },
 
@@ -116,19 +119,44 @@ Page({
       console.log('查询当前加盟商信息 res', res)
 
       var info = res.data
-      console.log('查询当前加盟商信息 info', info)
       var switchArr = that.data.switchArr
       if (info.stock == null) {
         info.store = switchArr
       } else {
+
         var store = JSON.parse(info.stock)
-        console.log('查询当前加盟商信息 store', store)
         for (var i = 0; i < store.length; i++) {
           var storeObj = store[i]
+          for (var j = 0; j < switchArr.length; j++) {
+            var switchObj = switchArr[j]
 
-          if (storeObj.idx == switchArr[i].idx) {
-            switchArr[i].bl = storeObj.bl
+            if (storeObj.text.indexOf('360') > 0 && switchObj.text.indexOf('360') > 0) {
+              switchObj.bl = storeObj.bl
+            }
+            else if (storeObj.text.indexOf('390') > 0 && switchObj.text.indexOf('390') > 0) {
+              switchObj.bl = storeObj.bl
+            }
+            else if (storeObj.text.indexOf('450') > 0 && switchObj.text.indexOf('450') > 0) {
+              switchObj.bl = storeObj.bl
+            }
+            else if (storeObj.text.indexOf('540') > 0 && switchObj.text.indexOf('540') > 0) {
+              switchObj.bl = storeObj.bl
+            }
+            else if (storeObj.text.indexOf('630') > 0 && switchObj.text.indexOf('630') > 0) {
+              switchObj.bl = storeObj.bl
+            }
+            else if (storeObj.text.indexOf('720') > 0 && switchObj.text.indexOf('720') > 0) {
+              switchObj.bl = storeObj.bl
+            }
+            else if (storeObj.text.indexOf('810') > 0 && switchObj.text.indexOf('810') > 0) {
+              switchObj.bl = storeObj.bl
+            }
+            else if (storeObj.text.indexOf('900') > 0 && switchObj.text.indexOf('900') > 0) {
+              switchObj.bl = storeObj.bl
+            }
+
           }
+
         }
         info.store = switchArr
       }
@@ -263,7 +291,7 @@ Page({
       "stock": stock
     }
     console.log('修改信息参 para', para)
-    
+
     hp.ctoRequest('PUT', url, para, function (res) {
       console.log('修改信息 res', res)
       callback(res)
@@ -276,16 +304,16 @@ Page({
       if (res.statusCode == 200) {
         wx.showToast({
           title: '修改成功',
-          duration:2000
+          duration: 2000
         })
         // 2秒后返回
         setTimeout(function () {
           wx.navigateBack({})
         }, 2000)
-      }else{
+      } else {
         wx.showToast({
           title: '修改失败',
-          icon:'loading'
+          icon: 'loading'
         })
       }
     })

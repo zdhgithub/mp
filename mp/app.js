@@ -1,4 +1,5 @@
 //app.js
+
 App({
   onLaunch: function () {
     // wx.clearStorage();
@@ -12,27 +13,27 @@ App({
       })
     }
 
-    // 重写 console.log
+    // // 重写 console.log
     // console.log = (function (oriLogFunc) {
     //   return function (str) {
-    //     oriLogFunc.call(console, "hello:" + str);
+    //     // 生产环境
+    //     if (app.basicURL.indexOf('com') > 0) { } else {
+    //       // 测试环境
+    //       oriLogFunc.call(console, "hello:" + str);
+    //     }
+
     //   }
     // })(console.log);
-    // console.log("userName");
+    // var a = 'userName'
+    // console.log(a);
   },
   // 自定义的全局属性
   //获取系统属性
   sysInfo: null,
   //用户对象
-  // user:null,
+  user:null,
   //用户地理位置
   location: null,
-  user: null,
-
-  //点赞上传图片
-  uploadBucket: 'disc.res',
-  dlHost: 'https://disc.res.heipiaola.com',
-
 
   //自定义打印
   log: function (message) {
@@ -46,8 +47,6 @@ App({
     }
   },
 
-
-
   //注意点:以后切换环境时,只要在这里修改就好了.还需要注意,下面的OSS对象是生产环境的还是测试环境的
 
 
@@ -58,7 +57,7 @@ App({
   basicURL: "https://api.heipiaola.cn/v1/",
   basicV2Url: "https://api.heipiaola.cn/v2/",
 
-  //内网测试
+  //内网测试 
   // basicURL: "http://192.168.1.220:8081/v1/",
   // basicV2Url: "http://192.168.1.220:8180/",
   OSS: {
@@ -85,8 +84,8 @@ App({
     //5.合伙人资料库(B端可能用不到)
     fs_discoveryBucketName: 'zt-app-discovery',
     fs_discovery_UpLoad_HostURL: 'https://oss-cn-shenzhen.aliyuncs.com',
-    // fs_discovery_DownLoad_HostURL: 'https://app-discovery.oss-cn-shenzhen.aliyuncs.com',
-    fs_discovery_DownLoad_HostURL: 'https://zt-app-discovery.oss-cn-shenzhen.aliyuncs.com',
+    fs_discovery_DownLoad_HostURL: 'https://app-discovery.oss-cn-shenzhen.aliyuncs.com',
+    // fs_discovery_DownLoad_HostURL: 'https://zt-app-discovery.oss-cn-shenzhen.aliyuncs.com',
   },
 
 
@@ -125,7 +124,4 @@ App({
   //   fs_discovery_UpLoad_HostURL:'https://oss-cn-shenzhen.aliyuncs.com',
   //   fs_discovery_DownLoad_HostURL:'https://app-discovery.oss-cn-shenzhen.aliyuncs.com',
   // },
-
-
-
 })

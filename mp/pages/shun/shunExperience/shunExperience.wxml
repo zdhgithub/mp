@@ -12,44 +12,33 @@
       <view class="shun-experience-detail-bg">
 
 
+        <!--<image class="shun-experience-detail-img" src="{{imgs[index].img}}"></image>-->
         <text class="shun-experience-detail-shop">{{item.shopName}}</text>
         <text class="shun-experience-detail-name">姓名：{{item.name}}</text>
+        <text class="shun-experience-detail-phone">手机号码：{{item.phoneNumber}}</text>
         <text class="shun-experience-detail-addr">地址：{{item.address}}</text>
-        <!--<view class="shun-experience-detail-distance">-->
-          <text class="shun-experience-detail-distance-text">距离我：{{item.distance}}km</text>
-        <!--</view>-->
+        <text class="shun-experience-detail-distance-text">距离我:{{item.distance}}km</text>
 
-        <!--一键拨号-->
-        <view class="shun-experience-detail-call" data-item="{{item}}" catchtap="callPhone">
-          <text>一键拨号</text>
-        </view>
-        <text class="shun-experience-detail-phone">{{item.phoneNumber}}</text>
-      
         
-        <view class="shun-experience-detail-nav" data-item="{{item}}" bindtap="navMethod">
-          <text class="shun-experience-detail-nav-text">一键导航</text>
-        </view>
 
-        <!--<image class="shun-experience-detail-img" src="{{imgs[index].img}}"></image>
-        <text class="shun-experience-detail-shop">{{item.shopName}}</text>
-        <text class="shun-experience-detail-name">姓名：{{item.name}}</text>-->
-        <!--一键拨号-->
-        <!--<view class="shun-experience-detail-call" data-item="{{item}}" catchtap="callPhone">
-          <text>一键拨号</text>
-        </view>-->
-        <!--<text class="shun-experience-detail-phone">{{item.phoneNumber}}</text>
-        <text class="shun-experience-detail-addr">地址：{{item.address}}</text>
-        <view class="shun-experience-detail-distance">
-          <text class="shun-experience-detail-distance-text">距离我:{{item.distance}}km</text>
+        <view class="twoBtn">
+          <view class="shun-experience-detail-call"  data-item="{{item}}" catchtap="callPhone">
+            <image src="/images/shun/experience/shun_experience_call.png"></image>
+            <text>一键拨号</text>
+          </view>
+
+          <view class="verticalLine"></view>
+
+          <view class="shun-experience-detail-nav" data-item="{{item}}" bindtap="navMethod">
+            <image src="/images/shun/experience/shun_experience_oneKeyNav.png"></image>
+            <text>一键导航</text>
+          </view>
         </view>
-        <view class="shun-experience-detail-nav" data-item="{{item}}" bindtap="navMethod">
-          <text class="shun-experience-detail-nav-text">一键导航</text>
-        </view>-->
 
 
         <!--中间分割线-->
-        <view wx:if="{{item.store != null}}" style="display:block;" class="line"></view>
-        <view wx:if="{{item.store == null}}" style="display:block;margin: 15px auto 0px;width:100%;" class="line"></view>
+        <!--<view wx:if="{{item.store != null}}" style="display:block;" class="line"></view>
+        <view wx:if="{{item.store == null}}" style="display:block;margin: 15px auto 0px;width:100%;" class="line"></view>-->
 
         <!--体验详情-->
         <view wx:if="{{item.store != null}}" style="display:block;" class="shun-experience-detail-bottom">
@@ -92,8 +81,8 @@
     </view>
   </view>
   <!--审核中-->
-  <view wx:if="{{join == 2}}" class="releaseArea" catchtouchmove="releaseViewTouchMove" catchtap="checking">
-    <view class="releaseView" style="left:{{left}}px;top:{{top}}px;">
+  <view wx:if="{{join == 2}}" class="releaseArea" catchtouchmove="releaseViewTouchMove" catchtap="checking" style="left:{{left}}px;top:{{top}}px;">
+    <view class="releaseView">
       <image class="see" mode="aspectFill" src="/images/shun/experience/shun_experience_cheching.png"></image>
       <text class="viewContent">审核中</text>
     </view>

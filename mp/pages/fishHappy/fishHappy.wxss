@@ -129,13 +129,13 @@ background-color: red;
 
 .activityDetail {
   border-top: #e5e5e5 solid 1px;
+  border-bottom: #e5e5e5 solid 1px;
   margin-top: 10px;
-  background-color: white;
   /*padding-bottom: 10px;*/
 }
 
 .cellItem {
-  background-color: #fff;
+  /*background-color: #fff;*/
   height: 50px;
   display: flex;
   align-items: center;
@@ -179,15 +179,13 @@ background-color: red;
 }
 
 /*===============================cell=================================*/
-
+.itemListsArea {
+  /*background-color: blue;*/
+}
 .itemListsArea_cell {
   /*background-color: cyan;*/
 }
 
-.longLine {
-  background-color: #e5e5e5;
-  height: 1px;
-}
 
 .cell_userInfo {
   display: flex;
@@ -217,7 +215,7 @@ background-color: red;
   display: block;
   margin: 0 auto;
   width: 700rpx;
-  text-indent: 2em;
+  /*text-indent: 2em;*/
   margin-top: 22rpx;
   color: #888;
   font-size: 15px;
@@ -233,7 +231,6 @@ background-color: red;
   margin-top: 30rpx;
   width: 700rpx;
   height: 210rpx;
-  /*background-color: cyan;*/
 }
 
 .cell_imgs {
@@ -250,7 +247,6 @@ background-color: red;
 
 .zan {
   display: block;
-  /*margin-top: 30rpx;*/
 }
 
 .zanCount {
@@ -291,7 +287,7 @@ background-color: red;
   justify-content: space-between;
   align-items: center;
   margin-left: 25rpx;
-  margin-bottom: 30rpx;
+  /*margin-bottom: 30rpx;*/
   /*background-color: greenyellow;*/
   overflow: hidden;
   padding-bottom: 10px;
@@ -348,10 +344,8 @@ background-color: red;
 
 .zanName_more {
   display: inline-box;
-  margin: 0 25rpx 30rpx;
+  margin: 0 25rpx 10px;
   width: 700rpx;
-  padding-bottom: 10px;
-  /*background-color: greenyellow;*/
 }
 .zanName_img_more {
   float: left;
@@ -393,64 +387,12 @@ background-color: red;
   font-size: 9px;
 }
 
-/*.zanName_more {
-  display: flex;
-  flex-wrap: warp;
-  justify-content: space-between;
-  align-items: flex-start;
-  align-content: space-between;
-  margin-top: 20rpx;
-  margin-left: 25rpx;
-  margin-bottom: 30rpx;
-  /*background-color: greenyellow;*
-  overflow: hidden;
-}
 
-.zanName_img_more {
-  display: flex;
-  flex: none;
-  width: 40rpx;
-  height: 40rpx;
-}
-
-.zanName_names_more {
-  display: flex;
-  /*margin-top: 2rpx;*/
-
-/*background-color: red;*
-}
-
-.zanName_names_more_text {
-  display: flex;
-  font-size: 13px;
-  color: #7a7d7e;
-  line-height: 150%;
-}
-
-.zanName_btn_more {
-  display: flex;
-  flex: none;
-  flex-wrap: warp;
-  margin-right: 25rpx;
-  width: 86rpx;
-  height: 40rpx;
-  border-radius: 4.0px;
-  border: #999 solid 1px;
-  justify-content: center;
-  align-items: center;
-  align-self: flex-end;
-}
-
-.zanName_btn_more_text {
-  display: flex;
-  color: #949899;
-  font-size: 9px;
-}*/
 
 /********************************下面的tableView***************************/
 
 .tableView {
-  background-color: #fff;
+  /*background-color: purple;*/
   margin-top: 20px;
 }
 
@@ -560,142 +502,3 @@ background-color: red;
   margin: 20rpx 0 0;
 }
 
-/****************************************钓场CSS*************************************/
-
-.site_itemView {
-  background-color: white;
-  position: relative;
-  border-bottom: #d3d9da solid 1px;
-  height: 97px;
-  padding-top: 13px;
-  padding-left: 12px;
-}
-
-.site_itemView image {
-  display: block;
-  width: 117px;
-  height: 86px;
-}
-
-.site_itemView .fishSiteName {
-  font-size: 17px;
-  position: absolute;
-  top: 14px;
-  right: 20%;
-  left: 140px;
-  word-break: break-all;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.site_itemView .location {
-  display: inline-block;
-  width: 8px;
-  height: 10px;
-  position: absolute;
-  margin-top: 3px;
-  left: 140px;
-  top: 48px;
-}
-
-.site_itemView .addr {
-  display: block;
-  color: #888;
-  font-size: 14px;
-  position: absolute;
-  top: 45px;
-  left: 150px;
-  right: 2%;
-  word-break: break-all;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.site_itemView .distance {
-  display: block;
-  position: absolute;
-  font-size: 14px;
-  color: #555;
-  top: 80px;
-  right: 12px;
-}
-
-.chargeView {
-  position: absolute;
-  left: 140px;
-  top: 74px;
-}
-
-.redText {
-  color: #f6807d;
-  font-size: 16px;
-}
-
-.normalText {
-  color: #555;
-  font-size: 16px;
-}
-
-.buyTicket {
-  color: rgb(113, 206, 215);
-  border: 1px solid #60cad4;
-  font-size: 14px;
-  border-radius: 4px;
-  width: 60px;
-  height: 20px;
-  line-height: 20px;
-  text-align: center;
-  position: absolute;
-  right: 12px;
-  top: 14px;
-}
-
-/*上拉加载更多*/
-
-.site_upLoadMore {
-  height: 44px;
-  width: 100%;
-  text-align: center;
-  line-height: 44px;
-  color: #8a8a8a;
-}
-
-.site_upLoadMore view {
-  border: none;
-  height: 44px;
-  width: 100%;
-  text-align: center;
-  line-height: 44px;
-  font-size: 14px;
-}
-
-/*当获取不到地理位置时的界面布局*/
-
-.nodata_content {
-  display: flex;
-  display: -webkit-flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.nodata_tip {
-  margin-top: 107px;
-  font-size: 20px;
-  color: black;
-}
-
-.nodata_introduce {
-  margin: 20px 60rpx 0px 60rpx;
-  font-size: 14px;
-  color: #888;
-  text-indent: 30px;
-}
-
-.nodata_button {
-  margin-top: 34px;
-  width: 700rpx;
-}

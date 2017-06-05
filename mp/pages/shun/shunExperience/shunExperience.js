@@ -32,6 +32,26 @@ Page({
       { img: '/images/shun/experience/11.png' },
       { img: '/images/shun/experience/22.png' },
       { img: '/images/shun/experience/33.png' },
+      { img: '/images/shun/experience/11.png' },
+      { img: '/images/shun/experience/22.png' },
+      { img: '/images/shun/experience/33.png' },
+      { img: '/images/shun/experience/11.png' },
+      { img: '/images/shun/experience/22.png' },
+      { img: '/images/shun/experience/33.png' },
+      { img: '/images/shun/experience/11.png' },
+      { img: '/images/shun/experience/22.png' },
+      { img: '/images/shun/experience/33.png' },
+    ],
+    // 记录开关状态的数组
+    switchArr: [
+      { text: '一杆钓江山.舜.360', idx: 0, bl: false },
+      { text: '一杆钓江山.舜.390', idx: 1, bl: false },
+      { text: '一杆钓江山.舜.450', idx: 2, bl: false },
+      { text: '一杆钓江山.舜.540', idx: 3, bl: false },
+      { text: '一杆钓江山.舜.630', idx: 4, bl: false },
+      { text: '一杆钓江山.舜.720', idx: 5, bl: false },
+      { text: '一杆钓江山.舜.810', idx: 6, bl: false },
+      { text: '一杆钓江山.舜.900', idx: 7, bl: false },
     ],
     items: [],
   },
@@ -81,20 +101,30 @@ Page({
           var obj = arr[i]
 
           var store = JSON.parse(obj.stock)
+          console.log('store == ', store)
 
           if (store != null) {
             for (var j = 0; j < store.length; j++) {
               var storeObj = store[j]
-              if (j == 0) { storeObj.text = '一杆钓江山.舜.540' }
-              else if (j == 1) { storeObj.text = '一杆钓江山.舜.630' }
-              else if (j == 2) { storeObj.text = '一杆钓江山.舜.720' }
-              else if (j == 3) { storeObj.text = '一杆钓江山.舜.810' }
-              else if (j == 4) { storeObj.text = '一杆钓江山.舜.900' }
+              var str = storeObj.text
+              if (str.indexOf('360') > 0) { storeObj.text = '一杆钓江山.舜.360' }
+              else if (str.indexOf('390') > 0) { storeObj.text = '一杆钓江山.舜.390' }
+              else if (str.indexOf('450') > 0) { storeObj.text = '一杆钓江山.舜.450' }
+              else if (str.indexOf('540') > 0) { storeObj.text = '一杆钓江山.舜.540' }
+              else if (str.indexOf('630') > 0) { storeObj.text = '一杆钓江山.舜.630' }
+              else if (str.indexOf('720') > 0) { storeObj.text = '一杆钓江山.舜.720' }
+              else if (str.indexOf('810') > 0) { storeObj.text = '一杆钓江山.舜.810' }
+              else if (str.indexOf('900') > 0) { storeObj.text = '一杆钓江山.舜.900' }
             }
+
+            obj.store = store
+
+          } else {
+            obj.store = that.data.switchArr
           }
 
 
-          obj.store = store
+
           console.log('stock', obj.stock)
           console.log('store', obj.store)
 

@@ -37,6 +37,8 @@ Page({
   },
   onLoad: function (options) {
 
+
+
     app.log('app.log openType onLoad', this.data.openType);
 
     var that = this;
@@ -45,7 +47,7 @@ Page({
     jmz.GetLength = function (str) {
       return str.replace(/[\u0391-\uFFE5]/g, "aa").length;  //先把中文替换成两个字节的英文，在计算长度
     };
-    console.log('GetLength', jmz.GetLength('测试测试qw'));
+    console.log('GetLength' , jmz.GetLength('测试测试qw'));
 
 
     // if (app.user) {
@@ -76,7 +78,6 @@ Page({
         // 营销活动列表
         this.loadSaleList(1, function (res) {
           var actId = res[0].id
-          console.log('营销活动列表', res, actId);
           that.setData({
             actId: actId
           })
@@ -101,7 +102,6 @@ Page({
             // 营销活动列表
             that.loadSaleList(1, function (res) {
               var actId = res[0].id
-              console.log('营销活动列表', res, actId);
               that.setData({
                 actId: actId
               })
@@ -259,7 +259,7 @@ Page({
   loadActivitys: function (index, size, callback) {
     var that = this;
     var urlStr = app.basicURL + 'campaign/list?start=' + index + '&size=' + size;
-    console.log('app.basicURL', app.basicURL);
+
     hp.request('GET', urlStr, {}, function (res) {
 
       //设置时间格式
@@ -280,13 +280,20 @@ Page({
   },
   // 加载营销活动列表
   loadSaleList: function (index, callback) {
-    var urlStr = app.basicURL + 'marketing/list/' + index + '/10'
 
+    var urlStr = app.basicURL + 'marketing/list/' + index + '/10'
     hp.request('GET', urlStr, {}, function (res) {
       console.log('营销活动列表', urlStr, res);
       var bodyArr = res.body;
       callback(bodyArr);
     })
+
+    // var urlStr = app.basicV2Url + 'marketing/list/' + index + '/10'
+    // hp.ctoRequest('GET', urlStr, {}, function (res) {
+    //   console.log('营销活动列表', urlStr, res);
+    //   var bodyArr = res.data;
+    //   callback(bodyArr);
+    // })
   },
   //点击一个活动cell,进入活动详情页面
   gotoActivityDetail: function (e) {
@@ -353,10 +360,12 @@ Page({
   loadPicsData: function (actId, callback) {
 
     var that = this;
+
+
     var urlStr = app.basicURL + 'marketing/pictures/' + actId;
     hp.request('GET', urlStr, {}, function (res) {
       //将数据回调
-      // console.log('加载图片列表数据',res);
+      console.log('加载图片列表数据', res);
 
       for (var i = 0; i < res.body.length; i++) {
         var obj = res.body[i];
@@ -415,11 +424,76 @@ Page({
       }
 
       callback(res.body);
-    });
+    })
+
+    // var urlStr = app.basicV2Url + 'marketing/pictures/' + actId;
+    // hp.ctoRequest('GET', urlStr, {}, function (res) {
+    //   //将数据回调
+    //   console.log('加载图片列表数据', res);
+
+    //   for (var i = 0; i < res.data.length; i++) {
+    //     var obj = res.data[i];
+
+    //     // 解析图片字符串成数组
+    //     var picStr = obj.picture;
+    //     // console.log('picStr', picStr);
+    //     var arr = picStr.split(',');
+    //     //移除空元素
+    //     var arrRes = [];
+    //     for (var j = 0; j < arr.length; j++) {
+    //       var item = arr[j];
+    //       if (item != '') {
+    //         var imgObj = {
+    //           img: item
+    //         }
+    //         arrRes.push(imgObj);
+    //       }
+    //     }
+    //     // console.log('arr,arrRes', arr, arrRes);
+    //     obj.imgs = arrRes;
+
+    //     // 头像解析
+    //     var portriat = obj.portriat;
+    //     console.log('头像解析portriat', portriat);
+    //     if (portriat == undefined || portriat.length == 0) {
+    //       portriat = '';
+    //     } else {
+    //       console.log('indexOf', portriat.indexOf('http'));
+    //       if (portriat.indexOf('http') < 0) {//不以http开头
+    //         portriat = that.data.user_portrait_DownLoad_HostURL + '/' + portriat;
+    //       }
+    //     }
+    //     obj.portriat = portriat;
+
+    //     // 解析点赞人名 nicknames
+    //     if (obj.likeCount == 0) {
+    //       console.log('likeCount == 0');
+    //     } else {
+    //       var likeUsuer = obj.likeUsuer;
+    //       var nicknames = '';
+    //       for (var j = 0; j < likeUsuer.length; j++) {
+    //         var user = likeUsuer[j];
+    //         var nickname = user.nickName;
+    //         nicknames += nickname + '、';
+    //       }
+    //       nicknames = nicknames.substring(0, nicknames.length - 1);
+    //       console.log('nicknames', nicknames);
+    //       obj.nicknames = nicknames;
+    //     }
+
+
+    //     // 点赞列表展开状态isMore
+    //     obj.isMore = false;
+
+    //   }
+
+    //   callback(res.data);
+    // })
   },
   // 判断是否发布 GET /marketing/{uid}/{mid}  1：表示已参加， 0：表示未参加
   judgeRelOrNot: function (uid, mid) {
     var that = this;
+
     var urlStr = app.basicURL + 'marketing/' + uid + '/' + mid;
     hp.request('GET', urlStr, {}, function (res) {
       console.log('判断是否发布', urlStr, res.body);
@@ -434,11 +508,28 @@ Page({
       }
       console.log('isReleased', that.data.isReleased);
     })
+
+    // var urlStr = app.basicV2Url + 'marketing/' + uid + '/' + mid;
+    // hp.ctoRequest('GET', urlStr, {}, function (res) {
+    //   console.log('判断是否发布', urlStr, res.data);
+    //   if (res.data == 1) {
+    //     that.setData({
+    //       isReleased: true
+    //     })
+    //   } else {
+    //     that.setData({
+    //       isReleased: false
+    //     })
+    //   }
+    //   console.log('isReleased', that.data.isReleased);
+    // })
   },
   //加载已发布内容GET /marketing/picture/{marketingId}/{uid}
   loadReleasedData: function (actId, callback) {
     var that = this;
     var uid = app.user.id;
+
+
     var urlStr = app.basicURL + 'marketing/picture/' + actId + '/' + uid;
     hp.request('GET', urlStr, {}, function (res) {
       //将数据回调
@@ -449,30 +540,8 @@ Page({
       var imgs = [];
       for (var i = 0; i < images.length; i++) {
         var str = images[i];
-
-        // 获取图片尺寸
-        wx.getImageInfo({
-          src: that.data.fs_discovery_DownLoad_HostURL + '/' + str,
-          success: function (res) {
-            var imgObj = {
-              w: res.width,
-              h: res.height,
-              img: str
-            };
-            if (str != "") {
-              imgs.push(imgObj);
-            }
-
-
-
-          }
-        })
-
       }
-      // console.log('imgs', imgs);
       res.body.imgs = imgs;
-
-
 
       // 点赞人名解析
       var likeUsuer = res.body.likeUsuer;
@@ -491,6 +560,39 @@ Page({
       }
       callback(res.body);
     });
+
+
+
+    // var urlStr = app.basicV2Url + 'marketing/picture/' + actId + '/' + uid;
+    // hp.ctoRequest('GET', urlStr, {}, function (res) {
+    //   //将数据回调
+    //   // 图片解析imgs
+    //   var imgStr = res.data.picture;
+    //   var images = imgStr.split(',');
+    //   // 去除空元素
+    //   var imgs = [];
+    //   for (var i = 0; i < images.length; i++) {
+    //     var str = images[i];
+    //   }
+    //   res.data.imgs = imgs;
+
+    //   // 点赞人名解析
+    //   var likeUsuer = res.data.likeUsuer;
+    //   if (likeUsuer.length == 0) {
+    //     res.data.nicknames = "";
+    //   } else {
+    //     var nicknames = "";
+    //     var length = likeUsuer.length;
+    //     for (var i = 0; i < length - 1; i++) {
+    //       nicknames += likeUsuer[i].nickName + '、';
+    //     }
+    //     nicknames += likeUsuer[length - 1].nickName;
+    //     // console.log('nicknames nicknamesLength', nicknames, nicknames.length);
+
+    //     res.data.nicknames = nicknames;
+    //   }
+    //   callback(res.data);
+    // });
   },
 
   // ------------------------------钓场事件--------------------
@@ -627,14 +729,15 @@ Page({
     wx.showToast({
       title: '点赞中...',
       icon: 'loading',
-      duration: 1000
+      duration: 1000,
+      mask:true
     })
 
     var that = this;
     var obj = e.currentTarget.dataset.obj;
-    // console.log('obj', obj);
     var arr = this.data.picsList;
-    // console.log('arr', arr);
+    
+
     for (var i = 0; i < arr.length; i++) {
       var item = arr[i];
       if (item.uid == obj.uid) {
@@ -648,18 +751,44 @@ Page({
         console.log('点赞事件para', para);
         hp.request('POST', url, para, function (res) {
           console.log('点赞事件', res);
+          // 点赞成功，刷新列表
           if (res.status == 0) {
             that.loadPicsData(that.data.actId, function (picsList) {
-              // console.log('picsList', picsList);
               that.setData({
                 picsList: picsList
               });
             })
           }
         })
-
       }
     }
+
+
+    // for (var i = 0; i < arr.length; i++) {
+    //   var item = arr[i];
+    //   if (item.uid == obj.uid) {
+
+    //     var url = app.basicV2Url + 'marketing/likeUser';
+    //     var para = {
+    //       "likeUid": app.user.id,
+    //       "marketUid": obj.uid,
+    //       "marketingId": obj.marketingId
+    //     };
+    //     console.log('点赞事件para', para);
+    //     hp.ctoRequest('POST', url, para, function (res) {
+    //       console.log('点赞事件', res);
+    //       // 点赞成功，刷新列表
+    //       if (res.status == 0) {
+    //         that.loadPicsData(that.data.actId, function (picsList) {
+    //           that.setData({
+    //             picsList: picsList
+    //           });
+    //         })
+    //       }
+    //     })
+
+    //   }
+    // }
 
 
 
@@ -714,15 +843,15 @@ Page({
     console.log('帮他点赞界面', e.currentTarget.dataset.obj);
     var json = e.currentTarget.dataset.obj;
     // 我的内容界面
-    if (json.uid == app.user.id) {
-      wx.navigateTo({
-        url: '/pages/activity/activitySee/activitySee?actId=' + this.data.actId
-      })
-    } else {//帮他点赞界面
+    // if (json.uid == app.user.id) {
+    //   wx.navigateTo({
+    //     url: '/pages/activity/activitySee/activitySee?actId=' + this.data.actId
+    //   })
+    // } else {//帮他点赞界面
       wx.navigateTo({
         url: '/pages/activity/activitySale/activitySaleZan/activitySaleZan?JsonStr=' + JSON.stringify(json)
       })
-    }
+    // }
 
 
   },

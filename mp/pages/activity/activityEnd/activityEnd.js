@@ -21,19 +21,33 @@ Page({
    */
   onLoad: function (options) {
 
+    var that = this;
+
+    if (app.user) {
+      this.onLoadMethod(options)
+    } else {
+
+      VF.checkUserBindPhoneNumber(function (result) {
+        if (result == 1) {
+          that.onLoadMethod(options)
+        }
+      })
+    }
+
+  },
+  onLoadMethod: function (options) {
+
+    var that = this;
+
     var dataStr = decodeURIComponent(options.act)
     var dataJson = JSON.parse(dataStr)
-
-    console.log('传过来的活动', dataJson)
     this.setData({
       actId: dataJson.id,
       info: dataJson
     })
 
     //加载回顾文章列表
-    var that = this;
     this.loadReviewArticles(function (res) {
-      console.log('加载回顾文章列表', res.body)
       //保存文章列表
       // that.setData({
       //   reviewArts: res.body
@@ -43,8 +57,8 @@ Page({
       that.loadArticleContent(artId, function (res) {
         that.setData({
           content: res
-        });
-      });
+        })
+      })
     })
   },
   /**
@@ -121,9 +135,9 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  // onShareAppMessage: function () {
 
-  },
+  // },
   //-----------------------------------回顾页面的方法-----------------------------------//
   loadReviewArticles: function (callback) {
     //通过数据来看 
@@ -233,7 +247,7 @@ Page({
     });
   },
   // 活动详情
-  gotoActivityDetail:function(){
+  gotoActivityDetail: function () {
     // 暂停音乐
     this.audioPlayAndPause()
     wx.navigateTo({

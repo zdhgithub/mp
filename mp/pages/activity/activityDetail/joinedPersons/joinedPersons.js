@@ -12,6 +12,11 @@ Page({
     var list = options.list;
     list = decodeURIComponent(list);
     list = JSON.parse(list);
+
+
+   
+
+
     this.setData({
       list:list
     });

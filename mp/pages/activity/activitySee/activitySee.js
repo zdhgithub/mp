@@ -12,23 +12,37 @@ Page({
     isMore: false,
   },
   onLoad: function (options) {
-    console.log("onLoad");
+
+    var that = this;
+
+    if (app.user) {
+      this.onLoadMothod(options)
+    } else {
+
+      VF.checkUserBindPhoneNumber(function (result) {
+        if (result == 1) {
+          that.onLoadMothod(options)
+        }
+      })
+    }
+
+    
+    
+
+
+  },
+  onLoadMothod: function (options){
     var that = this;
     //保存活动id
-    var actId = options.actId;
-    console.log("actId", actId);
     this.setData({
       actId: options.actId
     });
     //加载已发布内容GET
-    this.loadReleasedData(actId, function (releasedData) {
-      console.log('onLoad-releasedData', releasedData);
+    this.loadReleasedData(options.actId, function (releasedData) {
       that.setData({
         releasedData: releasedData
       });
     });
-
-
   },
   onShow: function (options) {
     console.log("onShow", this.data.releasedData);
@@ -50,24 +64,7 @@ Page({
       for (var i = 0; i < images.length; i++) {
         var str = images[i];
 
-        // wx.getImageInfo({
-        //   src: that.data.fs_discovery_DownLoad_HostURL + '/' + str,
-        //   success: function (res) {
-        //     console.log('getImageInfo-success', res);
 
-        //     if (str != "") {
-        //       var obj = {
-        //         img: res.path,
-        //         w: res.width,
-        //         h: res.height
-        //       }
-        //       imgs.push(obj);
-        //     }
-        //   },
-        //   fail: function (res) {
-        //     console.log('getImageInfo-fail', res);
-        //   },
-        // })
 
         if (str != "") {
           var obj = {
@@ -81,7 +78,7 @@ Page({
       // 头像解析
       var portriat = res.body.portriat;
       console.log('头像解析portriat', portriat);
-      if (portriat == undefined) {
+      if (portriat == undefined || portriat.length == 0) {
         portriat = '';
       } else {
         console.log('indexOf', portriat.indexOf('http'));
@@ -175,10 +172,10 @@ Page({
     console.log('更新渲染层数据', this.data.releasedData);
   },
   //页面分享按钮
-  onShareAppMessage: function () {
-    return {
-      title: '快来帮' + app.user.nickname + '点赞助力拿鱼杆',
-      path: '/pages/activity/activitySee/activitySee'
-    }
-  },
+  // onShareAppMessage: function () {
+  //   return {
+  //     title: '快来帮' + app.user.nickname + '点赞助力拿鱼杆',
+  //     path: '/pages/activity/activitySee/activitySee'
+  //   }
+  // },
 })

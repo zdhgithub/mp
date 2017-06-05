@@ -3,17 +3,19 @@
 
 
  <!--发布内容  releasePicsClick  seePicsClick  -->
-  <view class="releaseView" bindtap="{{isReleased == true ? 'seePicsTapMethod' : 'releasePicsClick'}}">
-    <image wx:if="{{isReleased == true}}" class="see" mode="aspectFill" src="/images/activity/activity_see.png"></image>
-    <image wx:else class="see" mode="aspectFill" src="/images/activity/activity_releaseIcon.png"></image>
-    <text wx:if="{{isReleased == true}}" class="viewContent">我的照片</text>
-    <text wx:else class="viewContent">我要参加</text>
-  </view>
+        <view class="releaseArea" catchtap="{{isReleased == true ? 'seePicsTapMethod' : 'releasePicsClick'}}" style="left:{{left}}px;top:{{top}}px;" catchtouchmove="releaseViewTouchMove">
+          <view class="releaseView">
+            <image wx:if="{{isReleased == true}}" class="see" mode="aspectFill" src="/images/activity/activity_see.png"></image>
+            <image wx:else class="see" mode="aspectFill" src="/images/activity/activity_releaseIcon.png"></image>
+            <text wx:if="{{isReleased == true}}" class="viewContent">我的照片</text>
+            <text wx:else class="viewContent">我要参加</text>
+          </view>
+        </view>
 
 
     <!--发布人头像 昵称-->
     <view class="releaserInfo">
-      <image class="releaserInfo_icon" mode="aspectFill" src="{{releasedData.portriat == Undefined ? '/images/my/my_portrait.png' : releasedData.portriat}}"></image>
+      <image class="releaserInfo_icon" mode="aspectFill" src="{{releasedData.portriat.length == 0 ? '/images/my/my_portrait.png' : releasedData.portriat}}"></image>
       <text class="releaserInfo_nickname">{{releasedData.nickname == Undefined ? '未设置' : releasedData.nickname}}</text>
     </view>
 
@@ -85,8 +87,8 @@
 <image wx:if="{{isShareMask}}" class="helpShare_img" mode="widthFix" src="/images/activity/activity_share.png"></image>
 <image wx:else class="helpShare_img_hidden" mode="widthFix" src="/images/activity/activity_share.png"></image>
 
-<text wx:if="{{isShareMask}}" class="helpShare_text">点击右上角，可分享给朋友哦！</text>
-<text wx:else class="helpShare_text_hidden" >点击右上角，可分享给朋友哦！</text>
+<text wx:if="{{isShareMask}}" class="helpShare_text">点击右上角“转发”按钮，可分享给朋友哦！</text>
+<text wx:else class="helpShare_text_hidden" >点击右上角“转发”按钮，可分享给朋友哦！</text>
 </view>
 
 

@@ -5,6 +5,9 @@ var hp = require('../../../../utils/HPUtils.js');
 var app = getApp();
 Page({
   data: {
+    // 悬浮视图初始位置
+    left: app.sysInfo.windowWidth - 54,
+    top: 240,
     // 是否显示分享图层
     isShareMask: false,
     //活动背景图片的OSS基本地址
@@ -16,29 +19,47 @@ Page({
   },
   onLoad: function (options) {
     // console.log("options", options);
+    var that = this;
 
     if (app.user) {
-
+      var json = JSON.parse(options.JsonStr);
+      this.setData({
+        releasedData: json
+      });
+      console.log("帮他点赞json", this.data.releasedData);
     } else {
 
       VF.checkUserBindPhoneNumber(function (result) {
         if (result == 1) {
-
+          var json = JSON.parse(options.JsonStr);
+          that.setData({
+            releasedData: json
+          });
+          console.log("帮他点赞json", that.data.releasedData);
         }
       })
     }
 
-    var json = JSON.parse(options.JsonStr);
 
-    this.setData({
-      releasedData: json
-    });
-    console.log("帮他点赞json", this.data.releasedData);
   },
   onShow: function (options) {
-    //判断是否发布
-    this.judgeRelOrNot(app.user.id, this.data.releasedData.marketingId);
-    console.log('更新渲染层数据', this.data.releasedData);
+
+    var that = this;
+    if (app.user) {
+      //判断是否发布
+      this.judgeRelOrNot(app.user.id, this.data.releasedData.marketingId);
+    } else {
+
+      VF.checkUserBindPhoneNumber(function (result) {
+        if (result == 1) {
+          //判断是否发布
+          that.judgeRelOrNot(app.user.id, that.data.releasedData.marketingId);
+        }
+      })
+    }
+
+
+
   },
   // 判断是否发布 GET /marketing/{uid}/{mid}  1：表示已参加， 0：表示未参加
   judgeRelOrNot: function (uid, mid) {
@@ -138,7 +159,7 @@ Page({
       // 缓存第一次加载图片的尺寸
       imgs: this.data.releasedData.imgs
     });
-    
+
   },
   // 点击右上角帮他分享
   shareTap: function () {
@@ -271,7 +292,7 @@ Page({
       // 头像解析
       var portriat = obj.portriat;
       console.log('头像解析portriat', portriat);
-      if (portriat == undefined) {
+      if (portriat == undefined || portriat.length == 0) {
         portriat = '';
       } else {
         console.log('indexOf', portriat.indexOf('http'));
@@ -303,6 +324,33 @@ Page({
 
       callback(res.body);
     });
+  },
+  releaseViewTouchMove: function (e) {
+
+    var windowWidth = app.sysInfo.windowWidth
+    var windowHeight = app.sysInfo.windowHeight
+
+    // 拖动视图尺寸
+    let viewW = 44
+    let viewH = 100
+    // 边界距离
+    let distance = 10
+
+    var x = e.touches[0].clientX - viewW * 0.5
+    var y = e.touches[0].clientY - viewH * 0.5
+
+    if (x < distance) { x = distance }
+    else if (x > windowWidth - viewW - distance) { x = windowWidth - viewW - distance }
+    else { }
+
+    if (y < distance) { y = distance }
+    else if (y > windowHeight - viewH - distance) { y = windowHeight - viewH - distance }
+    else { }
+    // console.log('x:' + x, 'y:' + y)
+    this.setData({
+      left: x,
+      top: y
+    })
   },
 
 })
