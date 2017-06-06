@@ -17,7 +17,7 @@
 
 .segmentBar {
   display: block;
-  /*background-color: red;*/
+  background-color: #fff;
   width: 750rpx;
   height: 150rpx;
   border-bottom: #e5e5e5 solid 1px;
@@ -131,6 +131,7 @@ background-color: red;
   border-top: #e5e5e5 solid 1px;
   border-bottom: #e5e5e5 solid 1px;
   margin-top: 10px;
+  background-color: #fff;
   /*padding-bottom: 10px;*/
 }
 

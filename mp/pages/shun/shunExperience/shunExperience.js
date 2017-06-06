@@ -331,4 +331,22 @@ Page({
       phoneNumber: num,
     })
   },
+  // 点击右上角帮他分享
+  shareTap: function () {
+    console.log('点击右上角帮他分享');
+    this.setData({
+      isShareMask: true
+    })
+    console.log("点击右上角帮他分享", this.data.isShareMask);
+  },
+  hiddenMask: function () {
+    this.setData({
+      isShareMask: false
+    })
+  },
+  addIntroduce:function(){
+    wx.navigateTo({
+      url: '/pages/shun/shunBusiness/shunBusiness',
+    })
+  }
 })

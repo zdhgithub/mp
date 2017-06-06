@@ -138,9 +138,12 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  // onShareAppMessage: function () {
-
-  // },
+  onShareAppMessage: function () {
+    return {
+      title: app.user.nickName + '邀您一起看精彩钓鱼活动！',
+      path: '/pages/activity/activityEnd/activityEnd'
+    }
+  },
   //-----------------------------------回顾页面的方法-----------------------------------//
   loadReviewArticles: function (callback) {
     //通过数据来看 

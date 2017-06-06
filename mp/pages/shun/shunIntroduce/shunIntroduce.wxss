@@ -1,12 +1,10 @@
-
-
 .container {
-    display: block;
+  display: block;
 }
-.img {
-    display: block;
-    margin: 20rpx auto;
 
+.img {
+  display: block;
+  margin: 20rpx auto;
 }
 
 /*发布内容*/
@@ -16,36 +14,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 44px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   /*background-color: rgba(156, 200, 65, 1);*/
-}
-
-.releaseView {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 100px;
-  background-color: rgba(65, 65, 65, 0.8);
-  border-radius: 15px;
 }
 
 .see {
   display: flex;
-  width: 15px;
-  height: 15px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .viewContent {
-  display: flex;
+  display: block;
+  position: absolute;
   font-size: 14px;
-  color: #159ceb;
-  width: 14px;
-  margin-top: 10rpx;
-  line-height: 100%;
+  top: 16px;
+  left: 11px;
+  color: #fff;
 }
+
 .helpShare_mask {
   display: block;
   position: fixed;
@@ -56,6 +46,7 @@
   width: 100%;
   height: 100%;
   background-color: rgba(100, 100, 100, 0.8);
+  /*z-index: 999;*/
 }
 
 .helpShare_img {

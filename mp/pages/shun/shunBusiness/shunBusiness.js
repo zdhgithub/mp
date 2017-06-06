@@ -10,6 +10,11 @@ Page({
     top: 240,
     items: [
       {
+        img: "https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/bs1.png",
+        // w: 750,
+        // h: 763
+      },
+      {
         img: "https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/bs2.png",
         // w: 750,
         // h: 763

@@ -6,6 +6,20 @@
 
   <image src="{{poster}}" class="shun_experience_poster" mode="aspectFit" bindload="changeImgSize" style="width:{{w}}rpx;height:{{h}}rpx"></image>
 
+  <view class="twoBtnTop">
+    <view class="shun-experience-detail-call" data-item="{{item}}" catchtap="shareTap">
+      <image id="twoBtnTop_imagezf" src="/images/shun/experience/shun_experience_zf.png"></image>
+      <text>帮忙转发</text>
+    </view>
+
+    <!--<view class="verticalLine_top"></view>-->
+
+    <view class="shun-experience-detail-nav" data-item="{{item}}" bindtap="addIntroduce">
+      <image id="twoBtnTop_imageadd" src="/images/shun/experience/shun_experience_add_yellow.png"></image>
+      <text>加盟说明</text>
+    </view>
+  </view>
+
   <!--cell-->
   <view class="shun-experience-detail">
     <block wx:for="{{items}}" wx:key="{{*this}}">
@@ -15,19 +29,19 @@
         <!--<image class="shun-experience-detail-img" src="{{imgs[index].img}}"></image>-->
         <text class="shun-experience-detail-shop">{{item.shopName}}</text>
         <text class="shun-experience-detail-name">姓名：{{item.name}}</text>
-        <text class="shun-experience-detail-phone">手机号码：{{item.phoneNumber}}</text>
+        <text class="shun-experience-detail-phone">距离我：{{item.distance}}km</text>
         <text class="shun-experience-detail-addr">地址：{{item.address}}</text>
-        <text class="shun-experience-detail-distance-text">距离我:{{item.distance}}km</text>
+        <!--<text class="shun-experience-detail-distance-text">距离我:{{item.distance}}km</text>-->
 
-        
+
 
         <view class="twoBtn">
-          <view class="shun-experience-detail-call"  data-item="{{item}}" catchtap="callPhone">
+          <view class="shun-experience-detail-call" data-item="{{item}}" catchtap="callPhone">
             <image src="/images/shun/experience/shun_experience_call.png"></image>
             <text>一键拨号</text>
           </view>
 
-          <view class="verticalLine"></view>
+          <!--<view class="verticalLine"></view>-->
 
           <view class="shun-experience-detail-nav" data-item="{{item}}" bindtap="navMethod">
             <image src="/images/shun/experience/shun_experience_oneKeyNav.png"></image>
@@ -87,5 +101,21 @@
       <text class="viewContent">审核中</text>
     </view>
   </view>
+
+
+
+
+  <!--点击右上角帮他分享视图-->
+<view class="helpShare">
+
+<view wx:if="{{isShareMask}}" class="helpShare_mask" catchtouchstart="hiddenMask"></view>
+<view wx:else class="helpShare_mask_hidden" catchtouchstart="hiddenMask"></view>
+
+<image wx:if="{{isShareMask}}" class="helpShare_img" mode="widthFix" src="/images/activity/activity_share.png"></image>
+<image wx:else class="helpShare_img_hidden" mode="widthFix" src="/images/activity/activity_share.png"></image>
+
+<text wx:if="{{isShareMask}}" class="helpShare_text">点击右上角“转发”按钮，可分享给朋友哦！</text>
+<text wx:else class="helpShare_text_hidden" >点击右上角“转发”按钮，可分享给朋友哦！</text>
+</view>
 
 </view>

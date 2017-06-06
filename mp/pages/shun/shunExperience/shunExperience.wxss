@@ -75,10 +75,8 @@
 /*=============================================box=============================================*/
 
 .shun-experience-detail-shop {
-  /*position: absolute;*/
-  /*top: 15px;
-  left: 150px;*/
-  /*right: 70px;*/
+  /*position: absolute;*//*top: 15px;
+  left: 150px;*//*right: 70px;*/
   color: #000;
   font-size: 16px;
   font-weight: bold;
@@ -87,9 +85,8 @@
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  margin-left:25rpx;
+  margin-left: 25rpx;
   margin-top: 10px;
-  width:550rpx;
 }
 
 .shun-experience-detail-name, .shun-experience-detail-phone,
@@ -105,13 +102,11 @@
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  margin-left:25rpx;
+  margin-left: 25rpx;
   margin-top: 10px;
-  width:700rpx;
+  width: 700rpx;
 }
-.shun-experience-detail-name{
-margin-right: 100px;
-}
+
 .shun-experience-detail-phone {
   top: 63px;
 }
@@ -134,28 +129,30 @@ margin-right: 100px;
   padding: 3px;
 }
 
-
-
-.twoBtn {
+.twoBtn, .twoBtnTop {
   display: flex;
   display: -webkit-flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
+  height: 40px;
   width: 750rpx;
   margin: 15px 0 0;
-  border-top: #e5e5e5 solid 1px;
-  border-bottom: #e5e5e5 solid 1px;
+  /*border-top: #e5e5e5 solid 1px;*/
+  border-bottom: #e0e0e0 solid 0.5px;
+  background-color: #fff;
 }
-.verticalLine {
+.twoBtnTop {
+  margin: 0;
+}
+
+.verticalLine, .verticalLine_top {
   display: flex;
   display: -webkit-flex;
   background-color: #e5e5e5;
   width: 1px;
-  height: 50px;
+  height: 40px;
 }
-
 .shun-experience-detail-call, .shun-experience-detail-nav {
   display: flex;
   display: -webkit-flex;
@@ -163,8 +160,8 @@ margin-right: 100px;
   align-items: center;
   width: 50%;
   height: 100%;
-  
 }
+
 .shun-experience-detail-call image, .shun-experience-detail-nav image {
   display: flex;
   display: -webkit-flex;
@@ -191,6 +188,38 @@ margin-right: 100px;
   margin: 20px auto 0;
 }
 
+
+.twoBtnTop .shun-experience-detail-call, .twoBtnTop .shun-experience-detail-nav {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+.twoBtnTop, .verticalLine_top {
+  border-top: #e5e5e5 solid 1px;
+  border-bottom: #e5e5e5 solid 1px;
+  height: 50px;
+}
+#twoBtnTop_imagezf, #twoBtnTop_imageadd {
+  display: flex;
+  display: -webkit-flex;
+  width: 17px;
+  height:16px;
+  /*background-color: red;*/
+}
+.twoBtnTop text {
+  margin-top: 5px;
+  font-size: 11px;
+  color: #4c4c4c;
+  /*background-color: blue;*/
+  margin-left: 0px;
+}
+
+
+
 .shun-experience-detail-bottom {
   display: block;
   width: 700rpx;
@@ -202,7 +231,7 @@ margin-right: 100px;
   display: block;
   color: #000;
   font-size: 15px;
-  margin-top:10px;
+  margin-top: 10px;
 }
 
 .shun-experience-detail-bottom-items {
@@ -233,4 +262,49 @@ margin-right: 100px;
   color: #4c4c4c;
   font-size: 11px;
   margin-left: 10px;
+}
+
+/*转发提示*/
+
+.helpShare_mask {
+  display: block;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(100, 100, 100, 0.8);
+}
+
+.helpShare_img {
+  display: block;
+  position: fixed;
+  top: 0px;
+  right: 75rpx;
+  width: 525rpx;
+  height: 230rpx;
+}
+
+.helpShare_text {
+  display: block;
+  position: fixed;
+  top: 270rpx;
+  /*right: 180rpx;*/
+  left: 50rpx;
+  color: #fff;
+  font-size: 14px;
+}
+
+.helpShare_mask_hidden {
+  display: none;
+}
+
+.helpShare_img_hidden {
+  display: none;
+}
+
+.helpShare_text_hidden {
+  display: none;
 }

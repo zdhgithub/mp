@@ -1,10 +1,10 @@
 <block>
 <view class="container">
 
-<!--循环遍历展示内容啦-->
+<!--循环遍历展示内容啦 objectFit="cover"-->
      <block wx:for="{{items}}" wx:key="{{item.img}}">
       <image wx:if="{{item.video == false}}" data-idx="{{index}}" bindload="changeImgSize" class="img" style="width:{{item.w}}rpx;height:{{item.h}}rpx;"  mode="aspectFill" src="{{item.img}}"></image>
-      <video wx:else class="video"  src="{{item.img}}" objectFit="cover" autoplay="{{false}}"></video>
+      <video wx:else class="video"  src="{{item.img}}"  autoplay="{{false}}"></video>
     </block>
 
 </view>
@@ -13,10 +13,8 @@
 
 <!--发布内容  releasePicsClick  seePicsClick  -->
 <view class="releaseArea" catchtap="shareTap" style="left:{{left}}px;top:{{top}}px;" catchtouchmove="releaseViewTouchMove">
-  <view class="releaseView">
-    <image class="see" mode="aspectFill" src="/images/activity/activity_releaseIcon.png"></image>
-    <text  class="viewContent">帮忙转发</text>
-  </view>
+  <image class="see" mode="aspectFill" src="/images/default/zf.png"></image>
+  <text class="viewContent">转发</text>
 </view>
 <!--点击右上角帮他分享视图-->
 <view class="helpShare">

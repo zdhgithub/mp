@@ -12,10 +12,8 @@
 
 <!--发布内容  releasePicsClick  seePicsClick  -->
 <view class="releaseArea" catchtap="shareTap" style="left:{{left}}px;top:{{top}}px;" catchtouchmove="releaseViewTouchMove">
-  <view class="releaseView">
-    <image class="see" mode="aspectFill" src="/images/activity/activity_releaseIcon.png"></image>
-    <text  class="viewContent">帮忙转发</text>
-  </view>
+  <image class="see" mode="aspectFill" src="/images/default/zf.png"></image>
+  <text class="viewContent">转发</text>
 </view>
 <!--点击右上角帮他分享视图-->
 <view class="helpShare">

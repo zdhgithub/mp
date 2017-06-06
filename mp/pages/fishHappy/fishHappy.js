@@ -47,7 +47,7 @@ Page({
     jmz.GetLength = function (str) {
       return str.replace(/[\u0391-\uFFE5]/g, "aa").length;  //先把中文替换成两个字节的英文，在计算长度
     };
-    console.log('GetLength' , jmz.GetLength('测试测试qw'));
+    console.log('GetLength', jmz.GetLength('测试测试qw'));
 
 
     // if (app.user) {
@@ -730,13 +730,13 @@ Page({
       title: '点赞中...',
       icon: 'loading',
       duration: 1000,
-      mask:true
+      mask: true
     })
 
     var that = this;
     var obj = e.currentTarget.dataset.obj;
     var arr = this.data.picsList;
-    
+
 
     for (var i = 0; i < arr.length; i++) {
       var item = arr[i];
@@ -848,9 +848,9 @@ Page({
     //     url: '/pages/activity/activitySee/activitySee?actId=' + this.data.actId
     //   })
     // } else {//帮他点赞界面
-      wx.navigateTo({
-        url: '/pages/activity/activitySale/activitySaleZan/activitySaleZan?JsonStr=' + JSON.stringify(json)
-      })
+    wx.navigateTo({
+      url: '/pages/activity/activitySale/activitySaleZan/activitySaleZan?JsonStr=' + JSON.stringify(json)
+    })
     // }
 
 
