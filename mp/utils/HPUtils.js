@@ -9,9 +9,9 @@ function ctoRequest(method, url, data, result) {
     url: url,
     data: data,
     method: method, // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-    // header: {}, // 设置请求的 header
+    // header: {"Content-Type":"application/json"}, // 设置请求的 header
     success: function (res) {
-      console.log('requestUrl,res', url, res);
+      console.log('v2封装', method, url, res);
 
       // 200 201
       var code = res.statusCode.toString().indexOf('20')
@@ -41,10 +41,10 @@ function request(method, url, data, result) {
     url: url,
     data: data,
     method: method, // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-    // header: {}, // 设置请求的 header
+    // header: { "Content-Type": "application/json" }, // 设置请求的 header
     success: function (res) {
       // success
-      console.log('requestUrl,res', url, res);
+      console.log('封装的返回', method, url, res);
 
       if (res.statusCode != 200) {
         wx.showToast({

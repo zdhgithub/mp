@@ -1,4 +1,4 @@
- 
+@import "../../../shun/shunIntroduce/shunIntroduce.wxss"; 
 
 
 .container {

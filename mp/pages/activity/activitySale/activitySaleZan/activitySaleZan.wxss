@@ -1,19 +1,30 @@
 @import "../../activitySee/activitySee.wxss";
 
-.zanCount_share {
+.releaserInfo {
   display: flex;
-  flex-direction: row-reverse;
-  color: green;
-  font-size: 15px;
-  margin-right: 25rpx;
+  justify-content: space-between;
+  align-items: center;
+  height: 100rpx;
+  /*background-color: red;*/
 }
 
-.releaserInfo {
+.userinfo {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   height: 100rpx;
-  /*background-color: red;*/
+}
+
+.zanCount_share {
+  display: flex;
+  flex-direction: row-reverse;
+  color: #fff;
+  font-size: 11px;
+  margin-right: 25rpx;
+  background-color: #3cd79e;
+  border: #3cd79e solid 1px;
+  padding: 5px;
+  border-radius: 4px;
 }
 
 .releaserInfo_icon {
@@ -27,7 +38,7 @@
 .releaserInfo_nickname {
   display: flex;
   margin-left: 20rpx;
-  color: #60cad4;
+  color: #159ceb;
   font-size: 14px;
 }
 
@@ -96,8 +107,8 @@
   display: none;
 }
 
-
 /*-----------------------发布内容----------------------*/
+
 .releaseArea {
   position: fixed;
   display: flex;

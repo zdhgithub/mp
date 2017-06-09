@@ -48,7 +48,8 @@
 
 
         <!--发布内容  releasePicsClick  seePicsClick  -->
-        <view class="releaseArea" catchtap="{{isReleased == true ? 'seePicsTapMethod' : 'releasePicsClick'}}" style="left:{{left}}px;top:{{top}}px;" catchtouchmove="releaseViewTouchMove">
+        <view wx:if="{{isChecked == true}}" class="releaseArea" style="display:none;"></view>
+        <view wx:else class="releaseArea" catchtap="{{isReleased == true ? 'seePicsTapMethod' : 'releasePicsClick'}}" style="left:{{left}}px;top:{{top}}px;" catchtouchmove="releaseViewTouchMove">
           <view class="releaseView">
             <image wx:if="{{isReleased == true}}" class="see" mode="aspectFill" src="/images/activity/activity_see.png"></image>
             <image wx:else class="see" mode="aspectFill" src="/images/activity/activity_releaseIcon.png"></image>
@@ -73,13 +74,18 @@
         <view class="itemListsArea">
           <view wx:for="{{picsList}}" wx:key="status" class="itemListsArea_cell" data-obj="{{item}}" bindtap="pushToZan">
 
-            
+
             <!--头像昵称-->
             <view class="cell_userInfo">
               <image class="cell_userInfo_icon" src="{{item.portriat.length == 0 ? '/images/my/my_portrait.png' : item.portriat}}"></image>
               <text class="cell_userInfo_nickname">{{item.nickname == Undefined ? '未设置' : item.nickname}}</text>
             </view>
-            <text class="cell_pictureDesc">{{item.pictureDesc}}</text>
+
+            <text class="cell_pictureDesc">标题：{{item.pictureDesc}}</text>
+
+            <view class="cell_sort_view">
+              <text class="cell_sort">目前排名：第{{item.ranking}}名</text>
+            </view>
 
             <!--图片-->
             <view class="cell_imgs_area">
@@ -91,11 +97,13 @@
             <!--点赞数据-->
             <!--点赞-->
             <view class="zan">
-            
+
               <view class="zanCount">
                 <view class="zanCount_area" catchtap="zanMethod" data-obj="{{item}}">
                   <text class="zanCount_count">{{item.likeCount}}</text>
+
                   <image class="zanCount_img" src="{{item.likeCount > 0 ? '/images/activity/activity_zan.png' : '/images/activity/activity_nozan.png'}}"></image>
+                  <text class="dianzan">点赞</text>
                 </view>
               </view>
 
@@ -114,6 +122,21 @@
                 </view>
               </view>
 
+
+
+              <!--<view wx:elif="{{item.isMore == false}}" class="zanName_more">
+                <image class="zanName_img_more" src="/images/activity/activity_zan1.png"></image>
+                <view class="zanName_names_more">
+                  <text class="zanName_names_more_text1">{{item.nicknames}}</text>
+                </view>
+                <!--占位符-->
+                <!--<p>i</p>--
+                <view class="zanName_btn_more" data-obj="{{item}}" catchtap="showMoreNicknames">
+                  <text class="zanName_btn_more_text">更多</text>
+                </view>
+              </view>-->
+
+
               <!--更多-->
               <view wx:else class="zanName_more">
                 <image class="zanName_img_more" src="/images/activity/activity_zan1.png"></image>
@@ -121,6 +144,8 @@
                 <view class="zanName_names_more">
                   <text class="zanName_names_more_text">{{item.nicknames}}</text>
                 </view>
+                <!--占位符-->
+                <p>i</p>
                 <view class="zanName_btn_more" data-obj="{{item}}" catchtap="showLessNicknames">
                   <text class="zanName_btn_more_text">收起</text>
                 </view>

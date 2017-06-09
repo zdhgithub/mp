@@ -8,7 +8,7 @@
     </view>
 
     <!--文字-->
-    <text class="text">{{json.pictureDesc}}</text>
+    <text class="text">标题：{{json.pictureDesc}}</text>
 
     <!--图片-->
     <view class="itemList">

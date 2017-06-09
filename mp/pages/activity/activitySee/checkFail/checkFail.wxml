@@ -14,7 +14,7 @@
 
     <!--文字-->
     <view class="text_view">
-      <text class="text">{{json.pictureDesc}}</text>
+      <text class="text">标题：{{json.pictureDesc}}</text>
     </view>
 
     <!--图片-->

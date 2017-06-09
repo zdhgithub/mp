@@ -31,7 +31,7 @@
   display: block;
   word-wrap: break-word;
   line-height: 150%;
-  text-indent: 2em;
+  /*text-indent: 2em;*/
   font-size: 14px;
   color: #888;
   padding: 34rpx 25rpx 10rpx;

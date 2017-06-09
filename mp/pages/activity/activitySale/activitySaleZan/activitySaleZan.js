@@ -24,7 +24,8 @@ Page({
     if (app.user) {
       var json = JSON.parse(options.JsonStr);
       this.setData({
-        releasedData: json
+        releasedData: json,
+        JsonStr: options.JsonStr
       });
       console.log("帮他点赞json", this.data.releasedData);
     } else {
@@ -64,13 +65,30 @@ Page({
   // 判断是否发布 GET /marketing/{uid}/{mid}  1：表示已参加， 0：表示未参加
   judgeRelOrNot: function (uid, mid) {
     var that = this;
-    var urlStr = app.basicURL + 'marketing/' + uid + '/' + mid;
+    var urlStr = app.basicURL + 'marketing/status/' + uid + '/' + mid;
     hp.request('GET', urlStr, {}, function (res) {
       console.log('判断是否发布', urlStr, res.body);
       if (res.body == 1) {
         that.setData({
           isReleased: true
         })
+
+
+        // 已发布，判断有没审核通过，通过隐藏悬浮按钮
+        that.loadReleasedData(that.data.releasedData.marketingId, app.user.id, function (releasedData) {
+          // 状态(0 审核中，1 通过，2 审核不通过)
+          if (releasedData.status == 1) {
+            that.setData({
+              isChecked: true
+            })
+          } else {
+            that.setData({
+              isChecked: false
+            })
+          }
+        })
+
+
       } else {
         that.setData({
           isReleased: false
@@ -129,11 +147,12 @@ Page({
       url: '/pages/activity/activitySale/activitySaleDetail/activitySaleDetail'
     })
   },
-  //页面分享按钮
+  //页面分享按钮  releasedData
   onShareAppMessage: function () {
+
     return {
       title: '快来帮' + this.data.releasedData.nickname + '点赞助力拿鱼杆',
-      path: '/pages/activity/activitySee/activitySee'
+      path: '/pages/activity/activitySale/activitySaleZan/activitySaleZan?JsonStr=' + this.data.JsonStr
     }
   },
   // 加载活动详情的图片信息尺寸
@@ -352,5 +371,22 @@ Page({
       top: y
     })
   },
+  // showBigImg: function (e) {
+  //   console.log('eee', e)
+  //   var idx = e.currentTarget.dataset.idx
+  //   var imgs = e.currentTarget.dataset.imgs
+
+  //   var arr = []
+  //   for (var i = 0; i < imgs.length; i++) {
+  //     var imgUrl = this.data.fs_discovery_DownLoad_HostURL + '/' + imgs[i].img
+  //     console.log(idx,imgUrl)
+  //     arr.push(imgUrl)
+  //   }
+
+  //   wx.previewImage({
+  //     current: idx, // 当前显示图片的http链接
+  //     urls: arr // 需要预览的图片http链接列表
+  //   })
+  // },
 
 })

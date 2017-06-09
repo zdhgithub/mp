@@ -41,14 +41,75 @@ Page({
 
     app.log('app.log openType onLoad', this.data.openType);
 
-    var that = this;
+    // var that = this;
 
-    var jmz = {};
-    jmz.GetLength = function (str) {
-      return str.replace(/[\u0391-\uFFE5]/g, "aa").length;  //先把中文替换成两个字节的英文，在计算长度
-    };
-    console.log('GetLength', jmz.GetLength('测试测试qw'));
+    // var jmz = {};
+    // jmz.GetLength = function (str) {
+    //   return str.replace(/[\u0391-\uFFE5]/g, "aa").length;  //先把中文替换成两个字节的英文，在计算长度
+    // };
+    // console.log('GetLength', jmz.GetLength('测试测试qw'));
+    var employees = []
+    employees[0] = { name: "George", age: 32, retiredate: "March 12, 2014" }
+    employees[1] = { name: "Edward", age: 18, retiredate: "June 2, 2023" }
+    employees[2] = { name: "Christine", age: 18, retiredate: "December 20, 2036" }
+    employees[3] = { name: "Sarah", age: 62, retiredate: "April 30, 2020" }
 
+    // employees.sort(function (v1, v2) {
+    //   // 如果年龄相同，则按姓名排序
+    //   if (v1.age === v2.age) {
+    //     return v1.name > v2.name
+    //   } else {
+    //     return v1.age - v2.age
+    //   }
+    // })
+
+    // var by = function (name) {
+    //   return function (o, p) {
+    //     var a, b;
+    //     if (typeof o === "object" && typeof p === "object" && o && p) {
+    //       a = o[name];
+    //       b = p[name];
+    //       if (a === b) {
+    //         return 0;
+    //       }
+    //       if (typeof a === typeof b) {
+    //         return a < b ? -1 : 1;
+    //       }
+    //       return typeof a < typeof b ? -1 : 1;
+    //     }
+    //     else {
+    //       throw ("error");
+    //     }
+    //   }
+    // }
+
+
+    // employees.sort(by("age"));
+
+
+
+
+    // var by = function (name, minor) {
+    //   return function (o, p) {
+    //     var a, b;
+    //     if (o && p && typeof o === 'object' && typeof p === 'object') {
+    //       a = o[name];
+    //       b = p[name];
+    //       if (a === b) {
+    //         return typeof minor === 'function' ? minor(o, p) : 0;
+    //       }
+    //       if (typeof a === typeof b) {
+    //         return a < b ? -1 : 1;
+    //       }
+    //       return typeof a < typeof b ? -1 : 1;
+    //     } else {
+    //       thro("error");
+    //     }
+    //   }
+    // }
+
+    // employees.sort(by('age', by('name')));
+    console.log(employees)
 
     // if (app.user) {
     //   this.actMethod()
@@ -281,7 +342,7 @@ Page({
   // 加载营销活动列表
   loadSaleList: function (index, callback) {
 
-    var urlStr = app.basicURL + 'marketing/list/' + index + '/10'
+    var urlStr = app.basicURL + 'marketing/listpage/' + index + '/10'
     hp.request('GET', urlStr, {}, function (res) {
       console.log('营销活动列表', urlStr, res);
       var bodyArr = res.body;
@@ -361,8 +422,7 @@ Page({
 
     var that = this;
 
-
-    var urlStr = app.basicURL + 'marketing/pictures/' + actId;
+    var urlStr = app.basicURL + 'marketing/list/' + actId + '/' + app.user.id;
     hp.request('GET', urlStr, {}, function (res) {
       //将数据回调
       console.log('加载图片列表数据', res);
@@ -422,6 +482,38 @@ Page({
         obj.isMore = false;
 
       }
+
+
+      // 解析点赞排名  sort方法在真机没效果
+      // var arr = res.body
+      // arr.sort(function (v1, v2) {
+      //   if (v1.likeCount === v2.likeCount && v1.likeUsuer.length > 0 && v2.likeUsuer.length > 0) {
+      //     return v1.likeUsuer[0].likeTime < v2.likeUsuer[0].likeTime
+      //   } else {
+      //     return v2.likeCount > v1.likeCount
+      //   }
+      // })
+
+      // // arr.sort(function (o1, o2) {
+      // //   return o2.likeCount - o1.likeCount
+      // // })
+      
+
+      // for (var i = 0; i < arr.length; i++) { arr[i].sort = i + 1 }
+
+      // var arrN = []
+      // var selfObj;
+      // for (var i = 0; i < arr.length; i++) {
+      //   var obj = arr[i];
+      //   if (obj.uid == app.user.id) {
+      //     selfObj = obj
+      //   }
+      //   if (obj.uid != app.user.id) {
+      //     arrN.push(obj)
+      //   }
+      // }
+      // arrN.unshift(selfObj)
+      // console.log('排名后', arrN)
 
       callback(res.body);
     })
@@ -494,13 +586,31 @@ Page({
   judgeRelOrNot: function (uid, mid) {
     var that = this;
 
-    var urlStr = app.basicURL + 'marketing/' + uid + '/' + mid;
+    var urlStr = app.basicURL + 'marketing/status/' + uid + '/' + mid;
     hp.request('GET', urlStr, {}, function (res) {
       console.log('判断是否发布', urlStr, res.body);
       if (res.body == 1) {
         that.setData({
           isReleased: true
         })
+
+        // 已发布，判断有没审核通过，通过隐藏悬浮按钮
+        that.loadReleasedData(that.data.actId, function (releasedData) {
+          // 状态(0 审核中，1 通过，2 审核不通过)
+          if (releasedData.status == 1) {
+            that.setData({
+              isChecked: true
+            })
+          } else {
+            that.setData({
+              isChecked: false
+            })
+          }
+        })
+
+
+
+
       } else {
         that.setData({
           isReleased: false

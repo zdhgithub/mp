@@ -15,11 +15,11 @@
 
     <view class="whitebg">
       <!--输入框 auto-height -->
-      <textarea class="releaseTextarea" maxlength="20" bindblur="inputFinish" bindinput="input" placeholder="必填，限20个字符" placeholder-style="color:#ccc;font-size:14px;" focus />
-      <text class="tips">{{textLength + '/20'}}</text>
-
+      <input class="releaseTextarea" maxlength="20" bindblur="inputFinish" bindinput="input" placeholder="标题，必填，限20个字符" placeholder-style="color:#ccc;font-size:14px;" focus />
+      <!--<text class="tips">{{textLength + '/20'}}</text>-->
+<!--<view class="line"></view>-->
       <!--图片区域-->
-      <view class="line"></view>
+      
       <view class="uploaderpics">
         <view class="weui-uploader__bd">
           <view class="weui-uploader__files">

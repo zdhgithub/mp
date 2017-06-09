@@ -180,21 +180,24 @@ background-color: red;
 }
 
 /*===============================cell=================================*/
+
 .itemListsArea {
   /*background-color: blue;*/
 }
-.itemListsArea_cell {
-  /*background-color: cyan;*/
-}
 
+.itemListsArea_cell {
+  background-color: #fff;
+}
 
 .cell_userInfo {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   height: 68rpx;
-  margin-top: 30rpx;
-  /*background-color: red;*/
+  margin-top: 10px;
+  padding-top: 10px;
+  background-color: #fff;
+  border-top: #e5e5e5 solid 1px;
 }
 
 .cell_userInfo_icon {
@@ -219,9 +222,23 @@ background-color: red;
   /*text-indent: 2em;*/
   margin-top: 22rpx;
   color: #888;
-  font-size: 15px;
+  font-size: 16px;
   word-wrap: break-word;
   line-height: 150%;
+}
+
+.cell_sort_view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px auto;
+}
+
+.cell_sort {
+  /*background-color: red;*/
+  display: flex;
+  color: #159ceb;
+  font-size: 15px;
 }
 
 .cell_imgs_area {
@@ -261,13 +278,19 @@ background-color: red;
 .zanCount_area {
   display: flex;
   height: 30px;
-  width: 50px;
+  width: 60px;
   flex-direction: row-reverse;
   align-items: center;
   /*background-color: red;*/
 }
 
+.dianzan {
+  font-size: 11px;
+  color: #888;
+}
+
 .zanCount_img {
+  margin-left: 3px;
   display: flex;
   width: 24rpx;
   height: 24rpx;
@@ -288,8 +311,7 @@ background-color: red;
   justify-content: space-between;
   align-items: center;
   margin-left: 25rpx;
-  /*margin-bottom: 30rpx;*/
-  /*background-color: greenyellow;*/
+  /*margin-bottom: 30rpx;*//*background-color: greenyellow;*/
   overflow: hidden;
   padding-bottom: 10px;
 }
@@ -304,7 +326,7 @@ background-color: red;
 .zanName_names {
   display: flex;
   width: 560rpx;
-  height: 40rpx;
+  /*height: 40rpx;*/
   overflow: hidden;
 }
 
@@ -314,7 +336,7 @@ background-color: red;
   color: #7a7d7e;
   word-break: break-all;
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   -webkit-text-overflow: ellipsis;
@@ -348,6 +370,7 @@ background-color: red;
   margin: 0 25rpx 10px;
   width: 700rpx;
 }
+
 .zanName_img_more {
   float: left;
   margin-top: 10rpx;
@@ -361,12 +384,37 @@ background-color: red;
 
 .zanName_names_more_text {
   display: inline;
-  margin-left:3px;
+  margin-left: 3px;
   font-size: 13px;
   color: #7a7d7e;
   line-height: 150%;
   word-break: break-all;
-  word-wrap:break-word;
+  word-wrap: break-word;
+}
+
+
+
+
+.zanName_names_more_text1 {
+  display: inline;
+  margin-left: 3px;
+  font-size: 13px;
+  color: #7a7d7e;
+  line-height: 150%;
+  word-break: break-all;
+  word-wrap: break-word;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  white-space: wrap;
+  overflow: hidden;
+}
+
+p {
+  color: #fff;
 }
 
 .zanName_btn_more {
@@ -388,13 +436,11 @@ background-color: red;
   font-size: 9px;
 }
 
-
-
 /********************************下面的tableView***************************/
 
 .tableView {
   /*background-color: purple;*/
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 /***********************活动的CSS*************************/
@@ -502,4 +548,3 @@ background-color: red;
   display: block;
   margin: 20rpx 0 0;
 }
-

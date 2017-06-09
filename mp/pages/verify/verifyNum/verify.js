@@ -64,6 +64,8 @@ function checkUserBindPhoneNumber(callback) {
             var u = res.data.body;
             //将微信的用户数据也添加上去
             u.avatarUrl = user.userInfo.avatarUrl;
+            u.portrait = u.avatarUrl
+            u.portriat = u.avatarUrl
             u.nickName = user.userInfo.nickName;
             u.language = user.userInfo.language;
             u.country = user.userInfo.country;
@@ -234,6 +236,8 @@ function loginMethod(code, userInfo, callback) {
       
       //将微信的用户数据也添加上去
       u.avatarUrl = userInfo.avatarUrl;
+      u.portrait = u.avatarUrl
+      u.portriat = u.avatarUrl
       u.nickName = userInfo.nickName;
       u.language = userInfo.language;
       u.country = userInfo.country;
@@ -248,10 +252,6 @@ function loginMethod(code, userInfo, callback) {
       //缓存用户数据
       try {
         wx.setStorageSync('user', app.user);
-        // wx.showToast({
-        //   title: '绑定成功',
-        //   icon: 'success',
-        // })
       } catch (e) {
         //如果保存失败了,就提示一下用户
         wx.showToast({

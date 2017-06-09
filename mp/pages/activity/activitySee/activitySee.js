@@ -171,11 +171,24 @@ Page({
     });
     console.log('更新渲染层数据', this.data.releasedData);
   },
+  // 点击右上角帮他分享
+  shareTap: function () {
+    console.log('点击右上角帮他分享');
+    this.setData({
+      isShareMask: true
+    })
+    console.log("点击右上角帮他分享", this.data.isShareMask);
+  },
+  hiddenMask: function () {
+    this.setData({
+      isShareMask: false
+    })
+  },
   //页面分享按钮
-  // onShareAppMessage: function () {
-  //   return {
-  //     title: '快来帮' + app.user.nickname + '点赞助力拿鱼杆',
-  //     path: '/pages/activity/activitySee/activitySee'
-  //   }
-  // },
+  onShareAppMessage: function () {
+    return {
+      title: '快来帮' + app.user.nickname + '点赞助力拿鱼杆',
+      path: '/pages/activity/activitySee/activitySee?actId=' + this.data.actId
+    }
+  },
 })

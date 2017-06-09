@@ -1,7 +1,7 @@
 <view class="container">
   <view class="userInfo">
 
-    <view class="userInfo_portrait" bindtap="loginAndShowUserInfo">
+    <view class="userInfo_portrait" ><!--bindtap="loginAndShowUserInfo"-->
       <image src="/images/my/my_portrait.png"></image>
       <image wx:if="{{user}}" src="{{user.avatarUrl}}"></image>
       <image wx:if="{{user}}" src="{{user_portrait_DownLoad_HostURL}}/{{user.portriat}}"></image>

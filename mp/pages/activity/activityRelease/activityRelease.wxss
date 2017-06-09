@@ -2,6 +2,7 @@
 
 .contentView {
   margin: 0px;
+  overflow: hidden;
 }
 
 .textView {
@@ -23,11 +24,12 @@
   display: block;
   word-wrap: break-word;
   font-size: 14px;
-  /*top: 30rpx;*/
+  width: 700rpx;
   padding-left: 10px;
-  width: 750rpx;
+  margin: 0 auto;
   height: 35px;
   background-color: white;
+  border: #e5e5e5 solid 1px;
 }
 
 .tips {
@@ -39,32 +41,32 @@
 }
 
 .line {
-  margin-top: 10px;
+  /*margin-top: 10px;*/
   background-color: #e5e5e5;
-  margin-left: 12px;
-  margin-right: 12px;
   height: 1px;
 }
 
 /*图片*/
 
 .whitebg {
-  background-color: #fff;
-  border-top: 1px solid #e5e5e5;
+  /*background-color: #fff;
+  border-top: 1px solid #e5e5e5;*/
 }
 
 .uploaderpics {
   background-color: #fff;
+  border-top: #e5e5e5 solid 1px;
   border-bottom: #e5e5e5 solid 1px;
-  margin-top: -10px;
+  margin-top: 10px;
   height: 280rpx;
 }
 
 .weui-uploader__bd {
-  margin-top: 60rpx;
+  margin-top: 30rpx;
   margin-bottom: -4px;
   margin-left: 24rpx;
   overflow: hidden;
+  /*background-color: red;*/
 }
 
 .weui-uploader__file {
@@ -88,6 +90,7 @@
 }
 
 .weui-uploader__input-box {
+  /*background-color: blue;*/
   float: left;
   position: relative;
   margin-right: 9px;
