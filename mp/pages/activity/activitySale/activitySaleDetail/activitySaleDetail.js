@@ -24,6 +24,9 @@ Page({
         if (result == 1) {
 
         }
+
+
+        
       })
     }
     console.log("onLoad", options);

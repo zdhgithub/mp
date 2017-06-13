@@ -1,5 +1,7 @@
 var hp = require('../../utils/HPUtils.js');
 var VF = require('../verify/verifyNum/verify.js');
+
+
 var app = getApp();
 Page({
   data: {
@@ -54,14 +56,14 @@ Page({
     employees[2] = { name: "Christine", age: 18, retiredate: "December 20, 2036" }
     employees[3] = { name: "Sarah", age: 62, retiredate: "April 30, 2020" }
 
-    // employees.sort(function (v1, v2) {
-    //   // 如果年龄相同，则按姓名排序
-    //   if (v1.age === v2.age) {
-    //     return v1.name > v2.name
-    //   } else {
-    //     return v1.age - v2.age
-    //   }
-    // })
+    employees.sort(function (v1, v2) {
+      // 如果年龄相同，则按姓名排序
+      if (v1.age === v2.age) {
+        return v1.name > v2.name ? 1 : -1;
+      } else {
+        return v1.age > v2.age ? 1 : -1;
+      }
+    })
 
     // var by = function (name) {
     //   return function (o, p) {

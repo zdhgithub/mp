@@ -24,25 +24,30 @@ Page({
    */
   onLoad: function (options) {
 
+    var act = options.act
+    this.setData({
+      act: act
+    })
+
     var that = this;
 
     if (app.user) {
-      this.onLoadMethod(options)
+      this.onLoadMethod(act)
     } else {
 
       VF.checkUserBindPhoneNumber(function (result) {
         if (result == 1) {
-          that.onLoadMethod(options)
+          that.onLoadMethod(act)
         }
       })
     }
 
   },
-  onLoadMethod: function (options) {
+  onLoadMethod: function (act) {
 
     var that = this;
 
-    var dataStr = decodeURIComponent(options.act)
+    var dataStr = decodeURIComponent(act)
     var dataJson = JSON.parse(dataStr)
     this.setData({
       actId: dataJson.id,
@@ -141,7 +146,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: app.user.nickName + '邀您一起看精彩钓鱼活动！',
-      path: '/pages/activity/activityEnd/activityEnd'
+      path: '/pages/activity/activityEnd/activityEnd?act=' + this.data.act
     }
   },
   //-----------------------------------回顾页面的方法-----------------------------------//

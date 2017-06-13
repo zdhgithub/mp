@@ -9,30 +9,12 @@ Page({
     left: app.sysInfo.windowWidth - 54,
     top: 240,
     items: [
-      {
-        img: "https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/bs1.png",
-        // w: 750,
-        // h: 763
-      },
-      {
-        img: "https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/bs2.png",
-        // w: 750,
-        // h: 763
-        },
-      {
-        img: "https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/bp.png",
-        // w: 750,
-        // h: 2000
-        },
-      {
-        img: "https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/bs3.png",
-        // w: 750,
-        // h: 778
-        },
+      { img: "https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/bs1.png" },
+      { img: "https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/bs2.png" },
+      { img: "https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/bs3.png" },
     ],
   },
   onLoad: function (options) {
-    wx.clearStorage();
     console.log("onLoad");
     console.log('onLoad items', this.data.items);
     //保存活动id
@@ -73,7 +55,7 @@ Page({
     var imgh = e.detail.height;
     // 重新设置图片尺寸
     img.w = 750;
-    img.h = 750*imgh/imgw;
+    img.h = 750 * imgh / imgw;
 
     this.setData({
       items: this.data.items

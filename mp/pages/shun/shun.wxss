@@ -1,22 +1,25 @@
-.shun_contenter {
-  text-align: center;
-}
 
-.shun_top {
-  display: inline-block;
-  text-align: center;
-  margin-top: 20rpx;
+
+
+.shun_top, .video_retail, .shun_fishTogether {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10rpx 25rpx 0;
   width: 700rpx;
-  height: 340rpx;
-  /*background-color: #aaa;*/
+}
+.shun_fishTogether {
+  justify-content: center;
 }
 
 .shun_topLeft {
-  text-align: left;
   position: relative;
-  display: inline-block;
-  width: 340rpx;
-  height: 340rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 345rpx;
+  height: 345rpx;
   background-color: #ff5350;
   border-radius: 5.0px;
   overflow: hidden;
@@ -25,34 +28,32 @@
 .shun_topLeft_name {
   display: inline-block;
   position: absolute;
-  margin-top: 40rpx;
-  margin-left: 40rpx;
+  top:40rpx;
+  left: 40rpx;
   font-size: 16px;
   color: #fff;
 }
 
 .shun_topLeft_img {
-  display: inline-block;
-  position: absolute;
-  top: 50px;
-  left: 55px;
+  display: flex;
   width: 80rpx;
   height: 140rpx;
 }
 
 .shun_topRight {
-  text-align: left;
-  display: inline-block;
-  width: 340rpx;
-  height: 340rpx;
-  margin-left: 10rpx;
-  /*background-color: red;*/
+  display: flex;
+  flex-flow: column wrap;
+  justify-content:space-between;
+  align-items: center;
+  width: 345rpx;
+  height: 345rpx;
 }
 
 .shun_topRight_top {
-  position: relative;
-  display: inline-block;
-  width: 340rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 345rpx;
   height: 168rpx;
   background-color: #3cd79e;
   border-radius: 5.0px;
@@ -60,54 +61,49 @@
 }
 
 .shun_topRight_top_img {
-  position: absolute;
-  margin-top: 55rpx;
+  display: flex;
   margin-left: 40rpx;
   width: 70rpx;
   height: 74rpx;
 }
 
 .shun_topRight_top_name {
-  position: absolute;
-  margin-top: 67rpx;
-  margin-left: 140rpx;
+  display: flex;
+  margin-left: 20rpx;
   font-size: 16px;
   color: #fff;
 }
 
 .shun_topRight_bottom {
-  position: relative;
-  display: inline-block;
-  width: 340rpx;
-  height: 168rpx;
-  margin-top: 0rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 345rpx;
+  height: 170rpx;
   background-color: #28cde3;
   border-radius: 5.0px;
   overflow: hidden;
 }
 
 .shun_topRight_bottom_img {
-  position: absolute;
-  margin-top: 55rpx;
+  display: flex;
   margin-left: 40rpx;
   width: 70rpx;
   height: 60rpx;
 }
 
 .shun_topRight_bottom_name {
-  position: absolute;
-  margin-top: 67rpx;
-  margin-left: 140rpx;
+  display: flex;
+  margin-left: 20rpx;
   font-size: 16px;
   color: #fff;
 }
-
 .shun_video {
-  text-align: left;
   position: relative;
-  display: inline-block;
-  margin-top: 10rpx;
-  width: 340rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 345rpx;
   height: 250rpx;
   background-color: #3b96ff;
   border-radius: 5.0px;
@@ -115,54 +111,24 @@
 }
 
 .shun_video_img {
-  position: absolute;
-  margin-top: 110rpx;
-  margin-left: 135rpx;
+  display: flex;
   width: 83rpx;
   height: 58rpx;
 }
 
 .shun_video_name {
   position: absolute;
-  margin-top: 40rpx;
-  margin-left: 40rpx;
+  top: 40rpx;
+  left: 40rpx;
   font-size: 16px;
   color: #fff;
 }
-/*.shun_video {
-  text-align: left;
-  position: relative;
-  display: inline-block;
-  margin-top: 10rpx;
-  width: 700rpx;
-  height: 250rpx;
-  background-color: #3b96ff;
-  border-radius: 5.0px;
-  overflow: hidden;
-}
-
-.shun_video_img {
-  position: absolute;
-  margin-top: 100rpx;
-  margin-left: 135rpx;
-  width: 83rpx;
-  height: 58rpx;
-}
-
-.shun_video_name {
-  position: absolute;
-  margin-top: 110rpx;
-  margin-left: 300rpx;
-  font-size: 16px;
-  color: #fff;
-}*/
 
 .shun_experience {
-  text-align: left;
-  position: relative;
-  display: inline-block;
-  margin-top: 10rpx;
-  width: 340rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 345rpx;
   height: 250rpx;
   background-color: #3cd7c3;
   border-radius: 5.0px;
@@ -171,24 +137,23 @@
 }
 
 .shun_experience_img {
-  position: absolute;
-  margin-top: 90rpx;
+  display: flex;
   margin-left: 40rpx;
   width: 75rpx;
   height: 68rpx;
 }
 
 .shun_experience_name {
-  position: absolute;
-  margin-top: 70rpx;
-  margin-left: 140rpx;
+  display: flex;
+  margin-left: 20rpx;
   font-size: 16px;
   color: #fff;
   line-height: 150%;
 }
 
 .shun_fishTogether_img {
-  margin-top: 230rpx;
+  display: flex;
+  margin-top: 200rpx;
   width: 328rpx;
   height: 62rpx;
 }

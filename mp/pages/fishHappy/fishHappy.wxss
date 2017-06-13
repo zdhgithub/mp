@@ -311,42 +311,39 @@ background-color: red;
   justify-content: space-between;
   align-items: center;
   margin-left: 25rpx;
-  /*margin-bottom: 30rpx;*//*background-color: greenyellow;*/
-  overflow: hidden;
   padding-bottom: 10px;
+  width: 700rpx;
+  overflow: hidden;
 }
-
 .zanName_img {
   display: flex;
   width: 40rpx;
   height: 40rpx;
-  margin-top: 10rpx;
 }
-
-.zanName_names {
+.zanNameAndBtn {
   display: flex;
-  width: 560rpx;
-  /*height: 40rpx;*/
-  overflow: hidden;
+  justify-content: space-between;
+  align-items: center;
+  width: 650rpx;
 }
 
 .zanName_names_text {
   display: flex;
+  width: 560rpx;
   font-size: 13px;
   color: #7a7d7e;
   word-break: break-all;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   -webkit-text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: wrap;
   overflow: hidden;
 }
 
 .zanName_btn {
   display: flex;
-  margin-right: 25rpx;
   width: 86rpx;
   height: 40rpx;
   border-radius: 4.0px;
@@ -357,14 +354,78 @@ background-color: red;
 
 .zanName_btn_text {
   display: flex;
-  /*margin-left: 5px;*/
-  padding: 0px;
   color: #949899;
   font-size: 9px;
 }
 
 /*------------------------------展开------------------------------*/
 
+/*.zanName_more {
+  display: inline-box;
+  margin: 0 25rpx 10px;
+  width: 700rpx;
+}
+
+.zanName_img_more {
+  float: left;
+  margin-top: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.zanName_names_more {
+  display: inline;
+}
+
+.zanName_names_more_text {
+  display: inline;
+  margin-left: 3px;
+  font-size: 13px;
+  color: #7a7d7e;
+  line-height: 150%;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.zanName_names_more_text1 {
+  display: inline;
+  margin-left: 3px;
+  font-size: 13px;
+  color: #7a7d7e;
+  line-height: 150%;
+  word-break: break-all;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  white-space: wrap;
+  overflow: hidden;
+}
+
+p {
+  color: #fff;
+}
+
+.zanName_btn_more {
+  /*float: right;*
+  display: inline-flex;
+  display: -webkit-inline-flex;
+  flex-flow: row warp;
+  justify-content: center;
+  align-items: center;
+  width: 86rpx;
+  height: 40rpx;
+  border-radius: 4.0px;
+  border: #999 solid 1px;
+}
+
+.zanName_btn_more_text {
+  display: flex;
+  color: #949899;
+  font-size: 9px;
+}*/
 .zanName_more {
   display: inline-box;
   margin: 0 25rpx 10px;
@@ -392,9 +453,6 @@ background-color: red;
   word-wrap: break-word;
 }
 
-
-
-
 .zanName_names_more_text1 {
   display: inline;
   margin-left: 3px;
@@ -403,7 +461,6 @@ background-color: red;
   line-height: 150%;
   word-break: break-all;
   word-wrap: break-word;
-
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -435,7 +492,6 @@ p {
   color: #949899;
   font-size: 9px;
 }
-
 /********************************下面的tableView***************************/
 
 .tableView {

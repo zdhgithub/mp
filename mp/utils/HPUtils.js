@@ -276,7 +276,7 @@ function uploadImage(imgPath, key, callback) {
     url: 'https://api.heipiaola.com/upload/oss',
     filePath: imgPath,
     name: 'file',
-    header: { '45FsoFgD44w13twc': '37MtBJGIFH3wgo363X60995n' },//写死的
+    header: { '45FsoFgD44w13twc': '37MtBJGIFH3wgo363X60995n' },//固定写死的
     formData: { 'key': key, 'file': imgPath },
     success: function (res) {
       console.log('requestUrl,res', res, key, imgPath);

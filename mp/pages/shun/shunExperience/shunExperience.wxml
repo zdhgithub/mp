@@ -7,17 +7,32 @@
   <image src="{{poster}}" class="shun_experience_poster" mode="aspectFit" bindload="changeImgSize" style="width:{{w}}rpx;height:{{h}}rpx"></image>
 
   <view class="twoBtnTop">
-    <view class="shun-experience-detail-call" data-item="{{item}}" catchtap="shareTap">
-      <image id="twoBtnTop_imagezf" src="/images/shun/experience/shun_experience_zf.png"></image>
-      <text>帮忙转发</text>
+
+    <view class="shun-experience-detail-nav" data-item="{{item}}" bindtap="productIntro">
+      <image id="twoBtnTop_intro" src="/images/shun/experience/shun_experience_intro.png"></image>
+      <text>产品介绍</text>
     </view>
 
-    <!--<view class="verticalLine_top"></view>-->
+    <view class="shun-experience-detail-nav" data-item="{{item}}" bindtap="brandStory">
+      <image id="twoBtnTop_bs" src="/images/shun/experience/shun_experience_bs.png"></image>
+      <text>品牌故事</text>
+    </view>
 
     <view class="shun-experience-detail-nav" data-item="{{item}}" bindtap="addIntroduce">
-      <image id="twoBtnTop_imageadd" src="/images/shun/experience/shun_experience_add_yellow.png"></image>
+      <image id="twoBtnTop_addcom" src="/images/shun/experience/shun_experience_addcom.png"></image>
       <text>加盟说明</text>
     </view>
+
+    <view class="shun-experience-detail-nav" data-item="{{item}}" bindtap="witnessVideo">
+      <image id="twoBtnTop_video" src="/images/shun/experience/shun_experience_video.png"></image>
+      <text id="video_text">见证视频</text>
+    </view>
+
+    <view class="shun-experience-detail-nav" data-item="{{item}}" catchtap="shareTap">
+      <image id="twoBtnTop_imagezf" src="/images/shun/experience/shun_experience_zf.png"></image>
+      <text id="zf_text">帮忙转发</text>
+    </view>
+
   </view>
 
   <!--cell-->
@@ -106,16 +121,16 @@
 
 
   <!--点击右上角帮他分享视图-->
-<view class="helpShare">
+  <view class="helpShare">
 
-<view wx:if="{{isShareMask}}" class="helpShare_mask" catchtouchstart="hiddenMask"></view>
-<view wx:else class="helpShare_mask_hidden" catchtouchstart="hiddenMask"></view>
+    <view wx:if="{{isShareMask}}" class="helpShare_mask" catchtouchstart="hiddenMask"></view>
+    <view wx:else class="helpShare_mask_hidden" catchtouchstart="hiddenMask"></view>
 
-<image wx:if="{{isShareMask}}" class="helpShare_img" mode="widthFix" src="/images/activity/activity_share.png"></image>
-<image wx:else class="helpShare_img_hidden" mode="widthFix" src="/images/activity/activity_share.png"></image>
+    <image wx:if="{{isShareMask}}" class="helpShare_img" mode="widthFix" src="/images/activity/activity_share.png"></image>
+    <image wx:else class="helpShare_img_hidden" mode="widthFix" src="/images/activity/activity_share.png"></image>
 
-<text wx:if="{{isShareMask}}" class="helpShare_text">点击右上角“转发”按钮，可分享给朋友哦！</text>
-<text wx:else class="helpShare_text_hidden" >点击右上角“转发”按钮，可分享给朋友哦！</text>
-</view>
+    <text wx:if="{{isShareMask}}" class="helpShare_text">点击右上角“转发”按钮，可分享给朋友哦！</text>
+    <text wx:else class="helpShare_text_hidden">点击右上角“转发”按钮，可分享给朋友哦！</text>
+  </view>
 
 </view>

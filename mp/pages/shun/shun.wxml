@@ -1,42 +1,47 @@
 <view class="shun_contenter">
-  <view class="shun_top">
 
-    <!--产品介绍-->
+
+
+  <!--产品介绍-->
+  <view class="shun_top">
     <view class="shun_topLeft" bindtap="productIntroduceTap">
       <text class="shun_topLeft_name">产品介绍</text>
       <image class="shun_topLeft_img" src="../../images/shun/shun_shun.png"></image>
     </view>
-    <view class="shun_topRight">
 
+    <view class="shun_topRight">
       <!--品牌故事-->
       <view class="shun_topRight_top" bindtap="productStoryTap">
         <image class="shun_topRight_top_img" src="../../images/shun/shun_productStory.png"></image>
         <text class="shun_topRight_top_name">品牌故事</text>
       </view>
-
       <!--招商-->
       <view class="shun_topRight_bottom" bindtap="businessTap">
         <image class="shun_topRight_bottom_img" src="../../images/shun/shun_business.png"></image>
         <text class="shun_topRight_bottom_name">招商</text>
       </view>
     </view>
+
+
   </view>
 
-  <!--舜·见证视频-->
-  <view class="shun_video" bindtap="videoTap">
-    <text class="shun_video_name">舜·见证视频</text>
-    <image class="shun_video_img" src="../../images/shun/shun_video.png"></image>
-  </view>
+  <view class="video_retail">
+    <!--舜·见证视频-->
+    <view class="shun_video" bindtap="videoTap">
+      <text class="shun_video_name">舜·见证视频</text>
+      <image class="shun_video_img" src="../../images/shun/shun_video.png"></image>
+    </view>
 
-  <!--舜·体验店-->
-  <view class="shun_experience" bindtap="shunExperienceTap">
-    <image class="shun_experience_img" src="../../images/shun/experience/shun_experience.png"></image>
-    <text class="shun_experience_name">查看舜
-      <br></br>体验店</text>
+    <!--舜·体验店-->
+    <view class="shun_experience" bindtap="shunExperienceTap">
+      <image class="shun_experience_img" src="../../images/shun/experience/shun_experience.png"></image>
+      <text class="shun_experience_name">舜·新零售</text>
+    </view>
   </view>
 
   <!--一起鱼乐-->
   <view class="shun_fishTogether">
     <image class="shun_fishTogether_img" src="../../images/shun/shun_fishTogether.png"></image>
   </view>
+
 </view>

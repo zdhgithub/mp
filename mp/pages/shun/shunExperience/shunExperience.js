@@ -79,10 +79,10 @@ Page({
       },
     })
   },
-  // 加载附近3条店铺信息
+  // 加载附近10条店铺信息
   loadNear3ShopInfo: function (lon, lat, callback) {
 
-    var url = app.basicV2Url + 'alliance/top/8?longitude=' + lon + '&latitude=' + lat
+    var url = app.basicV2Url + 'alliance/top/10?longitude=' + lon + '&latitude=' + lat
 
     hp.ctoRequest('GET', url, {}, function (res) {
       callback(res)
@@ -344,9 +344,24 @@ Page({
       isShareMask: false
     })
   },
+  productIntro:function(){
+    wx.navigateTo({
+      url: '/pages/shun/shunIntroduce/shunIntroduce',
+    })
+  },
+  brandStory: function () {
+    wx.navigateTo({
+      url: '/pages/shun/shunStory/shunStory',
+    })
+  },
   addIntroduce:function(){
     wx.navigateTo({
       url: '/pages/shun/shunBusiness/shunBusiness',
     })
-  }
+  },
+  witnessVideo: function () {
+    wx.navigateTo({
+      url: '/pages/shun/shunVideo/shunVideo',
+    })
+  },
 })

@@ -114,12 +114,14 @@
               <!--收起-->
               <view wx:elif="{{item.isMore == false}}" class="zanName">
                 <image class="zanName_img" src="/images/activity/activity_zan1.png"></image>
-                <view class="zanName_names">
+
+                <view class="zanNameAndBtn">
                   <text class="zanName_names_text">{{item.nicknames}}</text>
+                  <view class="zanName_btn" data-obj="{{item}}" catchtap="showMoreNicknames">
+                    <text class="zanName_btn_text">更多</text>
+                  </view>
                 </view>
-                <view class="zanName_btn" data-obj="{{item}}" catchtap="showMoreNicknames">
-                  <text class="zanName_btn_text">更多</text>
-                </view>
+
               </view>
 
 
@@ -130,7 +132,7 @@
                   <text class="zanName_names_more_text1">{{item.nicknames}}</text>
                 </view>
                 <!--占位符-->
-                <!--<p>i</p>--
+              <!--<p>i</p>--
                 <view class="zanName_btn_more" data-obj="{{item}}" catchtap="showMoreNicknames">
                   <text class="zanName_btn_more_text">更多</text>
                 </view>
@@ -138,6 +140,20 @@
 
 
               <!--更多-->
+              <!--<view wx:else class="zanName_more">
+                <image class="zanName_img_more" src="/images/activity/activity_zan1.png"></image>
+
+                <view class="zanName_names_more">
+                  <text class="zanName_names_more_text">{{item.nicknames}}</text>
+                </view>
+                <!--占位符--
+                <p>i</p>
+                <view class="zanName_btn_more" data-obj="{{item}}" catchtap="showLessNicknames">
+                  <text class="zanName_btn_more_text">收起</text>
+                </view>
+              </view>-->
+
+
               <view wx:else class="zanName_more">
                 <image class="zanName_img_more" src="/images/activity/activity_zan1.png"></image>
 
@@ -150,6 +166,7 @@
                   <text class="zanName_btn_more_text">收起</text>
                 </view>
               </view>
+
               <!--更多结束-->
             </view>
             <view class="line"></view>

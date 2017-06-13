@@ -142,6 +142,7 @@
   border-bottom: #e0e0e0 solid 0.5px;
   background-color: #fff;
 }
+
 .twoBtnTop {
   margin: 0;
 }
@@ -153,6 +154,7 @@
   width: 1px;
   height: 40px;
 }
+
 .shun-experience-detail-call, .shun-experience-detail-nav {
   display: flex;
   display: -webkit-flex;
@@ -168,6 +170,7 @@
   width: 19px;
   height: 21px;
 }
+
 .shun-experience-detail-call text, .shun-experience-detail-nav text {
   display: flex;
   display: -webkit-flex;
@@ -176,9 +179,7 @@
   font-size: 15px;
 }
 
-.shun-experience-detail-nav text {
-  color: #159ceb;
-}
+
 
 .line {
   display: block;
@@ -188,36 +189,52 @@
   margin: 20px auto 0;
 }
 
-
 .twoBtnTop .shun-experience-detail-call, .twoBtnTop .shun-experience-detail-nav {
   display: flex;
   display: -webkit-flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   width: 50%;
   height: 100%;
 }
+.shun-experience-detail-nav text {
+  margin: 2px 0 5px;
+  font-size: 11px;
+  color: #4c4c4c;
+  margin-left: 0px;
+}
+.shun-experience-detail-nav image {
+  margin-bottom: 2px;
+}
+
 .twoBtnTop, .verticalLine_top {
   border-top: #e5e5e5 solid 1px;
   border-bottom: #e5e5e5 solid 1px;
   height: 50px;
 }
-#twoBtnTop_imagezf, #twoBtnTop_imageadd {
+
+#twoBtnTop_intro, #twoBtnTop_bs, #twoBtnTop_addcom {
+  display: flex;
+  display: -webkit-flex;
+  width: 19px;
+  height: 19px;
+}
+
+#twoBtnTop_video {
+  display: flex;
+  display: -webkit-flex;
+  width: 19px;
+  height: 13px;
+  margin-bottom: 5px;
+}
+
+#twoBtnTop_imagezf {
   display: flex;
   display: -webkit-flex;
   width: 17px;
-  height:16px;
-  /*background-color: red;*/
+  height: 16px;
 }
-.twoBtnTop text {
-  margin-top: 5px;
-  font-size: 11px;
-  color: #4c4c4c;
-  /*background-color: blue;*/
-  margin-left: 0px;
-}
-
 
 
 .shun-experience-detail-bottom {
