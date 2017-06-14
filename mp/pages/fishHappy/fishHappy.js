@@ -39,7 +39,22 @@ Page({
   },
   onLoad: function (options) {
 
-
+    wx.getSetting({
+      success(res) {
+        console.log('读取照片权限',res)
+        if (!res['scope.writePhotosAlbum']) {
+          wx.authorize({
+            scope: 'scope.writePhotosAlbum',
+            success() {
+              // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+              wx.saveImageToPhotosAlbum({
+                filePath: 'http://wx.qlogo.cn/mmopen/vi_32/e73xbFhLtPiaNUMjXje31InpEdNLSj5TyqBmaT8X1bZ03GHSu4bskgGYAgV7gZyqHvPHf08YAE8gpFMMz8O8zow/0',
+              })
+            }
+          })
+        }
+      }
+    })
 
     app.log('app.log openType onLoad', this.data.openType);
 

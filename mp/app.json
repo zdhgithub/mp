@@ -1,12 +1,12 @@
 {
   "pages":[
+    "pages/shun/shunExperience/shunExperience",
     "pages/fishHappy/fishHappy",
     "pages/shun/shun",
     "pages/shun/shunIntroduce/shunIntroduce",
     "pages/shun/shunStory/shunStory",
     "pages/shun/shunBusiness/shunBusiness",
     "pages/shun/shunVideo/shunVideo",
-    "pages/shun/shunExperience/shunExperience",
     "pages/shun/shunExperience/shunExperienceModify/shunExperienceModify",
     "pages/shun/shunExperience/shunExperienceJoin/shunExperienceJoin",
     "pages/verify/verifyNum/verifyNum",
@@ -36,7 +36,7 @@
   },
   "tabBar": {
     "list": [{
-      "pagePath": "pages/fishHappy/fishHappy",
+      "pagePath": "pages/shun/shunExperience/shunExperience",
       "text": "鱼乐",
       "iconPath": "images/tabBar/fishHappy_nor.png",
       "selectedIconPath": "images/tabBar/fishHappy_sel.png"
