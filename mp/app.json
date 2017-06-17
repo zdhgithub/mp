@@ -1,16 +1,15 @@
 {
   "pages":[
     "pages/fishHappy/fishHappy",
-    "pages/shun/shun",
-    "pages/shun/shunIntroduce/shunIntroduce",
-    "pages/shun/shunStory/shunStory",
-    "pages/shun/shunBusiness/shunBusiness",
-    "pages/shun/shunVideo/shunVideo",
     "pages/shun/shunExperience/shunExperience",
     "pages/shun/shunExperience/shunExperienceJoin/shunExperienceJoin",
     "pages/shun/shunExperience/shunExperienceModify/shunExperienceModify",
     "pages/shun/shunExperience/shunRetailJoin/shunRetailJoin",
     "pages/shun/shunExperience/shunRetailModify/shunRetailModify",
+    "pages/shun/shunIntroduce/shunIntroduce",
+    "pages/shun/shunStory/shunStory",
+    "pages/shun/shunBusiness/shunBusiness",
+    "pages/shun/shunVideo/shunVideo",
     "pages/verify/verifyNum/verifyNum",
     "pages/my/my",
     "pages/my/myAccount/myAccount",
@@ -44,7 +43,7 @@
       "selectedIconPath": "images/tabBar/fishHappy_sel.png"
     },
     {
-      "pagePath": "pages/shun/shun",
+      "pagePath": "pages/shun/shunExperience/shunExperience",
       "text": "舜",
       "iconPath": "images/tabBar/shun.png",
       "selectedIconPath": "images/tabBar/shun.png"

@@ -384,10 +384,8 @@ var QR = (function () {
         return thisbad;
     }
 
-    function genframe(instring)
-    {
+    function genframe(instring){
         var x, y, k, t, v, i, j, m;
-
     // find the smallest version that fits the string
         t = instring.length;
         version = 0;

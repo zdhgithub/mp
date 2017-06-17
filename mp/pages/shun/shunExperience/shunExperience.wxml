@@ -2,9 +2,18 @@
 
 <view class="container">
 
+<!--------------------------------滑动视图-------------------------------->
+    <view class="swiper">
+      <swiper indicator-dots="{{screenWidth > 320}}" autoplay="true" interval="5000" circular="true" duration="1000">
+        <block wx:for="{{imgUrls}}" wx:key="*this">
+          <swiper-item>
+            <image src="{{item}}" mode="widthFix" class="slide-image" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
 
-
-  <image src="{{poster}}" class="shun_experience_poster" mode="aspectFit" bindload="changeImgSize" style="width:{{w}}rpx;height:{{h}}rpx"></image>
+  <!--<image src="{{poster}}" class="shun_experience_poster" mode="aspectFit" bindload="changeImgSize" style="width:{{w}}rpx;height:{{h}}rpx"></image>-->
 
   <view class="twoBtnTop">
 
@@ -60,7 +69,7 @@
 
           <view class="shun-experience-detail-nav" data-item="{{item}}" bindtap="navMethod">
             <image src="/images/shun/experience/shun_experience_oneKeyNav.png"></image>
-            <text>一键导航</text>
+            <text id="yjdh">一键导航</text>
           </view>
         </view>
 

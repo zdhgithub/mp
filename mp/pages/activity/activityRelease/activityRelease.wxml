@@ -3,6 +3,12 @@
 
   <view class="contentView">
 
+    <view class="activityItem" bindtap="pushToDetail">
+      <image class="item_icon" src="/images/activity/activity_dzdetail.png"></image>
+      <text class="item_text">活动详情</text>
+      <image class="item_arrow" src="/images/my/arrow_right.png"></image>
+    </view>
+
     <!--文字区域-->
     <view class="textView">
 
@@ -17,9 +23,9 @@
       <!--输入框 auto-height -->
       <input class="releaseTextarea" maxlength="20" bindblur="inputFinish" bindinput="input" placeholder="标题，必填，限20个字符" placeholder-style="color:#ccc;font-size:14px;" focus />
       <!--<text class="tips">{{textLength + '/20'}}</text>-->
-<!--<view class="line"></view>-->
+      <!--<view class="line"></view>-->
       <!--图片区域-->
-      
+
       <view class="uploaderpics">
         <view class="weui-uploader__bd">
           <view class="weui-uploader__files">

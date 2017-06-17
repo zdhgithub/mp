@@ -12,10 +12,11 @@
 
 
 <!--发布内容  releasePicsClick  seePicsClick  -->
-<view class="releaseArea" catchtap="shareTap" style="left:{{left}}px;top:{{top}}px;" catchtouchmove="releaseViewTouchMove">
+<!--<view class="releaseArea" catchtap="shareTap" style="left:{{left}}px;top:{{top}}px;" catchtouchmove="releaseViewTouchMove">
   <image class="see" mode="aspectFill" src="/images/default/zf.png"></image>
   <text class="viewContent">转发</text>
-</view>
+</view>-->
+<button class="releaseArea" size="mini" open-type="share" style="left:{{left}}px;top:{{top}}px;" catchtouchmove="releaseViewTouchMove">转发</button>
 <!--点击右上角帮他分享视图-->
 <view class="helpShare">
 

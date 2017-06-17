@@ -15,16 +15,14 @@
   height: 100rpx;
 }
 
-.zanCount_share {
-  display: flex;
-  flex-direction: row-reverse;
+.zan_share {
+  display: block;
+  margin-left: 580rpx;
+  width: 145rpx;
+  height:30px;
   color: #fff;
-  font-size: 11px;
-  margin-right: 25rpx;
-  background-color: #3cd79e;
-  border: #3cd79e solid 1px;
-  padding: 5px;
-  border-radius: 4px;
+  font-size: 13px;
+  background-color: #159ceb;
 }
 
 .releaserInfo_icon {

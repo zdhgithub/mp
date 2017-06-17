@@ -13,7 +13,7 @@ Page({
    */
   data: {
     // 悬浮视图初始位置
-    left: app.sysInfo.windowWidth - 54,
+    left: app.sysInfo.windowWidth - 74,
     top: 240,
     //活动背景图片的OSS基本地址
     fs_discovery_DownLoad_HostURL: app.OSS.fs_discovery_DownLoad_HostURL,
@@ -23,6 +23,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    wx.showShareMenu({
+      withShareTicket: true
+    })
 
     var act = options.act
     this.setData({
@@ -271,8 +275,8 @@ Page({
     var windowHeight = app.sysInfo.windowHeight
 
     // 拖动视图尺寸
-    let viewW = 44
-    let viewH = 100
+    let viewW = 64
+    let viewH = 30
     // 边界距离
     let distance = 10
 

@@ -4,7 +4,36 @@
   margin: 0px;
   overflow: hidden;
 }
+.activityItem {
+  background-color: #fff;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  display: -webkit-flex;
+  border-top: #e5e5e5 solid 1px;
+  border-bottom: #e5e5e5 solid 1px;
+}
 
+.item_icon {
+  display: flex;
+  width: 57rpx;
+  height: 57rpx;
+  margin-left: 24rpx;
+  margin-right: 30rpx;
+}
+
+.item_text {
+  display: flex;
+  font-size: 14px;
+  color: #333;
+}
+
+.item_arrow {
+  display: flex;
+  margin-left: 470rpx;
+  width: 14rpx;
+  height: 25rpx;
+}
 .textView {
   margin: 0px auto;
   margin-top: 30rpx;

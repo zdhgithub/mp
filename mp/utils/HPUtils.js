@@ -11,7 +11,7 @@ function ctoRequest(method, url, data, result) {
     method: method, // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
     // header: {"Content-Type":"application/json"}, // 设置请求的 header
     success: function (res) {
-      console.log('v2封装', method, url, res);
+      console.log('v2封装', method+url+res);
 
       // 200 201
       var code = res.statusCode.toString().indexOf('20')
@@ -314,6 +314,11 @@ String.prototype.width = function (font) {
 }
 
 
+
+
+
+
+
 //导出
 module.exports = {
   ctoRequest: ctoRequest,
@@ -321,5 +326,5 @@ module.exports = {
   uploadFile2OSS: uploadFile2OSS,
   uploadImage: uploadImage,
   uuid: uuid,
-  wgs2gcj: wgs2gcj
+  wgs2gcj: wgs2gcj,
 }

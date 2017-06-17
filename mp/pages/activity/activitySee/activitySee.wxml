@@ -26,6 +26,7 @@
         <view class="zanCount_area" catchtap="zanMethod">
           <text class="zanCount_count">{{releasedData.likeCount}}</text>
           <image class="zanCount_img" src="{{releasedData.likeCount > 0 ? '/images/activity/activity_zan.png' : '/images/activity/activity_nozan.png'}}"></image>
+          <text class="dianzan">帮忙点赞</text>
         </view>
       </view>
 

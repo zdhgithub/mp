@@ -4,6 +4,18 @@
   display: block;
 }
 
+.swiper {
+  display: block;
+  width: 750rpx;
+  height: 300rpx;
+  /*background-color: red;*/
+}
+
+.slide-image {
+  width: 750rpx;
+  height: 300rpx;
+}
+
 .shun_experience_poster {
   display: flex;
   margin-top: 0rpx;
@@ -20,7 +32,7 @@
   align-items: center;
   width: 44px;
   height: 100px;
-  /*background-color: rgba(240, 104, 156, 1);*/
+  /*background-color: rgba(156, 200, 65, 1);*/
 }
 
 .releaseView {
@@ -164,6 +176,13 @@
   height: 100%;
 }
 
+/*.shun-experience-detail-call{
+  background-color: red;
+}
+.shun-experience-detail-nav{
+  background-color: blue;
+}*/
+
 .shun-experience-detail-call image, .shun-experience-detail-nav image {
   display: flex;
   display: -webkit-flex;
@@ -179,7 +198,11 @@
   font-size: 15px;
 }
 
-
+#yjdh {
+  margin-left: 10px;
+  color: #00A0E6;
+  font-size: 15px;
+}
 
 .line {
   display: block;
@@ -198,12 +221,14 @@
   width: 50%;
   height: 100%;
 }
+
 .shun-experience-detail-nav text {
   margin: 2px 0 5px;
   font-size: 11px;
   color: #4c4c4c;
   margin-left: 0px;
 }
+
 .shun-experience-detail-nav image {
   margin-bottom: 2px;
 }
@@ -235,7 +260,6 @@
   width: 17px;
   height: 16px;
 }
-
 
 .shun-experience-detail-bottom {
   display: block;

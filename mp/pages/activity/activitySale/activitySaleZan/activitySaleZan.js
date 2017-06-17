@@ -10,7 +10,7 @@ Page({
     top: 240,
     // 是否显示分享图层
     isShareMask: false,
-    //活动背景图片的OSS基本地址
+    //活动背景图片的OSS基本地址 
     fs_discovery_DownLoad_HostURL: app.OSS.fs_discovery_DownLoad_HostURL,
     //用户头像OSS基本地址
     user_portrait_DownLoad_HostURL: app.OSS.user_portrait_DownLoad_HostURL,
@@ -18,28 +18,60 @@ Page({
     isMore: false,
   },
   onLoad: function (options) {
-    // console.log("options", options);
-    var that = this;
+    wx.showShareMenu({
+      withShareTicket: true
+    })
+    var that = this
+    var mid = options.mid
+    var uid = options.uid
+
+    this.setData({
+      mid: mid,
+      uid: uid
+    })
 
     if (app.user) {
-      var json = JSON.parse(options.JsonStr);
-      this.setData({
-        releasedData: json,
-        JsonStr: options.JsonStr
-      });
-      console.log("帮他点赞json", this.data.releasedData);
+
+      this.getPersonalRelPics(mid, uid, function (res) {
+        console.log(res)
+        that.setData({
+          releasedData: res
+        });
+      })
+
+
     } else {
 
       VF.checkUserBindPhoneNumber(function (result) {
         if (result == 1) {
-          var json = JSON.parse(options.JsonStr);
-          that.setData({
-            releasedData: json
-          });
-          console.log("帮他点赞json", that.data.releasedData);
+          that.getPersonalRelPics(mid, uid, function (res) {
+            that.setData({
+              releasedData: res
+            });
+          })
         }
       })
     }
+
+    // if (app.user) {
+    //   var json = JSON.parse(options.JsonStr);
+    //   this.setData({
+    //     releasedData: json,
+    //     JsonStr: options.JsonStr
+    //   });
+    //   console.log("帮他点赞json", this.data.releasedData);
+    // } else {
+
+    //   VF.checkUserBindPhoneNumber(function (result) {
+    //     if (result == 1) {
+    //       var json = JSON.parse(options.JsonStr);
+    //       that.setData({
+    //         releasedData: json
+    //       });
+    //       console.log("帮他点赞json", that.data.releasedData);
+    //     }
+    //   })
+    // }
 
 
   },
@@ -48,19 +80,73 @@ Page({
     var that = this;
     if (app.user) {
       //判断是否发布
-      this.judgeRelOrNot(app.user.id, this.data.releasedData.marketingId);
+      this.judgeRelOrNot(app.user.id, this.data.mid);
     } else {
 
       VF.checkUserBindPhoneNumber(function (result) {
         if (result == 1) {
           //判断是否发布
-          that.judgeRelOrNot(app.user.id, that.data.releasedData.marketingId);
+          that.judgeRelOrNot(app.user.id, that.data.mid);
         }
       })
     }
 
 
 
+  },
+  // 加载个人发布图片数据
+  getPersonalRelPics: function (mid, uid, callback) {
+    var that = this
+
+    var url = app.basicURL + 'marketing/picture/' + mid + '/' + uid;
+    hp.request("GET", url, {}, function (res) {
+      var obj = res.body
+      // 解析图片字符串成数组
+      var picStr = obj.picture;
+      var arr = picStr.split(',');
+      //移除空元素
+      var arrRes = [];
+      for (var j = 0; j < arr.length; j++) {
+        var item = arr[j];
+        if (item != '') {
+          var imgObj = {
+            img: item
+          }
+          arrRes.push(imgObj);
+        }
+      }
+      obj.imgs = arrRes;
+
+      // 头像解析
+      var portriat = obj.portriat;
+      console.log('头像解析portriat', portriat);
+      if (portriat == undefined || portriat.length == 0) {
+        portriat = '';
+      } else {
+        console.log('indexOf', portriat.indexOf('http'));
+        if (portriat.indexOf('http') < 0) {//不以http开头
+          portriat = that.data.user_portrait_DownLoad_HostURL + '/' + portriat;
+        }
+      }
+      obj.portriat = portriat;
+
+      // 解析点赞人名 nicknames
+      if (obj.likeCount == 0) {
+        console.log('likeCount == 0');
+      } else {
+        var likeUsuer = obj.likeUsuer;
+        var nicknames = '';
+        for (var j = 0; j < likeUsuer.length; j++) {
+          var user = likeUsuer[j];
+          var nickname = user.nickName;
+          nicknames += nickname + '、';
+        }
+        nicknames = nicknames.substring(0, nicknames.length - 1);
+        console.log('nicknames', nicknames);
+        obj.nicknames = nicknames;
+      }
+      callback(obj)
+    })
   },
   // 判断是否发布 GET /marketing/{uid}/{mid}  1：表示已参加， 0：表示未参加
   judgeRelOrNot: function (uid, mid) {
@@ -75,7 +161,7 @@ Page({
 
 
         // 已发布，判断有没审核通过，通过隐藏悬浮按钮
-        that.loadReleasedData(that.data.releasedData.marketingId, app.user.id, function (releasedData) {
+        that.loadReleasedData(that.data.mid, app.user.id, function (releasedData) {
           // 状态(0 审核中，1 通过，2 审核不通过)
           if (releasedData.status == 1) {
             that.setData({
@@ -147,12 +233,12 @@ Page({
       url: '/pages/activity/activitySale/activitySaleDetail/activitySaleDetail'
     })
   },
-  //页面分享按钮  releasedData
-  onShareAppMessage: function () {
-
+  //页面分享按钮  
+  onShareAppMessage: function (res) {
+    console.log('页面分享按钮 ',res)
     return {
       title: '快来帮' + this.data.releasedData.nickname + '点赞助力拿鱼杆',
-      path: '/pages/activity/activitySale/activitySaleZan/activitySaleZan?JsonStr=' + this.data.JsonStr
+      path: '/pages/activity/activitySale/activitySaleZan/activitySaleZan?mid=' + this.data.mid + '&uid=' + this.data.uid
     }
   },
   // 加载活动详情的图片信息尺寸
@@ -288,22 +374,6 @@ Page({
           }
           arrRes.push(imgObj);
         }
-
-        // wx.getImageInfo({
-        //   src: that.data.fs_discovery_DownLoad_HostURL + '/' + item,
-        //   success: function (res) {
-        //     if (item != '') {
-        //       var imgObj = {
-        //         img: item,
-        //         w:res.width,
-        //         h:res.height
-        //       }
-        //       arrRes.push(imgObj);
-        //     }
-        //   }
-        // })
-
-
       }
       // console.log('arr,arrRes', arr, arrRes);
       obj.imgs = arrRes;

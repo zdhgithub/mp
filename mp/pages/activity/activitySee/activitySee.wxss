@@ -83,19 +83,26 @@
   margin-right: 25rpx;
 }
 
+
 .zanCount_area {
   display: flex;
-  height: 30px;
-  width: 50px;
+  height: 40px;
+  width: 100px;
   flex-direction: row-reverse;
   align-items: center;
-  /*background-color: red;*/
+  /*background-color: yellow;*/
+}
+
+.dianzan {
+  font-size: 11px;
+  color: red;
 }
 
 .zanCount_img {
   display: flex;
-  width: 24rpx;
-  height: 24rpx;
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 3px;
 }
 
 .zanCount_count {

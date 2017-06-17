@@ -3,39 +3,29 @@
   <view class="container">
 
 
-    <!--------------------------------滑动视图-------------------------------->
-    <view class="swiper">
-      <swiper indicator-dots="false" autoplay="true" interval="5000" circular="true" duration="1000">
-        <block wx:for="{{imgUrls}}" wx:key="*this">
-          <swiper-item>
-            <image src="{{item}}" mode="widthFix" class="slide-image" />
-          </swiper-item>
-        </block>
-      </swiper>
-    </view>
 
     <!--------------------------------切换按钮-------------------------------->
     <block>
       <view class="segmentBar">
 
         <!--集赞-->
-        <view class="site" data-type="{{0}}" bindtap="saleTap">
-          <image src="../../images/fishHappy/fishHappy_sale.png" mode="aspectFill" class="sale_image"></image>
-          <view class="{{openType == 0 ? 'site_name_sel' : 'site_name'}}">集赞</view>
+        <view class="sale" data-type="{{0}}" bindtap="saleTap">
+          <image src="/images/fishHappy/fishHappy_sale.png" mode="aspectFill" class="sale_image"></image>
+          <view class="{{openType == 0 ? 'sale_name_sel' : 'sale_name'}}">集赞</view>
         </view>
 
         <!--活动-->
         <view class="activity" data-type="{{1}}" bindtap="activityTap">
-          <image src="../../images/fishHappy/fishHappy_activity.png" mode="aspectFill" class="activity_image"></image>
+          <image src="/images/fishHappy/fishHappy_activity.png" mode="aspectFill" class="activity_image"></image>
           <view class="{{openType == 1 ? 'activity_name_sel' : 'activity_name'}}">活动</view>
         </view>
 
 
-
-        <!--指示线-->
-        <view wx:if="{{openType == 0}}" class="indexLine0"></view>
-        <view wx:else class="indexLine1"></view>
       </view>
+
+      <!--指示线-->
+      <view wx:if="{{openType == 0}}" class="indexLine0"></view>
+      <view wx:else class="indexLine1"></view>
     </block>
 
     <!--------------------------------下面的table-------------------------------->
@@ -103,7 +93,7 @@
                   <text class="zanCount_count">{{item.likeCount}}</text>
 
                   <image class="zanCount_img" src="{{item.likeCount > 0 ? '/images/activity/activity_zan.png' : '/images/activity/activity_nozan.png'}}"></image>
-                  <text class="dianzan">点赞</text>
+                  <text class="dianzan">帮忙点赞</text>
                 </view>
               </view>
 

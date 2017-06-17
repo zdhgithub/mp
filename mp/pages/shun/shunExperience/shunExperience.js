@@ -23,25 +23,16 @@ Page({
     // 悬浮视图初始位置
     left: app.sysInfo.windowWidth - 54,
     top: 240,
+    // 轮播图
+    imgUrls: [
+      'https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/p2.png',
+      'https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/p3.png',
+      'https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/sun-bp.png',
+    ],
     screenWidth: app.sysInfo.screenWidth,
     bgColor: getRandomColor(),
-    poster: 'https://app-discovery.oss-cn-shenzhen.aliyuncs.com/mp/sun-bp.png',
     // 状态0 未加盟  1已加盟  2审核中 审核失败-1
     join: 0,
-    imgs: [
-      { img: '/images/shun/experience/11.png' },
-      { img: '/images/shun/experience/22.png' },
-      { img: '/images/shun/experience/33.png' },
-      { img: '/images/shun/experience/11.png' },
-      { img: '/images/shun/experience/22.png' },
-      { img: '/images/shun/experience/33.png' },
-      { img: '/images/shun/experience/11.png' },
-      { img: '/images/shun/experience/22.png' },
-      { img: '/images/shun/experience/33.png' },
-      { img: '/images/shun/experience/11.png' },
-      { img: '/images/shun/experience/22.png' },
-      { img: '/images/shun/experience/33.png' },
-    ],
     // 记录开关状态的数组
     switchArr: [
       { text: '一杆钓江山.舜.360', idx: 0, bl: false },

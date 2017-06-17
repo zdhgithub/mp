@@ -20,9 +20,9 @@
         <image class="releaserInfo_icon" mode="aspectFill" src="{{releasedData.portriat.length == 0 ? '/images/my/my_portrait.png' : releasedData.portriat}}"></image>
         <text class="releaserInfo_nickname">{{releasedData.nickname == Undefined ? '未设置' : releasedData.nickname}}</text>
       </view>
-      <text class="zanCount_share" bindtap="shareTap">帮他分享</text>
     </view>
-
+    <!--分享按钮-->
+    <button class="zan_share" size="mini" open-type="share">分享</button>
     <!--文字-->
     <text class="text">标题：{{releasedData.pictureDesc}}</text>
 
@@ -31,7 +31,7 @@
     <view class="itemList">
       <view class="itemList_cell" wx:for="{{releasedData.imgs}}" wx:key="{{releasedData.marketingId}}">
         <image class="itemList_cell_img" data-idx="{{index}}" data-imgs="{{releasedData.imgs}}" bindload="changeDetailImageSize" style="width:{{item.w}}rpx;height:{{item.h}}rpx" mode="aspectFill" src="{{fs_discovery_DownLoad_HostURL}}/{{item.img}}" catchtap="showBigImg"></image>
-        <!--<text>{{item.w}}*{{item.h}}图片</text>-->
+
       </view>
     </view>
 
@@ -41,7 +41,7 @@
         <view class="zanCount_area" catchtap="zanMethod">
           <text class="zanCount_count">{{releasedData.likeCount}}</text>
           <image class="zanCount_img" src="{{releasedData.likeCount > 0 ? '/images/activity/activity_zan.png' : '/images/activity/activity_nozan.png'}}"></image>
-
+          <text class="dianzan">帮忙点赞</text>
         </view>
 
       </view>

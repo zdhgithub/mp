@@ -6,23 +6,10 @@ Page({
   data: {
     //活动id
     actId: undefined,
-    //显示哪个页面 默认是详情
-    // 0:代表详情,1:代表回顾
-    opType: 0,
-    //活动详细信息
-    info: undefined,
     //活动背景图片的OSS基本地址
     fs_discovery_DownLoad_HostURL: app.OSS.fs_discovery_DownLoad_HostURL,
     //用户头像OSS基本地址
     user_portrait_DownLoad_HostURL: app.OSS.user_portrait_DownLoad_HostURL,
-    //用户是否登录了
-    isLogin: false,
-    //用户参与活动的状态标识:
-    userState: undefined,
-    // 音频上下文
-    audioCtx: undefined,
-    // 是否正在播放音乐 
-    isplayingAudio: false,
     // 输入的文本
     text: "",
     //动态输入文本长度
@@ -31,7 +18,6 @@ Page({
     imageList: [],
   },
   onLoad: function (options) {
-    console.log("actId", options.actId);
     //保存活动id
     this.setData({
       actId: options.actId
@@ -39,14 +25,12 @@ Page({
   },
   // 输入完成事件
   inputFinish: function (e) {
-    // console.log(e.detail.value);
     this.setData({
       text: e.detail.value
     })
   },
   // 正在输入
   input: function (e) {
-    console.log(e.detail.value.length);
     this.setData({
       textLength: e.detail.value.length
     })
@@ -202,5 +186,12 @@ Page({
       icon: 'loading',
       duration: 2000
     })
-  }
+  },
+  // 活动详情界面
+  pushToDetail: function () {
+    console.log('活动详情界面');
+    wx.navigateTo({
+      url: '/pages/activity/activitySale/activitySaleDetail/activitySaleDetail'
+    })
+  },
 })

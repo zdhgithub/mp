@@ -3,61 +3,52 @@
   overflow: hidden;
 }
 
-.swiper {
-  display: block;
-  width: 750rpx;
-  height: 300rpx;
-  /*background-color: red;*/
-}
 
-.slide-image {
-  width: 750rpx;
-  height: 330rpx;
-}
 
 .segmentBar {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #fff;
   width: 750rpx;
-  height: 150rpx;
+  height: 90px;
+  border-top: #e5e5e5 solid 1px;
   border-bottom: #e5e5e5 solid 1px;
 }
 
-.activity, .sale, .site {
-  display: inline-block;
-  /*background-color: blue;*/
+.activity, .sale {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
   width: 375rpx;
-  height: 150rpx;
+  height: 90px;
 }
 
 /*.activity{
 background-color: blue;
 }
-.site{
+.sale{
 background-color: red;
 }*/
 
-.activity_image, .sale_image, .site_image {
-  position: relative;
-  top: 50rpx;
-  left: 162rpx;
-  width: 40rpx;
-  height: 40rpx;
+.activity_image, .sale_image {
+  display: flex;
+  width: 40px;
+  height: 40px;
 }
 
-.activity_name, .sale_name, .site_name {
-  position: relative;
-  top: 50rpx;
-  left: 158rpx;
-  font-size: 11px;
+.activity_name, .sale_name{
+  display: flex;
+  margin-top: 5px;
+  font-size: 15px;
   color: #4c4c4c;
 }
 
-.activity_name_sel, .sale_name_sel, .site_name_sel {
-  position: relative;
-  top: 50rpx;
-  left: 158rpx;
-  font-size: 11px;
+.activity_name_sel, .sale_name_sel {
+  display: flex;
+  margin-top: 5px;
+  font-size: 15px;
   color: #159ceb;
 }
 
@@ -277,23 +268,23 @@ background-color: red;
 
 .zanCount_area {
   display: flex;
-  height: 30px;
-  width: 60px;
+  height: 40px;
+  width: 100px;
   flex-direction: row-reverse;
   align-items: center;
-  /*background-color: red;*/
+  /*background-color: yellow;*/
 }
 
 .dianzan {
   font-size: 11px;
-  color: #888;
+  color: red;
 }
 
 .zanCount_img {
   margin-left: 3px;
   display: flex;
-  width: 24rpx;
-  height: 24rpx;
+  width: 30rpx;
+  height: 30rpx;
   /*background-color: red;*/
 }
 
@@ -427,7 +418,7 @@ p {
   font-size: 9px;
 }*/
 .zanName_more {
-  display: inline-box;
+  display: inline-block;
   margin: 0 25rpx 10px;
   width: 700rpx;
 }

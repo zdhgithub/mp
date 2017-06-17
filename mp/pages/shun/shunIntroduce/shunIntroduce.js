@@ -6,7 +6,7 @@ var app = getApp();
 Page({
   data: {
     // 悬浮视图初始位置
-    left: app.sysInfo.windowWidth - 54,
+    left: app.sysInfo.windowWidth - 74,
     top: 240,
     items: [
       {
@@ -17,6 +17,9 @@ Page({
     ],
   },
   onLoad: function (options) {
+    wx.showShareMenu({
+      withShareTicket: true
+    })
     console.log("onLoad", this.data.items);
 
     if (app.user) {
@@ -62,8 +65,8 @@ Page({
     var windowHeight = app.sysInfo.windowHeight
 
     // 拖动视图尺寸
-    let viewW = 44
-    let viewH = 100
+    let viewW = 64
+    let viewH = 30
     // 边界距离
     let distance = 10
 
